@@ -53,22 +53,34 @@
   .sg-val{font-size:10px;font-weight:700;color:var(--red);min-width:48px}
   .sg-val.shallow{color:#ff9a5c}
 
+  /* chart range slider */
+  .range-bar{display:flex;align-items:center;gap:16px;padding:10px clamp(12px,2.4vw,40px);border-bottom:1px solid var(--panel-edge);background:rgba(0,0,0,.2);flex-wrap:wrap}
+  .range-label{font-size:9px;letter-spacing:2px;color:var(--ink-faint);white-space:nowrap}
+  .range-slider-wrap{flex:1;min-width:140px;max-width:380px}
+  .range-slider-wrap input[type=range]{width:100%;accent-color:var(--orange);cursor:pointer;height:3px;display:block}
+  .range-marks{display:flex;justify-content:space-between;font-size:7.5px;color:var(--ink-faint);letter-spacing:.3px;margin-top:3px}
+  .range-val{font-family:'Archivo',sans-serif;font-weight:800;font-size:16px;color:var(--orange);min-width:40px;text-align:right;letter-spacing:.5px}
+
   /* group sections */
   main{padding:0 clamp(12px,2.4vw,40px)}
   .group{margin-top:28px}
   .group-head{display:flex;align-items:center;gap:14px;margin:0 2px 12px}
   .group-head .tag{background:#11161d;border:1px solid var(--panel-edge);border-left:3px solid var(--orange);font-family:'Archivo',sans-serif;font-weight:800;font-size:13px;letter-spacing:1px;padding:6px 13px;border-radius:0 3px 3px 0;white-space:nowrap}
-  .group-head .en{color:var(--ink-faint);font-size:9px;letter-spacing:3px}
+  .group-head .en{color:var(--ink-faint);font-size:9px;letter-spacing:.5px}
   .group-head .rule{flex:1;height:1px;background:var(--panel-edge)}
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(285px,1fr));gap:11px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(285px,1fr));gap:11px;align-items:start}
 
   /* tile */
-  .tile{background:var(--panel);border:1px solid var(--panel-edge);border-radius:5px;padding:11px;display:flex;flex-direction:column;gap:8px;transition:border-color .15s,transform .15s}
+  .tile{background:var(--panel);border:1px solid var(--panel-edge);border-radius:5px;padding:11px;display:flex;flex-direction:column;gap:8px;transition:border-color .15s,transform .15s;cursor:pointer}
   .tile:hover{border-color:#2c3a4f;transform:translateY(-2px)}
+  .tile.selected{border-color:var(--orange)!important;box-shadow:0 0 0 1px var(--orange);transform:none}
   .tile-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
   .label-box{background:var(--orange);color:var(--orange-ink);font-weight:700;font-size:13px;letter-spacing:.3px;padding:5px 9px;border-radius:3px;line-height:1.05}
   .label-box .tk{display:block;font-size:9.5px;font-weight:600;opacity:.75;letter-spacing:1px;margin-top:1px}
   .tile-sub{text-align:right;color:var(--ink-faint);font-size:8px;letter-spacing:1px;line-height:1.6;padding-top:2px}
+  .tile-hint{font-size:7.5px;letter-spacing:1.5px;color:var(--ink-faint);text-align:center;padding:2px 0 0;opacity:0;transition:opacity .2s}
+  .tile:hover .tile-hint{opacity:.7}
+  .tile.selected .tile-hint{color:var(--orange);opacity:.9}
 
   /* chart + xaxis */
   .chart-wrap{position:relative;border-radius:3px;overflow:hidden;border:1px solid #11305a;background:linear-gradient(180deg,var(--navy-top),var(--navy-bot));user-select:none}
@@ -81,6 +93,8 @@
   .close-box{background:#f4f7fb;color:#0a0a0a;font-weight:700;font-size:11px;padding:3px 7px;border-radius:2px;letter-spacing:.2px}
   .close-box span{color:#5a6472;font-weight:600;margin-right:3px}
   .chg{font-family:'Archivo',sans-serif;font-weight:800;font-size:20px;letter-spacing:.5px;line-height:1}
+  .chg-wrap{display:flex;flex-direction:column;align-items:flex-end;gap:1px}
+  .chg-vs{font-size:8px;color:var(--ink-faint);letter-spacing:.3px;white-space:nowrap}
   .up{color:var(--green)}.down{color:var(--red)}
   .dd{display:flex;align-items:center;gap:9px;padding-top:1px}
   .dd-label{color:var(--ink-faint);font-size:8.5px;letter-spacing:1px;white-space:nowrap}
@@ -89,14 +103,8 @@
   .dd-val{font-weight:700;font-size:11.5px;color:var(--red);white-space:nowrap;min-width:52px;text-align:right}
   .dd-val.shallow{color:#ff9a5c}
 
-  /* tile click + holdings panel */
-  .tile{cursor:pointer}
-  .tile.selected{border-color:var(--orange)!important;box-shadow:0 0 0 1px var(--orange)}
-  .tile-hint{font-size:7.5px;letter-spacing:1.5px;color:var(--ink-faint);text-align:center;padding:2px 0 0;opacity:0;transition:opacity .2s}
-  .tile:hover .tile-hint{opacity:.7}
-  .tile.selected .tile-hint{color:var(--orange);opacity:.9}
-
-  .holdings-panel{margin-top:12px;background:var(--panel);border:1px solid var(--panel-edge);border-radius:5px;overflow:hidden}
+  /* holdings panel — lives inside the grid, spans all columns */
+  .holdings-panel{grid-column:1/-1;background:var(--panel);border:1px solid var(--panel-edge);border-radius:5px;overflow:hidden}
   .hp-header{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:rgba(0,0,0,.3);border-bottom:1px solid var(--panel-edge)}
   .hp-title{font-family:'Archivo',sans-serif;font-weight:800;font-size:12px;letter-spacing:1px;color:var(--orange)}
   .hp-sub{font-size:9px;color:var(--ink-faint);letter-spacing:1px;margin-left:10px}
@@ -105,16 +113,12 @@
   .hp-treemap{padding:12px}
   .hp-note{font-size:8px;color:var(--ink-faint);padding:0 14px 10px;letter-spacing:.5px}
 
-  /* price change with date ref */
-  .chg-wrap{display:flex;flex-direction:column;align-items:flex-end;gap:1px}
-  .chg-vs{font-size:8px;color:var(--ink-faint);letter-spacing:.3px;white-space:nowrap}
-
   /* tooltip */
   #tooltip{position:fixed;pointer-events:none;z-index:200;display:none;
     background:#111d2d;border:1px solid #2c3d55;border-radius:4px;
     padding:8px 11px;font-size:10.5px;line-height:1.7;white-space:nowrap;
     box-shadow:0 4px 20px rgba(0,0,0,.6)}
-  #tooltip[data-mode="label"]{white-space:normal;max-width:230px;min-width:160px}
+  #tooltip[data-mode="label"]{white-space:normal;max-width:240px;min-width:160px}
   #tooltip .tt-date{color:var(--ink-faint);font-size:9.5px;letter-spacing:.5px}
   #tooltip .tt-ticker{color:var(--orange);font-weight:700;font-size:10px;letter-spacing:1px}
   #tooltip .tt-price{color:var(--ink);font-weight:700}
@@ -159,6 +163,15 @@
   <div class="sum-label">AVG DRAWDOWN FROM PEAK · BY GROUP</div>
   <div class="sum-groups" id="sumGroups"></div>
 </section>
+
+<div class="range-bar" id="rangeBar" style="display:none">
+  <span class="range-label">CHART RANGE</span>
+  <div class="range-slider-wrap">
+    <input type="range" id="rangeSlider" min="7" max="365" value="40" step="1" oninput="setRange(+this.value)">
+    <div class="range-marks"><span>7D</span><span>1M</span><span>3M</span><span>6M</span><span>1Y</span></div>
+  </div>
+  <span class="range-val" id="rangeVal">40D</span>
+</div>
 
 <main id="board"><div class="empty">LOADING FEED…</div></main>
 
@@ -222,6 +235,21 @@ const ETF_DESC = {
   'LIT':'Global X Lithium & Battery Tech ETF — battery makers & lithium miners',
   'ICLN':'iShares Global Clean Energy ETF — wind, solar & clean energy',
   'IBIT':'iShares Bitcoin Trust ETF — spot Bitcoin ETF by BlackRock',
+  // TRUMP THEME
+  'TSSD':'Truth Social American Security & Defense ETF — domestic defense, security & law enforcement',
+  'TSNF':'Truth Social American Next Frontiers ETF — emerging tech, space & frontier industries',
+  'TSIC':'Truth Social American Icons ETF — iconic American brands & heritage companies',
+  'TSES':'Truth Social American Energy Security ETF — domestic fossil fuels & energy independence',
+  'TSRS':'Truth Social American Red State REITs ETF — conservative-state real estate investment trusts',
+};
+
+const GROUP_DESC = {
+  'SECTOR':        'US Equity Sectors — SPDR Select Sector ETFs tracking S&P 500 industries',
+  'STYLE':         'Market Cap & Style — Growth vs Value across large, mid & small-cap',
+  'GROWTH THEMES': 'Thematic Growth — Semiconductors, AI, Cloud, Cybersecurity & Fintech',
+  'DIVIDEND':      'Income & Dividends — Dividend growth, quality, high-yield & covered calls',
+  'INNOVATION':    'Disruptive Innovation — ARK, Robotics, Uranium, Lithium & Clean Energy',
+  'TRUMP THEME':   'Trump-aligned ETFs — Truth Social America-first thematic ETFs',
 };
 
 // derive approximate trading dates backwards from a reference date
@@ -238,15 +266,15 @@ function deriveDates(asOfStr, n) {
 
 function buildXAxis(dates) {
   const n=dates.length;
+  if(!n) return '';
   const ticks=[];
   let lastMon=-1;
   for(let i=0;i<n;i++){
-    const mon=new Date(dates[i]).getMonth();
+    const mon=new Date(dates[i]+'T00:00:00').getMonth();
     if(mon!==lastMon){ticks.push({i,label:MONTHS[mon]});lastMon=mon;}
   }
-  const W=100; // percentage
   return ticks.map(t=>{
-    const pct=(t.i/(n-1))*W;
+    const pct=(t.i/Math.max(n-1,1))*100;
     return `<span class="xaxis-tick" style="left:${pct.toFixed(1)}%">${t.label}</span>`;
   }).join('');
 }
@@ -269,14 +297,18 @@ function sparkSVG(pts) {
   </svg>`;
 }
 
+let RANGE_DAYS = 40;
+
 function tile(e, asOf, gIdx) {
   const up=(e.change_pct||0)>=0;
   const dd=e.drawdown_pct==null?null:Math.abs(e.drawdown_pct);
   const ddW=dd==null?0:Math.min(100,dd);
   const shallow=dd!=null&&dd<8;
-  const dates=e.spark_dates||deriveDates(asOf,e.spark?e.spark.length:40);
-  const sparksJson=JSON.stringify(e.spark||[]);
-  const datesJson=JSON.stringify(dates);
+  const allSpark=e.spark||[];
+  const allDates=e.spark_dates||deriveDates(asOf,allSpark.length||40);
+  const n=allSpark.length?Math.min(RANGE_DAYS,allSpark.length):0;
+  const displaySpark=n?allSpark.slice(-n):allSpark;
+  const displayDates=n?allDates.slice(-n):allDates;
   const closeVal=e.close||0;
   const pd=e.prev_date||'';
   const pdObj=pd?new Date(pd+'T00:00:00'):null;
@@ -290,14 +322,16 @@ function tile(e, asOf, gIdx) {
       <div class="tile-sub">THEME ETF MONITOR<br>PER. DAILY · CLOSE</div>
     </div>
     <div class="chart-wrap"
-         data-spark='${sparksJson}'
-         data-dates='${datesJson}'
+         data-spark='${JSON.stringify(displaySpark)}'
+         data-dates='${JSON.stringify(displayDates)}'
+         data-all-spark='${JSON.stringify(allSpark)}'
+         data-all-dates='${JSON.stringify(allDates)}'
          data-close="${closeVal}"
          onmouseenter="ttShow(event,this)"
          onmousemove="ttMove(event,this)"
          onmouseleave="ttHide()">
-      ${sparkSVG(e.spark)}
-      <div class="xaxis">${buildXAxis(dates)}</div>
+      ${sparkSVG(displaySpark)}
+      <div class="xaxis">${buildXAxis(displayDates)}</div>
     </div>
     <div class="price-row">
       <div class="close-box"><span>CLOSE</span>$${NUM(e.close,2)}</div>
@@ -313,6 +347,26 @@ function tile(e, asOf, gIdx) {
     </div>
     <div class="tile-hint">▼ TOP HOLDINGS</div>
   </div>`;
+}
+
+function setRange(n) {
+  RANGE_DAYS=n;
+  const lbl=n>=365?'1Y':n>=180?'6M':n>=90?'3M':n>=30?'1M':n+'D';
+  document.getElementById('rangeVal').textContent=lbl;
+  document.querySelectorAll('.chart-wrap').forEach(cw=>{
+    const allSpark=JSON.parse(cw.dataset.allSpark||'[]');
+    const allDates=JSON.parse(cw.dataset.allDates||'[]');
+    if(!allSpark.length)return;
+    const sl=Math.min(n,allSpark.length);
+    const spark=allSpark.slice(-sl);
+    const dates=allDates.slice(-sl);
+    cw.dataset.spark=JSON.stringify(spark);
+    cw.dataset.dates=JSON.stringify(dates);
+    const svgEl=cw.querySelector('svg');
+    if(svgEl){const tp=document.createElement('template');tp.innerHTML=sparkSVG(spark);svgEl.replaceWith(tp.content.firstChild);}
+    const xa=cw.querySelector('.xaxis');
+    if(xa)xa.innerHTML=buildXAxis(dates);
+  });
 }
 
 // tooltip logic
@@ -341,7 +395,6 @@ function ttMove(e,el){
   const idx=Math.round(pct*(spark.length-1));
   const price=spark[idx];
   const date=dates[idx]||'';
-  // today vs that date: positive means today is higher than that date
   const pctVsDate=close>0&&price>0?((close/price-1)*100):0;
   const up=close>=price;
   const d=new Date(date+'T00:00:00');
@@ -351,7 +404,7 @@ function ttMove(e,el){
   ttChg.textContent='TODAY '+(pctVsDate>=0?'+':'')+NUM(pctVsDate,1)+'% vs '+dateStr;
   ttChg.className='tt-chg '+(up?'up':'down');
   ttEl.style.removeProperty('max-width');
-  const tipW=Math.max(180, ttEl.offsetWidth);
+  const tipW=Math.max(180,ttEl.offsetWidth);
   let x=e.clientX+14, y=e.clientY-54;
   if(x+tipW>window.innerWidth) x=e.clientX-tipW-4;
   if(y<4) y=4;
@@ -374,49 +427,44 @@ function lbShow(e,el){
   lbMove(e);
 }
 function lbMove(e){
-  const tipW=230;
+  const tipW=240;
   let x=e.clientX+14, y=e.clientY-20;
   if(x+tipW>window.innerWidth) x=e.clientX-tipW-4;
   if(y<4) y=4;
   ttEl.style.left=x+'px';ttEl.style.top=y+'px';
 }
 
-// ── Holdings treemap ──────────────────────────────────────
-const ETF_STORE = {};
+// ── Holdings treemap ───────────────────────────────────────
+const ETF_STORE={};
 
-function tmLayout(nodes, x, y, w, h) {
-  if (!nodes.length) return [];
-  if (nodes.length === 1) return [{...nodes[0], x, y, w, h}];
-  const total = nodes.reduce((s,n)=>s+n.v,0);
-  let sum=0, split=1;
+function tmLayout(nodes,x,y,w,h){
+  if(!nodes.length)return[];
+  if(nodes.length===1)return[{...nodes[0],x,y,w,h}];
+  const total=nodes.reduce((s,n)=>s+n.v,0);
+  let sum=0,split=1;
   for(let i=0;i<nodes.length-1;i++){sum+=nodes[i].v;split=i+1;if(sum>=total/2)break;}
-  const frac = nodes.slice(0,split).reduce((s,n)=>s+n.v,0)/total;
-  if(w>=h){
-    const mx=x+w*frac;
-    return [...tmLayout(nodes.slice(0,split),x,y,mx-x,h),...tmLayout(nodes.slice(split),mx,y,x+w-mx,h)];
-  }else{
-    const my=y+h*frac;
-    return [...tmLayout(nodes.slice(0,split),x,y,w,my-y),...tmLayout(nodes.slice(split),x,my,w,y+h-my)];
-  }
+  const frac=nodes.slice(0,split).reduce((s,n)=>s+n.v,0)/total;
+  if(w>=h){const mx=x+w*frac;return[...tmLayout(nodes.slice(0,split),x,y,mx-x,h),...tmLayout(nodes.slice(split),mx,y,x+w-mx,h)];}
+  else{const my=y+h*frac;return[...tmLayout(nodes.slice(0,split),x,y,w,my-y),...tmLayout(nodes.slice(split),x,my,w,y+h-my)];}
 }
 
-function tmColor(i, total) {
+function tmColor(i,total){
   const t=1-i/Math.max(total-1,1);
   return `rgb(${Math.round(12+t*28)},${Math.round(45+t*75)},${Math.round(95+t*95)})`;
 }
 
-function renderTreemap(holdings, container) {
+function renderTreemap(holdings,container){
   if(!holdings||!holdings.length){
     container.innerHTML='<div style="padding:40px 20px;text-align:center;color:var(--ink-faint);font-size:11px;letter-spacing:1px">NO HOLDINGS DATA · RE-RUN DATA FETCH</div>';
     return;
   }
-  const W=container.clientWidth||600, H=260, G=2;
+  const W=container.clientWidth||600,H=260,G=2;
   const nodes=[...holdings].filter(h=>h.weight>0).sort((a,b)=>b.weight-a.weight).map(h=>({ticker:h.ticker,name:h.name,v:h.weight}));
   const layout=tmLayout(nodes,0,0,W,H);
   const cells=layout.map((cell,i)=>{
-    const {x,y,w,h,ticker,name,v}=cell;
+    const{x,y,w,h,ticker,name,v}=cell;
     const bg=tmColor(i,nodes.length);
-    const showTk=w>44&&h>26, showPct=w>44&&h>46;
+    const showTk=w>44&&h>26,showPct=w>44&&h>46;
     const fs=Math.min(14,Math.max(9,w/Math.max((ticker||'').length,1)*1.5));
     const safeT=(ticker||'').replace(/&/g,'&amp;').replace(/'/g,'&#39;');
     const safeN=(name||ticker||'').replace(/&/g,'&amp;').replace(/'/g,'&#39;').replace(/"/g,'&quot;');
@@ -429,14 +477,12 @@ function renderTreemap(holdings, container) {
   container.innerHTML=`<svg width="${W}" height="${H}" style="display:block">${cells}</svg>`;
 }
 
-function tmTip(e, ticker, name, weight) {
+function tmTip(e,ticker,name,weight){
   ttEl.dataset.mode='label';
-  ttTicker.textContent=ticker;
-  ttTicker.style.display='block';
+  ttTicker.textContent=ticker;ttTicker.style.display='block';
   ttDate.textContent='';
   ttPrice.textContent=name;
-  ttDesc.textContent=NUM(weight,2)+'% of portfolio';
-  ttDesc.style.display='block';
+  ttDesc.textContent=NUM(weight,2)+'% of portfolio';ttDesc.style.display='block';
   ttChg.textContent='';ttChg.className='tt-chg';
   ttEl.style.display='block';
   let x=e.clientX+14,y=e.clientY-20;
@@ -447,25 +493,51 @@ function tmTip(e, ticker, name, weight) {
 
 let _activeHP=null;
 
-function openHoldings(gIdx, ticker) {
+function openHoldings(gIdx,ticker){
   ttHide();
   const etf=ETF_STORE[ticker];
   const panel=document.getElementById('hp-'+gIdx);
-  if(!panel||!etf) return;
+  const grid=document.getElementById('grid-'+gIdx);
+  if(!etf||!panel||!grid)return;
+
+  const clickedTile=grid.querySelector(`.tile[data-ticker="${ticker}"]`);
+
+  // toggle off same tile
   if(_activeHP&&_activeHP.gIdx===gIdx&&_activeHP.ticker===ticker){
     panel.style.display='none';
-    document.querySelectorAll('.tile.selected').forEach(t=>t.classList.remove('selected'));
+    [...grid.querySelectorAll('.tile')].forEach(t=>t.style.order='');
+    if(clickedTile)clickedTile.classList.remove('selected');
     _activeHP=null;return;
   }
+
+  // close previous
   if(_activeHP){
-    const prev=document.getElementById('hp-'+_activeHP.gIdx);
-    if(prev)prev.style.display='none';
+    const pp=document.getElementById('hp-'+_activeHP.gIdx);
+    const pg=document.getElementById('grid-'+_activeHP.gIdx);
+    if(pp)pp.style.display='none';
+    if(pg)[...pg.querySelectorAll('.tile')].forEach(t=>t.style.order='');
     document.querySelectorAll('.tile.selected').forEach(t=>t.classList.remove('selected'));
   }
+
   _activeHP={gIdx,ticker};
-  document.querySelectorAll(`.tile[data-ticker="${ticker}"]`).forEach(t=>t.classList.add('selected'));
+  if(clickedTile)clickedTile.classList.add('selected');
+
+  // assign even order to tiles so panel can slot between rows
+  const allTiles=[...grid.querySelectorAll('.tile')];
+  allTiles.forEach((t,i)=>t.style.order=String(i*2));
+
+  // detect which row the clicked tile is in
+  if(clickedTile){
+    const tileTop=clickedTile.getBoundingClientRect().top;
+    const tilesInRow=allTiles.filter(t=>Math.abs(t.getBoundingClientRect().top-tileTop)<10);
+    const lastInRow=tilesInRow[tilesInRow.length-1];
+    const lastIdx=allTiles.indexOf(lastInRow);
+    panel.style.order=String(lastIdx*2+1);
+  }
+
   const hdr=document.getElementById('hpt-'+gIdx);
   if(hdr)hdr.textContent=`${ticker} · ${etf.label||ticker}`;
+
   panel.style.display='block';
   const mapEl=document.getElementById('hpmap-'+gIdx);
   if(mapEl)requestAnimationFrame(()=>{
@@ -474,9 +546,11 @@ function openHoldings(gIdx, ticker) {
   });
 }
 
-function closeHoldings(gIdx) {
+function closeHoldings(gIdx){
   const panel=document.getElementById('hp-'+gIdx);
+  const grid=document.getElementById('grid-'+gIdx);
   if(panel)panel.style.display='none';
+  if(grid)[...grid.querySelectorAll('.tile')].forEach(t=>t.style.order='');
   document.querySelectorAll('.tile.selected').forEach(t=>t.classList.remove('selected'));
   _activeHP=null;
 }
@@ -547,6 +621,7 @@ function render(data){
   badge.innerHTML=data.sample?'<span class="badge-sample">SAMPLE DATA</span>':'<span class="badge-live">LIVE</span>';
 
   buildSummary(data);
+  document.getElementById('rangeBar').style.display='flex';
 
   // populate ETF store for holdings lookup
   (data.groups||[]).forEach(g=>g.etfs.forEach(e=>{ETF_STORE[e.ticker]=e;}));
@@ -555,20 +630,22 @@ function render(data){
     <section class="group">
       <div class="group-head">
         <div class="tag">${g.name_en||g.name}</div>
-        <div class="en">${g.name||''}</div>
+        <div class="en">${GROUP_DESC[g.name]||g.name_en||''}</div>
         <div class="rule"></div>
       </div>
-      <div class="grid">${g.etfs.map(e=>tile(e,data.as_of,gIdx)).join('')}</div>
-      <div class="holdings-panel" id="hp-${gIdx}" style="display:none">
-        <div class="hp-header">
-          <div>
-            <span class="hp-title" id="hpt-${gIdx}">—</span>
-            <span class="hp-sub">TOP HOLDINGS · YAHOO FINANCE</span>
+      <div class="grid" id="grid-${gIdx}">
+        ${g.etfs.map(e=>tile(e,data.as_of,gIdx)).join('')}
+        <div class="holdings-panel" id="hp-${gIdx}" style="display:none">
+          <div class="hp-header">
+            <div>
+              <span class="hp-title" id="hpt-${gIdx}">—</span>
+              <span class="hp-sub">TOP HOLDINGS · YAHOO FINANCE</span>
+            </div>
+            <button class="hp-close" onclick="closeHoldings(${gIdx})">✕ CLOSE</button>
           </div>
-          <button class="hp-close" onclick="closeHoldings(${gIdx})">✕ CLOSE</button>
+          <div class="hp-treemap" id="hpmap-${gIdx}"></div>
+          <div class="hp-note">Source: Yahoo Finance funds data. Weights reflect latest available filing.</div>
         </div>
-        <div class="hp-treemap" id="hpmap-${gIdx}"></div>
-        <div class="hp-note">Source: Yahoo Finance funds data. Weights reflect latest available filing.</div>
       </div>
     </section>`).join('');
 
@@ -588,8 +665,8 @@ async function boot(){
 }
 
 window.__FALLBACK__={as_of:'DEMO',sample:true,groups:[{name:'SECTOR',name_en:'SECTOR',etfs:[
-  {ticker:'XLK',label:'Info Tech',close:0,change_pct:0,drawdown_pct:-0.7},
-  {ticker:'XLF',label:'Financials',close:0,change_pct:0,drawdown_pct:-8.1}
+  {ticker:'XLK',label:'Info Tech',close:0,change_pct:0,drawdown_pct:-0.7,holdings:[]},
+  {ticker:'XLF',label:'Financials',close:0,change_pct:0,drawdown_pct:-8.1,holdings:[]}
 ]}]};
 boot();
 </script>
