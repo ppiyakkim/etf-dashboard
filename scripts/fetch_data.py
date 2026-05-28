@@ -30,6 +30,34 @@ GROUPS = [
 ]
 
 SPARK_LEN = 40
+HOLDINGS_N = 10
+
+def fetch_holdings(ticker):
+    try:
+        t = yf.Ticker(ticker)
+        df = None
+        try:
+            df = t.funds_data.top_holdings
+        except Exception:
+            pass
+        if df is None or len(df) == 0:
+            return []
+        result = []
+        for idx, row in df.head(HOLDINGS_N).iterrows():
+            sym  = str(row.get('Symbol') or row.get('symbol') or idx or '').strip()
+            name = str(row.get('holdingName') or row.get('Name') or row.get('name') or sym).strip()
+            raw  = row.get('holdingPercent') or row.get('Holding Percent') or row.get('weight') or 0
+            try:
+                pct = float(raw)
+                if pct < 1.5:   # decimal form (e.g. 0.0823 → 8.23%)
+                    pct *= 100
+            except (ValueError, TypeError):
+                pct = 0.0
+            result.append({"ticker": sym, "name": name, "weight": round(pct, 2)})
+        return result
+    except Exception as e:
+        print(f"  ! holdings {ticker}: {e}", file=sys.stderr)
+        return []
 
 def build_one(ticker):
     try:
@@ -50,6 +78,7 @@ def build_one(ticker):
             "drawdown_pct": round((close/peak - 1)*100, 1),
             "spark":        [round(float(x),4) for x in sl.tolist()],
             "spark_dates":  [d.strftime("%Y-%m-%d") for d in sl.index],
+            "holdings":     fetch_holdings(ticker),
         }
     except Exception as e:
         print(f"  ! {ticker}: {e}", file=sys.stderr)
@@ -63,7 +92,7 @@ def main():
             print(f"fetching {ticker} ({label}) …")
             m = build_one(ticker)
             if m is None:
-                etfs.append({"ticker":ticker,"label":label,"close":None,"change_pct":None,"drawdown_pct":None})
+                etfs.append({"ticker":ticker,"label":label,"close":None,"change_pct":None,"drawdown_pct":None,"holdings":[]})
             else:
                 etfs.append({"ticker":ticker,"label":label,**m})
         out_groups.append({"name":name,"name_en":name_en,"etfs":etfs})
