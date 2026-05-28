@@ -1,6 +1,6 @@
 {
   "as_of": "2026-05-28",
-  "generated_at": "2026-05-28T23:14:23.924469Z",
+  "generated_at": "2026-05-28T23:27:11.299592Z",
   "sample": false,
   "groups": [
     {
@@ -97,6 +97,58 @@
             "2026-05-26",
             "2026-05-27",
             "2026-05-28"
+          ],
+          "holdings": [
+            {
+              "ticker": "NVDA",
+              "name": "NVIDIA Corp",
+              "weight": 14.78
+            },
+            {
+              "ticker": "AAPL",
+              "name": "Apple Inc",
+              "weight": 12.14
+            },
+            {
+              "ticker": "MSFT",
+              "name": "Microsoft Corp",
+              "weight": 9.23
+            },
+            {
+              "ticker": "AVGO",
+              "name": "Broadcom Inc",
+              "weight": 6.03
+            },
+            {
+              "ticker": "MU",
+              "name": "Micron Technology Inc",
+              "weight": 4.32
+            },
+            {
+              "ticker": "AMD",
+              "name": "Advanced Micro Devices Inc",
+              "weight": 4.29
+            },
+            {
+              "ticker": "INTC",
+              "name": "Intel Corp",
+              "weight": 3.29
+            },
+            {
+              "ticker": "CSCO",
+              "name": "Cisco Systems Inc",
+              "weight": 2.68
+            },
+            {
+              "ticker": "LRCX",
+              "name": "Lam Research Corp",
+              "weight": 2.39
+            },
+            {
+              "ticker": "PLTR",
+              "name": "Palantir Technologies Inc Ordinary Shares - Class A",
+              "weight": 2.36
+            }
           ]
         },
         {
@@ -189,6 +241,58 @@
             "2026-05-26",
             "2026-05-27",
             "2026-05-28"
+          ],
+          "holdings": [
+            {
+              "ticker": "LLY",
+              "name": "Eli Lilly and Co",
+              "weight": 14.07
+            },
+            {
+              "ticker": "JNJ",
+              "name": "Johnson & Johnson",
+              "weight": 10.52
+            },
+            {
+              "ticker": "ABBV",
+              "name": "AbbVie Inc",
+              "weight": 7.1
+            },
+            {
+              "ticker": "UNH",
+              "name": "UnitedHealth Group Inc",
+              "weight": 6.38
+            },
+            {
+              "ticker": "MRK",
+              "name": "Merck & Co Inc",
+              "weight": 5.15
+            },
+            {
+              "ticker": "AMGN",
+              "name": "Amgen Inc",
+              "weight": 3.54
+            },
+            {
+              "ticker": "TMO",
+              "name": "Thermo Fisher Scientific Inc",
+              "weight": 3.42
+            },
+            {
+              "ticker": "ISRG",
+              "name": "Intuitive Surgical Inc",
+              "weight": 3.09
+            },
+            {
+              "ticker": "GILD",
+              "name": "Gilead Sciences Inc",
+              "weight": 3.08
+            },
+            {
+              "ticker": "ABT",
+              "name": "Abbott Laboratories",
+              "weight": 3.0
+            }
           ]
         },
         {
@@ -281,6 +385,58 @@
             "2026-05-26",
             "2026-05-27",
             "2026-05-28"
+          ],
+          "holdings": [
+            {
+              "ticker": "BRK-B",
+              "name": "Berkshire Hathaway Inc Class B",
+              "weight": 11.66
+            },
+            {
+              "ticker": "JPM",
+              "name": "JPMorgan Chase & Co",
+              "weight": 11.34
+            },
+            {
+              "ticker": "V",
+              "name": "Visa Inc Class A",
+              "weight": 7.44
+            },
+            {
+              "ticker": "MA",
+              "name": "Mastercard Inc Class A",
+              "weight": 5.5
+            },
+            {
+              "ticker": "BAC",
+              "name": "Bank of America Corp",
+              "weight": 4.76
+            },
+            {
+              "ticker": "GS",
+              "name": "The Goldman Sachs Group Inc",
+              "weight": 3.72
+            },
+            {
+              "ticker": "WFC",
+              "name": "Wells Fargo & Co",
+              "weight": 3.41
+            },
+            {
+              "ticker": "MS",
+              "name": "Morgan Stanley",
+              "weight": 3.08
+            },
+            {
+              "ticker": "C",
+              "name": "Citigroup Inc",
+              "weight": 3.0
+            },
+            {
+              "ticker": "AXP",
+              "name": "American Express Co",
+              "weight": 2.32
+            }
           ]
         },
         {
@@ -373,6 +529,58 @@
             "2026-05-26",
             "2026-05-27",
             "2026-05-28"
+          ],
+          "holdings": [
+            {
+              "ticker": "META",
+              "name": "Meta Platforms Inc Class A",
+              "weight": 13.49
+            },
+            {
+              "ticker": "GOOGL",
+              "name": "Alphabet Inc Class A",
+              "weight": 9.88
+            },
+            {
+              "ticker": "GOOG",
+              "name": "Alphabet Inc Class C",
+              "weight": 7.88
+            },
+            {
+              "ticker": "TTWO",
+              "name": "Take-Two Interactive Software Inc",
+              "weight": 4.62
+            },
+            {
+              "ticker": "DIS",
+              "name": "The Walt Disney Co",
+              "weight": 4.59
+            },
+            {
+              "ticker": "LYV",
+              "name": "Live Nation Entertainment Inc",
+              "weight": 4.44
+            },
+            {
+              "ticker": "SATS",
+              "name": "EchoStar Corp Class A",
+              "weight": 4.38
+            },
+            {
+              "ticker": "OMC",
+              "name": "Omnicom Group Inc",
+              "weight": 4.25
+            },
+            {
+              "ticker": "NFLX",
+              "name": "Netflix Inc",
+              "weight": 4.2
+            },
+            {
+              "ticker": "EA",
+              "name": "Electronic Arts Inc",
+              "weight": 4.17
+            }
           ]
         },
         {
@@ -465,6 +673,58 @@
             "2026-05-26",
             "2026-05-27",
             "2026-05-28"
+          ],
+          "holdings": [
+            {
+              "ticker": "AMZN",
+              "name": "Amazon.com Inc",
+              "weight": 27.58
+            },
+            {
+              "ticker": "TSLA",
+              "name": "Tesla Inc",
+              "weight": 17.93
+            },
+            {
+              "ticker": "HD",
+              "name": "The Home Depot Inc",
+              "weight": 5.47
+            },
+            {
+              "ticker": "TJX",
+              "name": "TJX Companies Inc",
+              "weight": 3.99
+            },
+            {
+              "ticker": "MCD",
+              "name": "McDonald's Corp",
+              "weight": 3.91
+            },
+            {
+              "ticker": "BKNG",
+              "name": "Booking Holdings Inc",
+              "weight": 3.11
+            },
+            {
+              "ticker": "LOW",
+              "name": "Lowe's Companies Inc",
+              "weight": 3.07
+            },
+            {
+              "ticker": "SBUX",
+              "name": "Starbucks Corp",
+              "weight": 2.75
+            },
+            {
+              "ticker": "ORLY",
+              "name": "O'Reilly Automotive Inc",
+              "weight": 1.92
+            },
+            {
+              "ticker": "MAR",
+              "name": "Marriott International Inc Class A",
+              "weight": 1.82
+            }
           ]
         },
         {
@@ -557,6 +817,58 @@
             "2026-05-26",
             "2026-05-27",
             "2026-05-28"
+          ],
+          "holdings": [
+            {
+              "ticker": "WMT",
+              "name": "Walmart Inc",
+              "weight": 12.14
+            },
+            {
+              "ticker": "COST",
+              "name": "Costco Wholesale Corp",
+              "weight": 9.45
+            },
+            {
+              "ticker": "PG",
+              "name": "Procter & Gamble Co",
+              "weight": 7.18
+            },
+            {
+              "ticker": "KO",
+              "name": "Coca-Cola Co",
+              "weight": 6.4
+            },
+            {
+              "ticker": "PM",
+              "name": "Philip Morris International Inc",
+              "weight": 5.39
+            },
+            {
+              "ticker": "MDLZ",
+              "name": "Mondelez International Inc Class A",
+              "weight": 4.93
+            },
+            {
+              "ticker": "MO",
+              "name": "Altria Group Inc",
+              "weight": 4.87
+            },
+            {
+              "ticker": "PEP",
+              "name": "PepsiCo Inc",
+              "weight": 4.55
+            },
+            {
+              "ticker": "CL",
+              "name": "Colgate-Palmolive Co",
+              "weight": 4.23
+            },
+            {
+              "ticker": "TGT",
+              "name": "Target Corp",
+              "weight": 3.83
+            }
           ]
         },
         {
@@ -649,6 +961,58 @@
             "2026-05-26",
             "2026-05-27",
             "2026-05-28"
+          ],
+          "holdings": [
+            {
+              "ticker": "CAT",
+              "name": "Caterpillar Inc",
+              "weight": 7.61
+            },
+            {
+              "ticker": "GE",
+              "name": "GE Aerospace",
+              "weight": 5.58
+            },
+            {
+              "ticker": "GEV",
+              "name": "GE Vernova Inc",
+              "weight": 5.36
+            },
+            {
+              "ticker": "RTX",
+              "name": "RTX Corp",
+              "weight": 4.34
+            },
+            {
+              "ticker": "BA",
+              "name": "Boeing Co",
+              "weight": 3.3
+            },
+            {
+              "ticker": "ETN",
+              "name": "Eaton Corp PLC",
+              "weight": 3.09
+            },
+            {
+              "ticker": "UNP",
+              "name": "Union Pacific Corp",
+              "weight": 2.94
+            },
+            {
+              "ticker": "UBER",
+              "name": "Uber Technologies Inc",
+              "weight": 2.82
+            },
+            {
+              "ticker": "DE",
+              "name": "Deere & Co",
+              "weight": 2.73
+            },
+            {
+              "ticker": "HON",
+              "name": "Honeywell International Inc",
+              "weight": 2.5
+            }
           ]
         },
         {
@@ -741,6 +1105,58 @@
             "2026-05-26",
             "2026-05-27",
             "2026-05-28"
+          ],
+          "holdings": [
+            {
+              "ticker": "NEE",
+              "name": "NextEra Energy Inc",
+              "weight": 14.0
+            },
+            {
+              "ticker": "SO",
+              "name": "Southern Co",
+              "weight": 7.31
+            },
+            {
+              "ticker": "DUK",
+              "name": "Duke Energy Corp",
+              "weight": 6.92
+            },
+            {
+              "ticker": "CEG",
+              "name": "Constellation Energy Corp",
+              "weight": 6.7
+            },
+            {
+              "ticker": "AEP",
+              "name": "American Electric Power Co Inc",
+              "weight": 5.09
+            },
+            {
+              "ticker": "SRE",
+              "name": "Sempra",
+              "weight": 4.26
+            },
+            {
+              "ticker": "D",
+              "name": "Dominion Energy Inc",
+              "weight": 3.78
+            },
+            {
+              "ticker": "ETR",
+              "name": "Entergy Corp",
+              "weight": 3.66
+            },
+            {
+              "ticker": "VST",
+              "name": "Vistra Corp",
+              "weight": 3.45
+            },
+            {
+              "ticker": "XEL",
+              "name": "Xcel Energy Inc",
+              "weight": 3.37
+            }
           ]
         },
         {
@@ -833,6 +1249,58 @@
             "2026-05-26",
             "2026-05-27",
             "2026-05-28"
+          ],
+          "holdings": [
+            {
+              "ticker": "XOM",
+              "name": "Exxon Mobil Corp",
+              "weight": 22.18
+            },
+            {
+              "ticker": "CVX",
+              "name": "Chevron Corp",
+              "weight": 16.61
+            },
+            {
+              "ticker": "COP",
+              "name": "ConocoPhillips",
+              "weight": 7.06
+            },
+            {
+              "ticker": "SLB",
+              "name": "SLB Ltd",
+              "weight": 4.62
+            },
+            {
+              "ticker": "WMB",
+              "name": "Williams Companies Inc",
+              "weight": 4.37
+            },
+            {
+              "ticker": "VLO",
+              "name": "Valero Energy Corp",
+              "weight": 4.19
+            },
+            {
+              "ticker": "EOG",
+              "name": "EOG Resources Inc",
+              "weight": 4.14
+            },
+            {
+              "ticker": "MPC",
+              "name": "Marathon Petroleum Corp",
+              "weight": 3.98
+            },
+            {
+              "ticker": "PSX",
+              "name": "Phillips 66",
+              "weight": 3.92
+            },
+            {
+              "ticker": "BKR",
+              "name": "Baker Hughes Co Class A",
+              "weight": 3.74
+            }
           ]
         },
         {
@@ -925,6 +1393,58 @@
             "2026-05-26",
             "2026-05-27",
             "2026-05-28"
+          ],
+          "holdings": [
+            {
+              "ticker": "WELL",
+              "name": "Welltower Inc",
+              "weight": 10.32
+            },
+            {
+              "ticker": "PLD",
+              "name": "Prologis Inc",
+              "weight": 8.98
+            },
+            {
+              "ticker": "EQIX",
+              "name": "Equinix Inc",
+              "weight": 7.24
+            },
+            {
+              "ticker": "AMT",
+              "name": "American Tower Corp",
+              "weight": 5.82
+            },
+            {
+              "ticker": "DLR",
+              "name": "Digital Realty Trust Inc",
+              "weight": 4.76
+            },
+            {
+              "ticker": "SPG",
+              "name": "Simon Property Group Inc",
+              "weight": 4.6
+            },
+            {
+              "ticker": "VTR",
+              "name": "Ventas Inc",
+              "weight": 4.36
+            },
+            {
+              "ticker": "CBRE",
+              "name": "CBRE Group Inc Class A",
+              "weight": 4.33
+            },
+            {
+              "ticker": "PSA",
+              "name": "Public Storage",
+              "weight": 4.32
+            },
+            {
+              "ticker": "O",
+              "name": "Realty Income Corp",
+              "weight": 4.25
+            }
           ]
         },
         {
@@ -1017,6 +1537,58 @@
             "2026-05-26",
             "2026-05-27",
             "2026-05-28"
+          ],
+          "holdings": [
+            {
+              "ticker": "LIN",
+              "name": "Linde PLC",
+              "weight": 14.14
+            },
+            {
+              "ticker": "NEM",
+              "name": "Newmont Corp",
+              "weight": 7.33
+            },
+            {
+              "ticker": "NUE",
+              "name": "Nucor Corp",
+              "weight": 5.68
+            },
+            {
+              "ticker": "FCX",
+              "name": "Freeport-McMoRan Inc",
+              "weight": 5.02
+            },
+            {
+              "ticker": "CRH",
+              "name": "CRH PLC",
+              "weight": 4.93
+            },
+            {
+              "ticker": "VMC",
+              "name": "Vulcan Materials Co",
+              "weight": 4.85
+            },
+            {
+              "ticker": "APD",
+              "name": "Air Products and Chemicals Inc",
+              "weight": 4.68
+            },
+            {
+              "ticker": "MLM",
+              "name": "Martin Marietta Materials Inc",
+              "weight": 4.49
+            },
+            {
+              "ticker": "SHW",
+              "name": "Sherwin-Williams Co",
+              "weight": 4.48
+            },
+            {
+              "ticker": "CTVA",
+              "name": "Corteva Inc",
+              "weight": 4.46
+            }
           ]
         }
       ]
@@ -1115,6 +1687,58 @@
             "2026-05-26",
             "2026-05-27",
             "2026-05-28"
+          ],
+          "holdings": [
+            {
+              "ticker": "NVDA",
+              "name": "NVIDIA Corp",
+              "weight": 13.33
+            },
+            {
+              "ticker": "AAPL",
+              "name": "Apple Inc",
+              "weight": 11.53
+            },
+            {
+              "ticker": "MSFT",
+              "name": "Microsoft Corp",
+              "weight": 8.76
+            },
+            {
+              "ticker": "GOOGL",
+              "name": "Alphabet Inc Class A",
+              "weight": 6.49
+            },
+            {
+              "ticker": "AVGO",
+              "name": "Broadcom Inc",
+              "weight": 5.2
+            },
+            {
+              "ticker": "AMZN",
+              "name": "Amazon.com Inc",
+              "weight": 5.11
+            },
+            {
+              "ticker": "GOOG",
+              "name": "Alphabet Inc Class C",
+              "weight": 5.11
+            },
+            {
+              "ticker": "META",
+              "name": "Meta Platforms Inc Class A",
+              "weight": 3.88
+            },
+            {
+              "ticker": "TSLA",
+              "name": "Tesla Inc",
+              "weight": 3.12
+            },
+            {
+              "ticker": "LLY",
+              "name": "Eli Lilly and Co",
+              "weight": 2.31
+            }
           ]
         },
         {
@@ -1207,6 +1831,58 @@
             "2026-05-26",
             "2026-05-27",
             "2026-05-28"
+          ],
+          "holdings": [
+            {
+              "ticker": "NVDA",
+              "name": "NVIDIA Corp",
+              "weight": 13.75
+            },
+            {
+              "ticker": "AAPL",
+              "name": "Apple Inc",
+              "weight": 11.77
+            },
+            {
+              "ticker": "MSFT",
+              "name": "Microsoft Corp",
+              "weight": 8.68
+            },
+            {
+              "ticker": "GOOGL",
+              "name": "Alphabet Inc Class A",
+              "weight": 6.45
+            },
+            {
+              "ticker": "AVGO",
+              "name": "Broadcom Inc",
+              "weight": 5.19
+            },
+            {
+              "ticker": "AMZN",
+              "name": "Amazon.com Inc",
+              "weight": 5.11
+            },
+            {
+              "ticker": "GOOG",
+              "name": "Alphabet Inc Class C",
+              "weight": 5.08
+            },
+            {
+              "ticker": "META",
+              "name": "Meta Platforms Inc Class A",
+              "weight": 3.9
+            },
+            {
+              "ticker": "TSLA",
+              "name": "Tesla Inc",
+              "weight": 3.75
+            },
+            {
+              "ticker": "LLY",
+              "name": "Eli Lilly and Co",
+              "weight": 2.82
+            }
           ]
         },
         {
@@ -1299,6 +1975,58 @@
             "2026-05-26",
             "2026-05-27",
             "2026-05-28"
+          ],
+          "holdings": [
+            {
+              "ticker": "VRT",
+              "name": "Vertiv Holdings Co Class A",
+              "weight": 4.22
+            },
+            {
+              "ticker": "HWM",
+              "name": "Howmet Aerospace Inc",
+              "weight": 3.29
+            },
+            {
+              "ticker": "PWR",
+              "name": "Quanta Services Inc",
+              "weight": 2.81
+            },
+            {
+              "ticker": "MPWR",
+              "name": "Monolithic Power Systems Inc",
+              "weight": 2.52
+            },
+            {
+              "ticker": "HLT",
+              "name": "Hilton Worldwide Holdings Inc",
+              "weight": 2.5
+            },
+            {
+              "ticker": "RCL",
+              "name": "Royal Caribbean Group",
+              "weight": 2.26
+            },
+            {
+              "ticker": "NET",
+              "name": "Cloudflare Inc",
+              "weight": 2.17
+            },
+            {
+              "ticker": "FIX",
+              "name": "Comfort Systems USA Inc",
+              "weight": 2.16
+            },
+            {
+              "ticker": "COR",
+              "name": "Cencora Inc",
+              "weight": 1.91
+            },
+            {
+              "ticker": "TRGP",
+              "name": "Targa Resources Corp",
+              "weight": 1.87
+            }
           ]
         },
         {
@@ -1391,6 +2119,58 @@
             "2026-05-26",
             "2026-05-27",
             "2026-05-28"
+          ],
+          "holdings": [
+            {
+              "ticker": "BE",
+              "name": "Bloom Energy Corp Class A",
+              "weight": 1.11
+            },
+            {
+              "ticker": "CIEN",
+              "name": "Ciena Corp",
+              "weight": 1.1
+            },
+            {
+              "ticker": "FIX",
+              "name": "Comfort Systems USA Inc",
+              "weight": 0.95
+            },
+            {
+              "ticker": "LITE",
+              "name": "Lumentum Holdings Inc",
+              "weight": 0.95
+            },
+            {
+              "ticker": "CASY",
+              "name": "Casey's General Stores Inc",
+              "weight": 0.9
+            },
+            {
+              "ticker": "FTI",
+              "name": "TechnipFMC PLC",
+              "weight": 0.89
+            },
+            {
+              "ticker": "COHR",
+              "name": "Coherent Corp",
+              "weight": 0.88
+            },
+            {
+              "ticker": "RVMD",
+              "name": "Revolution Medicines Inc Ordinary Shares",
+              "weight": 0.84
+            },
+            {
+              "ticker": "CRDO",
+              "name": "Credo Technology Group Holding Ltd",
+              "weight": 0.83
+            },
+            {
+              "ticker": "ALAB",
+              "name": "Astera Labs Inc",
+              "weight": 0.83
+            }
           ]
         },
         {
@@ -1483,6 +2263,58 @@
             "2026-05-26",
             "2026-05-27",
             "2026-05-28"
+          ],
+          "holdings": [
+            {
+              "ticker": "JPM",
+              "name": "JPMorgan Chase & Co",
+              "weight": 3.09
+            },
+            {
+              "ticker": "BRK-B",
+              "name": "Berkshire Hathaway Inc Class B",
+              "weight": 2.86
+            },
+            {
+              "ticker": "XOM",
+              "name": "Exxon Mobil Corp",
+              "weight": 2.49
+            },
+            {
+              "ticker": "MU",
+              "name": "Micron Technology Inc",
+              "weight": 2.26
+            },
+            {
+              "ticker": "WMT",
+              "name": "Walmart Inc",
+              "weight": 2.24
+            },
+            {
+              "ticker": "JNJ",
+              "name": "Johnson & Johnson",
+              "weight": 2.15
+            },
+            {
+              "ticker": "CAT",
+              "name": "Caterpillar Inc",
+              "weight": 1.61
+            },
+            {
+              "ticker": "INTC",
+              "name": "Intel Corp",
+              "weight": 1.46
+            },
+            {
+              "ticker": "ABBV",
+              "name": "AbbVie Inc",
+              "weight": 1.45
+            },
+            {
+              "ticker": "CVX",
+              "name": "Chevron Corp",
+              "weight": 1.42
+            }
           ]
         },
         {
@@ -1575,6 +2407,58 @@
             "2026-05-26",
             "2026-05-27",
             "2026-05-28"
+          ],
+          "holdings": [
+            {
+              "ticker": "CMI",
+              "name": "Cummins Inc",
+              "weight": 1.64
+            },
+            {
+              "ticker": "SLB",
+              "name": "SLB Ltd",
+              "weight": 1.5
+            },
+            {
+              "ticker": "CRH",
+              "name": "CRH PLC",
+              "weight": 1.4
+            },
+            {
+              "ticker": "VLO",
+              "name": "Valero Energy Corp",
+              "weight": 1.34
+            },
+            {
+              "ticker": "WDC",
+              "name": "Western Digital Corp",
+              "weight": 1.3
+            },
+            {
+              "ticker": "MPC",
+              "name": "Marathon Petroleum Corp",
+              "weight": 1.29
+            },
+            {
+              "ticker": "PSX",
+              "name": "Phillips 66",
+              "weight": 1.27
+            },
+            {
+              "ticker": "GM",
+              "name": "General Motors Co",
+              "weight": 1.23
+            },
+            {
+              "ticker": "DLR",
+              "name": "Digital Realty Trust Inc",
+              "weight": 1.22
+            },
+            {
+              "ticker": "BKR",
+              "name": "Baker Hughes Co Class A",
+              "weight": 1.22
+            }
           ]
         },
         {
@@ -1667,6 +2551,58 @@
             "2026-05-26",
             "2026-05-27",
             "2026-05-28"
+          ],
+          "holdings": [
+            {
+              "ticker": "JBL",
+              "name": "Jabil Inc",
+              "weight": 0.77
+            },
+            {
+              "ticker": "FLEX",
+              "name": "Flex Ltd",
+              "weight": 0.76
+            },
+            {
+              "ticker": "NRG",
+              "name": "NRG Energy Inc",
+              "weight": 0.75
+            },
+            {
+              "ticker": "ATO",
+              "name": "Atmos Energy Corp",
+              "weight": 0.71
+            },
+            {
+              "ticker": "TPR",
+              "name": "Tapestry Inc",
+              "weight": 0.67
+            },
+            {
+              "ticker": "UTHR",
+              "name": "United Therapeutics Corp",
+              "weight": 0.57
+            },
+            {
+              "ticker": "OMC",
+              "name": "Omnicom Group Inc",
+              "weight": 0.54
+            },
+            {
+              "ticker": "WSM",
+              "name": "Williams-Sonoma Inc",
+              "weight": 0.49
+            },
+            {
+              "ticker": "CHRW",
+              "name": "C.H. Robinson Worldwide Inc",
+              "weight": 0.49
+            },
+            {
+              "ticker": "USFD",
+              "name": "US Foods Holding Corp",
+              "weight": 0.47
+            }
           ]
         }
       ]
@@ -1765,6 +2701,58 @@
             "2026-05-26",
             "2026-05-27",
             "2026-05-28"
+          ],
+          "holdings": [
+            {
+              "ticker": "AMD",
+              "name": "Advanced Micro Devices Inc",
+              "weight": 8.03
+            },
+            {
+              "ticker": "AVGO",
+              "name": "Broadcom Inc",
+              "weight": 7.95
+            },
+            {
+              "ticker": "MU",
+              "name": "Micron Technology Inc",
+              "weight": 7.63
+            },
+            {
+              "ticker": "NVDA",
+              "name": "NVIDIA Corp",
+              "weight": 6.85
+            },
+            {
+              "ticker": "INTC",
+              "name": "Intel Corp",
+              "weight": 6.3
+            },
+            {
+              "ticker": "MRVL",
+              "name": "Marvell Technology Inc",
+              "weight": 6.15
+            },
+            {
+              "ticker": "AMAT",
+              "name": "Applied Materials Inc",
+              "weight": 4.81
+            },
+            {
+              "ticker": "MPWR",
+              "name": "Monolithic Power Systems Inc",
+              "weight": 4.3
+            },
+            {
+              "ticker": "TXN",
+              "name": "Texas Instruments Inc",
+              "weight": 4.03
+            },
+            {
+              "ticker": "NXPI",
+              "name": "NXP Semiconductors NV",
+              "weight": 3.93
+            }
           ]
         },
         {
@@ -1857,6 +2845,58 @@
             "2026-05-26",
             "2026-05-27",
             "2026-05-28"
+          ],
+          "holdings": [
+            {
+              "ticker": "MSFT",
+              "name": "Microsoft Corp",
+              "weight": 8.79
+            },
+            {
+              "ticker": "ORCL",
+              "name": "Oracle Corp",
+              "weight": 8.64
+            },
+            {
+              "ticker": "PLTR",
+              "name": "Palantir Technologies Inc Ordinary Shares - Class A",
+              "weight": 8.01
+            },
+            {
+              "ticker": "CRM",
+              "name": "Salesforce Inc",
+              "weight": 6.68
+            },
+            {
+              "ticker": "PANW",
+              "name": "Palo Alto Networks Inc",
+              "weight": 5.85
+            },
+            {
+              "ticker": "APP",
+              "name": "AppLovin Corp Ordinary Shares - Class A",
+              "weight": 4.88
+            },
+            {
+              "ticker": "CRWD",
+              "name": "CrowdStrike Holdings Inc Class A",
+              "weight": 4.59
+            },
+            {
+              "ticker": "ADBE",
+              "name": "Adobe Inc",
+              "weight": 4.13
+            },
+            {
+              "ticker": "INTU",
+              "name": "Intuit Inc",
+              "weight": 4.08
+            },
+            {
+              "ticker": "SNPS",
+              "name": "Synopsys Inc",
+              "weight": 3.77
+            }
           ]
         },
         {
@@ -1949,6 +2989,58 @@
             "2026-05-26",
             "2026-05-27",
             "2026-05-28"
+          ],
+          "holdings": [
+            {
+              "ticker": "ANET",
+              "name": "Arista Networks Inc",
+              "weight": 4.42
+            },
+            {
+              "ticker": "AMZN",
+              "name": "Amazon.com Inc",
+              "weight": 4.31
+            },
+            {
+              "ticker": "GOOGL",
+              "name": "Alphabet Inc Class A",
+              "weight": 4.22
+            },
+            {
+              "ticker": "CRWV",
+              "name": "CoreWeave Inc Ordinary Shares - Class A",
+              "weight": 3.99
+            },
+            {
+              "ticker": "DOCN",
+              "name": "DigitalOcean Holdings Inc",
+              "weight": 3.98
+            },
+            {
+              "ticker": "P",
+              "name": "Everpure Inc Class A",
+              "weight": 3.8
+            },
+            {
+              "ticker": "ORCL",
+              "name": "Oracle Corp",
+              "weight": 3.79
+            },
+            {
+              "ticker": "NTNX",
+              "name": "Nutanix Inc Class A",
+              "weight": 3.65
+            },
+            {
+              "ticker": "MSFT",
+              "name": "Microsoft Corp",
+              "weight": 3.55
+            },
+            {
+              "ticker": "LUMN",
+              "name": "Lumen Technologies Inc Ordinary Shares",
+              "weight": 3.54
+            }
           ]
         },
         {
@@ -2041,6 +3133,58 @@
             "2026-05-26",
             "2026-05-27",
             "2026-05-28"
+          ],
+          "holdings": [
+            {
+              "ticker": "000660.KS",
+              "name": "SK Hynix Inc",
+              "weight": 4.82
+            },
+            {
+              "ticker": "INTC",
+              "name": "Intel Corp",
+              "weight": 4.16
+            },
+            {
+              "ticker": "005930.KS",
+              "name": "Samsung Electronics Co Ltd",
+              "weight": 4.09
+            },
+            {
+              "ticker": "AMD",
+              "name": "Advanced Micro Devices Inc",
+              "weight": 3.99
+            },
+            {
+              "ticker": "MU",
+              "name": "Micron Technology Inc",
+              "weight": 3.71
+            },
+            {
+              "ticker": "AVGO",
+              "name": "Broadcom Inc",
+              "weight": 3.66
+            },
+            {
+              "ticker": "CSCO",
+              "name": "Cisco Systems Inc",
+              "weight": 3.51
+            },
+            {
+              "ticker": "TSM",
+              "name": "Taiwan Semiconductor Manufacturing Co Ltd ADR",
+              "weight": 3.45
+            },
+            {
+              "ticker": "GOOGL",
+              "name": "Alphabet Inc Class A",
+              "weight": 3.32
+            },
+            {
+              "ticker": "AMZN",
+              "name": "Amazon.com Inc",
+              "weight": 3.23
+            }
           ]
         },
         {
@@ -2133,6 +3277,58 @@
             "2026-05-26",
             "2026-05-27",
             "2026-05-28"
+          ],
+          "holdings": [
+            {
+              "ticker": "AVGO",
+              "name": "Broadcom Inc",
+              "weight": 9.58
+            },
+            {
+              "ticker": "PANW",
+              "name": "Palo Alto Networks Inc",
+              "weight": 8.83
+            },
+            {
+              "ticker": "CRWD",
+              "name": "CrowdStrike Holdings Inc Class A",
+              "weight": 8.79
+            },
+            {
+              "ticker": "CSCO",
+              "name": "Cisco Systems Inc",
+              "weight": 8.44
+            },
+            {
+              "ticker": "FTNT",
+              "name": "Fortinet Inc",
+              "weight": 7.12
+            },
+            {
+              "ticker": "NET",
+              "name": "Cloudflare Inc",
+              "weight": 4.36
+            },
+            {
+              "ticker": "FFIV",
+              "name": "F5 Inc",
+              "weight": 3.22
+            },
+            {
+              "ticker": "ZS",
+              "name": "Zscaler Inc",
+              "weight": 3.17
+            },
+            {
+              "ticker": "AKAM",
+              "name": "Akamai Technologies Inc",
+              "weight": 3.08
+            },
+            {
+              "ticker": "ANET",
+              "name": "Arista Networks Inc",
+              "weight": 2.37
+            }
           ]
         },
         {
@@ -2225,6 +3421,58 @@
             "2026-05-26",
             "2026-05-27",
             "2026-05-28"
+          ],
+          "holdings": [
+            {
+              "ticker": "PYPL",
+              "name": "PayPal Holdings Inc",
+              "weight": 6.41
+            },
+            {
+              "ticker": "XYZ",
+              "name": "Block Inc Class A",
+              "weight": 6.38
+            },
+            {
+              "ticker": "FISV",
+              "name": "Fiserv Inc",
+              "weight": 5.98
+            },
+            {
+              "ticker": "COIN",
+              "name": "Coinbase Global Inc Ordinary Shares - Class A",
+              "weight": 5.56
+            },
+            {
+              "ticker": "HOOD",
+              "name": "Robinhood Markets Inc Class A",
+              "weight": 5.51
+            },
+            {
+              "ticker": "INTU",
+              "name": "Intuit Inc",
+              "weight": 5.07
+            },
+            {
+              "ticker": "ADYEN.AS",
+              "name": "Adyen NV",
+              "weight": 4.76
+            },
+            {
+              "ticker": "FIS",
+              "name": "Fidelity National Information Services Inc",
+              "weight": 4.2
+            },
+            {
+              "ticker": "SOFI",
+              "name": "SoFi Technologies Inc Ordinary Shares",
+              "weight": 3.79
+            },
+            {
+              "ticker": "GPN",
+              "name": "Global Payments Inc",
+              "weight": 3.72
+            }
           ]
         }
       ]
@@ -2323,6 +3571,58 @@
             "2026-05-26",
             "2026-05-27",
             "2026-05-28"
+          ],
+          "holdings": [
+            {
+              "ticker": "AVGO",
+              "name": "Broadcom Inc",
+              "weight": 5.16
+            },
+            {
+              "ticker": "AAPL",
+              "name": "Apple Inc",
+              "weight": 4.05
+            },
+            {
+              "ticker": "MSFT",
+              "name": "Microsoft Corp",
+              "weight": 3.95
+            },
+            {
+              "ticker": "JPM",
+              "name": "JPMorgan Chase & Co",
+              "weight": 3.57
+            },
+            {
+              "ticker": "LLY",
+              "name": "Eli Lilly and Co",
+              "weight": 3.32
+            },
+            {
+              "ticker": "XOM",
+              "name": "Exxon Mobil Corp",
+              "weight": 2.89
+            },
+            {
+              "ticker": "WMT",
+              "name": "Walmart Inc",
+              "weight": 2.59
+            },
+            {
+              "ticker": "JNJ",
+              "name": "Johnson & Johnson",
+              "weight": 2.48
+            },
+            {
+              "ticker": "V",
+              "name": "Visa Inc Class A",
+              "weight": 2.32
+            },
+            {
+              "ticker": "COST",
+              "name": "Costco Wholesale Corp",
+              "weight": 2.02
+            }
           ]
         },
         {
@@ -2415,6 +3715,58 @@
             "2026-05-26",
             "2026-05-27",
             "2026-05-28"
+          ],
+          "holdings": [
+            {
+              "ticker": "TXN",
+              "name": "Texas Instruments Inc",
+              "weight": 5.35
+            },
+            {
+              "ticker": "UNH",
+              "name": "UnitedHealth Group Inc",
+              "weight": 5.11
+            },
+            {
+              "ticker": "QCOM",
+              "name": "Qualcomm Inc",
+              "weight": 4.31
+            },
+            {
+              "ticker": "CVX",
+              "name": "Chevron Corp",
+              "weight": 4.16
+            },
+            {
+              "ticker": "COP",
+              "name": "ConocoPhillips",
+              "weight": 4.07
+            },
+            {
+              "ticker": "KO",
+              "name": "Coca-Cola Co",
+              "weight": 4.06
+            },
+            {
+              "ticker": "PEP",
+              "name": "PepsiCo Inc",
+              "weight": 3.81
+            },
+            {
+              "ticker": "PG",
+              "name": "Procter & Gamble Co",
+              "weight": 3.72
+            },
+            {
+              "ticker": "MRK",
+              "name": "Merck & Co Inc",
+              "weight": 3.71
+            },
+            {
+              "ticker": "VZ",
+              "name": "Verizon Communications Inc",
+              "weight": 3.66
+            }
           ]
         },
         {
@@ -2507,6 +3859,58 @@
             "2026-05-26",
             "2026-05-27",
             "2026-05-28"
+          ],
+          "holdings": [
+            {
+              "ticker": "CAT",
+              "name": "Caterpillar Inc",
+              "weight": 2.02
+            },
+            {
+              "ticker": "NUE",
+              "name": "Nucor Corp",
+              "weight": 1.83
+            },
+            {
+              "ticker": "TGT",
+              "name": "Target Corp",
+              "weight": 1.79
+            },
+            {
+              "ticker": "BEN",
+              "name": "Franklin Resources Inc",
+              "weight": 1.73
+            },
+            {
+              "ticker": "NEE",
+              "name": "NextEra Energy Inc",
+              "weight": 1.71
+            },
+            {
+              "ticker": "WST",
+              "name": "West Pharmaceutical Services Inc",
+              "weight": 1.71
+            },
+            {
+              "ticker": "CVX",
+              "name": "Chevron Corp",
+              "weight": 1.7
+            },
+            {
+              "ticker": "XOM",
+              "name": "Exxon Mobil Corp",
+              "weight": 1.69
+            },
+            {
+              "ticker": "LIN",
+              "name": "Linde PLC",
+              "weight": 1.67
+            },
+            {
+              "ticker": "APD",
+              "name": "Air Products and Chemicals Inc",
+              "weight": 1.67
+            }
           ]
         },
         {
@@ -2599,6 +4003,58 @@
             "2026-05-26",
             "2026-05-27",
             "2026-05-28"
+          ],
+          "holdings": [
+            {
+              "ticker": "MO",
+              "name": "Altria Group Inc",
+              "weight": 2.29
+            },
+            {
+              "ticker": "PFE",
+              "name": "Pfizer Inc",
+              "weight": 2.22
+            },
+            {
+              "ticker": "TROW",
+              "name": "T. Rowe Price Group Inc",
+              "weight": 2.02
+            },
+            {
+              "ticker": "VZ",
+              "name": "Verizon Communications Inc",
+              "weight": 1.85
+            },
+            {
+              "ticker": "PRU",
+              "name": "Prudential Financial Inc",
+              "weight": 1.84
+            },
+            {
+              "ticker": "OKE",
+              "name": "ONEOK Inc",
+              "weight": 1.83
+            },
+            {
+              "ticker": "HPQ",
+              "name": "HP Inc",
+              "weight": 1.61
+            },
+            {
+              "ticker": "EIX",
+              "name": "Edison International",
+              "weight": 1.53
+            },
+            {
+              "ticker": "LYB",
+              "name": "LyondellBasell Industries NV Class A",
+              "weight": 1.53
+            },
+            {
+              "ticker": "GIS",
+              "name": "General Mills Inc",
+              "weight": 1.52
+            }
           ]
         },
         {
@@ -2691,6 +4147,58 @@
             "2026-05-26",
             "2026-05-27",
             "2026-05-28"
+          ],
+          "holdings": [
+            {
+              "ticker": "VRTPX",
+              "name": "Vanguard Real Estate II Index",
+              "weight": 14.58
+            },
+            {
+              "ticker": "WELL",
+              "name": "Welltower Inc",
+              "weight": 7.8
+            },
+            {
+              "ticker": "PLD",
+              "name": "Prologis Inc",
+              "weight": 6.97
+            },
+            {
+              "ticker": "EQIX",
+              "name": "Equinix Inc",
+              "weight": 5.62
+            },
+            {
+              "ticker": "AMT",
+              "name": "American Tower Corp",
+              "weight": 4.52
+            },
+            {
+              "ticker": "DLR",
+              "name": "Digital Realty Trust Inc",
+              "weight": 3.65
+            },
+            {
+              "ticker": "SPG",
+              "name": "Simon Property Group Inc",
+              "weight": 3.52
+            },
+            {
+              "ticker": "O",
+              "name": "Realty Income Corp",
+              "weight": 3.1
+            },
+            {
+              "ticker": "PSA",
+              "name": "Public Storage",
+              "weight": 2.52
+            },
+            {
+              "ticker": "CBRE",
+              "name": "CBRE Group Inc Class A",
+              "weight": 2.25
+            }
           ]
         },
         {
@@ -2783,6 +4291,58 @@
             "2026-05-26",
             "2026-05-27",
             "2026-05-28"
+          ],
+          "holdings": [
+            {
+              "ticker": "NVDA",
+              "name": "NVIDIA Corp",
+              "weight": 7.76
+            },
+            {
+              "ticker": "AAPL",
+              "name": "Apple Inc",
+              "weight": 6.29
+            },
+            {
+              "ticker": "GOOG",
+              "name": "Alphabet Inc Class C",
+              "weight": 6.28
+            },
+            {
+              "ticker": "MSFT",
+              "name": "Microsoft Corp",
+              "weight": 4.91
+            },
+            {
+              "ticker": "AMZN",
+              "name": "Amazon.com Inc",
+              "weight": 4.72
+            },
+            {
+              "ticker": "META",
+              "name": "Meta Platforms Inc Class A",
+              "weight": 2.99
+            },
+            {
+              "ticker": "MU",
+              "name": "Micron Technology Inc",
+              "weight": 2.89
+            },
+            {
+              "ticker": "AVGO",
+              "name": "Broadcom Inc",
+              "weight": 2.78
+            },
+            {
+              "ticker": "AMD",
+              "name": "Advanced Micro Devices Inc",
+              "weight": 2.7
+            },
+            {
+              "ticker": "TSLA",
+              "name": "Tesla Inc",
+              "weight": 2.48
+            }
           ]
         }
       ]
@@ -2881,6 +4441,58 @@
             "2026-05-26",
             "2026-05-27",
             "2026-05-28"
+          ],
+          "holdings": [
+            {
+              "ticker": "TSLA",
+              "name": "Tesla Inc",
+              "weight": 9.73
+            },
+            {
+              "ticker": "TEM",
+              "name": "Tempus AI Inc Class A common stock",
+              "weight": 5.35
+            },
+            {
+              "ticker": "AMD",
+              "name": "Advanced Micro Devices Inc",
+              "weight": 5.18
+            },
+            {
+              "ticker": "CRSP",
+              "name": "CRISPR Therapeutics AG",
+              "weight": 4.98
+            },
+            {
+              "ticker": "SHOP",
+              "name": "Shopify Inc Registered Shs -A- Subord Vtg",
+              "weight": 4.37
+            },
+            {
+              "ticker": "ROKU",
+              "name": "Roku Inc Class A",
+              "weight": 4.33
+            },
+            {
+              "ticker": "HOOD",
+              "name": "Robinhood Markets Inc Class A",
+              "weight": 4.3
+            },
+            {
+              "ticker": "COIN",
+              "name": "Coinbase Global Inc Ordinary Shares - Class A",
+              "weight": 4.23
+            },
+            {
+              "ticker": "CRCL",
+              "name": "Circle Internet Group Inc Ordinary Shares - Class A",
+              "weight": 3.84
+            },
+            {
+              "ticker": "PLTR",
+              "name": "Palantir Technologies Inc Ordinary Shares - Class A",
+              "weight": 3.13
+            }
           ]
         },
         {
@@ -2973,6 +4585,58 @@
             "2026-05-26",
             "2026-05-27",
             "2026-05-28"
+          ],
+          "holdings": [
+            {
+              "ticker": "ABBN.SW",
+              "name": "ABB Ltd",
+              "weight": 8.88
+            },
+            {
+              "ticker": "6861.T",
+              "name": "Keyence Corp",
+              "weight": 8.82
+            },
+            {
+              "ticker": "6954.T",
+              "name": "Fanuc Corp",
+              "weight": 8.34
+            },
+            {
+              "ticker": "NVDA",
+              "name": "NVIDIA Corp",
+              "weight": 8.21
+            },
+            {
+              "ticker": "ISRG",
+              "name": "Intuitive Surgical Inc",
+              "weight": 6.95
+            },
+            {
+              "ticker": "6273.T",
+              "name": "SMC Corp",
+              "weight": 4.71
+            },
+            {
+              "ticker": "300124.SZ",
+              "name": "Shenzhen Inovance Technology Co Ltd Class A",
+              "weight": 4.16
+            },
+            {
+              "ticker": "6383.T",
+              "name": "Daifuku Co Ltd",
+              "weight": 3.48
+            },
+            {
+              "ticker": "9660.HK",
+              "name": "Horizon Robotics Class B",
+              "weight": 2.45
+            },
+            {
+              "ticker": "GOOGL",
+              "name": "Alphabet Inc Class A",
+              "weight": 2.41
+            }
           ]
         },
         {
@@ -3065,6 +4729,53 @@
             "2026-05-26",
             "2026-05-27",
             "2026-05-28"
+          ],
+          "holdings": [
+            {
+              "ticker": "CCO.TO",
+              "name": "Cameco Corp",
+              "weight": 23.13
+            },
+            {
+              "ticker": "OKLO",
+              "name": "Oklo Inc Class A Shares",
+              "weight": 7.31
+            },
+            {
+              "ticker": "NXE.TO",
+              "name": "NexGen Energy Ltd",
+              "weight": 6.27
+            },
+            {
+              "ticker": "UEC",
+              "name": "Uranium Energy Corp",
+              "weight": 5.79
+            },
+            {
+              "ticker": "KAP",
+              "name": "National Atomic Co Kazatomprom JSC ADR",
+              "weight": 4.81
+            },
+            {
+              "ticker": "EFR.TO",
+              "name": "Energy Fuels Inc",
+              "weight": 4.24
+            },
+            {
+              "ticker": "047040.KS",
+              "name": "Daewoo Engineering & Construction Co Ltd",
+              "weight": 4.06
+            },
+            {
+              "ticker": "PDN.AX",
+              "name": "Paladin Energy Ltd",
+              "weight": 3.09
+            },
+            {
+              "ticker": "000720.KS",
+              "name": "Hyundai Engineering & Construction Co Ltd",
+              "weight": 3.04
+            }
           ]
         },
         {
@@ -3157,6 +4868,58 @@
             "2026-05-26",
             "2026-05-27",
             "2026-05-28"
+          ],
+          "holdings": [
+            {
+              "ticker": "RIO",
+              "name": "Rio Tinto PLC ADR",
+              "weight": 20.21
+            },
+            {
+              "ticker": "006400.KS",
+              "name": "Samsung SDI Co Ltd",
+              "weight": 7.15
+            },
+            {
+              "ticker": "ALB",
+              "name": "Albemarle Corp",
+              "weight": 7.12
+            },
+            {
+              "ticker": "6752.T",
+              "name": "Panasonic Holdings Corp",
+              "weight": 4.68
+            },
+            {
+              "ticker": "002460.SZ",
+              "name": "Ganfeng Lithium Group Co Ltd Class A",
+              "weight": 4.16
+            },
+            {
+              "ticker": "PLS.AX",
+              "name": "PLS Group Ltd",
+              "weight": 4.15
+            },
+            {
+              "ticker": "SQM",
+              "name": "Sociedad Quimica Y Minera De Chile SA ADR",
+              "weight": 4.06
+            },
+            {
+              "ticker": "002371.SZ",
+              "name": "NAURA Technology Group Co Ltd Class A",
+              "weight": 3.84
+            },
+            {
+              "ticker": "002466.SZ",
+              "name": "Tianqi Lithium Corp Class A",
+              "weight": 3.51
+            },
+            {
+              "ticker": "300750.SZ",
+              "name": "Contemporary Amperex Technology Co Ltd Class A",
+              "weight": 3.49
+            }
           ]
         },
         {
@@ -3249,6 +5012,58 @@
             "2026-05-26",
             "2026-05-27",
             "2026-05-28"
+          ],
+          "holdings": [
+            {
+              "ticker": "BE",
+              "name": "Bloom Energy Corp Class A",
+              "weight": 13.73
+            },
+            {
+              "ticker": "NXT",
+              "name": "Nextpower Inc Class A",
+              "weight": 7.28
+            },
+            {
+              "ticker": "FSLR",
+              "name": "First Solar Inc",
+              "weight": 7.15
+            },
+            {
+              "ticker": "600900.SS",
+              "name": "China Yangtze Power Co Ltd Class A",
+              "weight": 5.89
+            },
+            {
+              "ticker": "VWS.CO",
+              "name": "Vestas Wind Systems AS",
+              "weight": 3.35
+            },
+            {
+              "ticker": "PLUG",
+              "name": "Plug Power Inc",
+              "weight": 3.28
+            },
+            {
+              "ticker": "ENPH",
+              "name": "Enphase Energy Inc",
+              "weight": 3.24
+            },
+            {
+              "ticker": "EQTL3.SA",
+              "name": "Equatorial SA",
+              "weight": 2.87
+            },
+            {
+              "ticker": "SUZLON.BO",
+              "name": "Suzlon Energy Ltd",
+              "weight": 2.36
+            },
+            {
+              "ticker": "EDP.LS",
+              "name": "EDP-Energias De Portugal SA",
+              "weight": 2.33
+            }
           ]
         },
         {
@@ -3341,7 +5156,8 @@
             "2026-05-26",
             "2026-05-27",
             "2026-05-28"
-          ]
+          ],
+          "holdings": []
         }
       ]
     }
