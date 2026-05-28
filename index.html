@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,158 +9,108 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Archivo:wght@600;700;800;900&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#070a0f;
-    --panel:#0c1117;
-    --panel-edge:#1a2330;
-    --navy-top:#0f2342;
-    --navy-bot:#0a1525;
-    --grid:rgba(120,160,220,.10);
-    --ink:#eef2f7;
-    --ink-dim:#7c8aa0;
-    --ink-faint:#4a586b;
-    --orange:#f5a200;
-    --orange-ink:#0a0a0a;
-    --green:#22d36a;
-    --red:#ff4d4d;
-    --spark:#f4f7fb;
-    --bar-track:rgba(255,255,255,.06);
+    --bg:#070a0f;--panel:#0c1117;--panel-edge:#1a2330;
+    --navy-top:#0f2342;--navy-bot:#0a1525;--grid:rgba(120,160,220,.10);
+    --ink:#eef2f7;--ink-dim:#7c8aa0;--ink-faint:#4a586b;
+    --orange:#f5a200;--orange-ink:#0a0a0a;--green:#22d36a;--red:#ff4d4d;
+    --spark:#f4f7fb;--bar-track:rgba(255,255,255,.06);
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{background:var(--bg);color:var(--ink);font-family:'IBM Plex Mono',monospace;-webkit-font-smoothing:antialiased}
-  body{
-    background-image:
-      radial-gradient(circle at 18% -10%, rgba(245,162,0,.05), transparent 40%),
-      radial-gradient(circle at 90% 110%, rgba(34,90,180,.07), transparent 45%);
-    min-height:100vh;
-    padding:0 0 64px;
-  }
+  body{background-image:radial-gradient(circle at 18% -10%,rgba(245,162,0,.05),transparent 40%),radial-gradient(circle at 90% 110%,rgba(34,90,180,.07),transparent 45%);min-height:100vh;padding:0 0 64px}
 
-  /* ---- masthead ---- */
-  .masthead{
-    border-bottom:1px solid var(--panel-edge);
-    padding:22px clamp(16px,3vw,44px) 18px;
-    display:flex;align-items:flex-end;justify-content:space-between;
-    flex-wrap:wrap;gap:14px;
-  }
+  /* masthead */
+  .masthead{border-bottom:1px solid var(--panel-edge);padding:20px clamp(16px,3vw,44px) 16px;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:14px}
   .brand{display:flex;align-items:center;gap:14px}
-  .brand .mark{
-    background:var(--orange);color:var(--orange-ink);
-    font-family:'Archivo',sans-serif;font-weight:900;
-    font-size:13px;letter-spacing:.5px;
-    padding:7px 11px;border-radius:3px;line-height:1;
-  }
-  .brand h1{
-    font-family:'Archivo',sans-serif;font-weight:800;
-    font-size:clamp(20px,3.4vw,30px);letter-spacing:1px;
-    color:var(--ink);line-height:.95;
-  }
+  .brand .mark{background:var(--orange);color:var(--orange-ink);font-family:'Archivo',sans-serif;font-weight:900;font-size:13px;letter-spacing:.5px;padding:7px 11px;border-radius:3px;line-height:1}
+  .brand h1{font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(18px,3.2vw,28px);letter-spacing:1px;line-height:.95}
   .brand h1 span{color:var(--orange)}
-  .brand p{color:var(--ink-faint);font-size:11px;letter-spacing:2px;margin-top:4px}
-  .meta{text-align:right;font-size:11px;color:var(--ink-dim);letter-spacing:.5px;line-height:1.7}
+  .brand p{color:var(--ink-faint);font-size:10px;letter-spacing:2px;margin-top:4px}
+  .meta{text-align:right;font-size:11px;color:var(--ink-dim);letter-spacing:.5px;line-height:1.8}
   .meta b{color:var(--ink)}
-  .badge-sample{
-    display:inline-block;background:#3a2a00;color:var(--orange);
-    border:1px solid var(--orange);border-radius:3px;
-    padding:2px 7px;font-size:10px;letter-spacing:1.5px;margin-top:6px;
-  }
-  .badge-live{
-    display:inline-block;background:#06281a;color:var(--green);
-    border:1px solid var(--green);border-radius:3px;
-    padding:2px 7px;font-size:10px;letter-spacing:1.5px;margin-top:6px;
-  }
+  .badge-sample{display:inline-block;background:#3a2a00;color:var(--orange);border:1px solid var(--orange);border-radius:3px;padding:2px 7px;font-size:10px;letter-spacing:1.5px}
+  .badge-live{display:inline-block;background:#06281a;color:var(--green);border:1px solid var(--green);border-radius:3px;padding:2px 7px;font-size:10px;letter-spacing:1.5px}
 
-  /* ---- group sections ---- */
+  /* summary */
+  #summary{padding:16px clamp(12px,2.4vw,40px);border-bottom:1px solid var(--panel-edge);background:rgba(0,0,0,.25)}
+  .sum-label{font-size:9px;letter-spacing:2.5px;color:var(--ink-faint);margin-bottom:10px}
+  .sum-cards{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+  .sum-card{background:var(--panel);border:1px solid var(--panel-edge);border-radius:4px;padding:9px 13px;min-width:130px;flex:1}
+  .sum-card .sc-lbl{font-size:8.5px;letter-spacing:1.5px;color:var(--ink-faint);margin-bottom:4px}
+  .sum-card .sc-val{font-family:'Archivo',sans-serif;font-weight:800;font-size:18px;line-height:1}
+  .sum-card .sc-sub{font-size:9px;color:var(--ink-dim);margin-top:3px;letter-spacing:.5px}
+  .sc-val.up{color:var(--green)}.sc-val.down{color:var(--red)}.sc-val.neutral{color:var(--ink)}
+  .pulse-counts{display:flex;gap:6px;align-items:baseline}
+  .pulse-counts .u{color:var(--green);font-family:'Archivo',sans-serif;font-weight:800;font-size:22px}
+  .pulse-counts .d{color:var(--red);font-family:'Archivo',sans-serif;font-weight:800;font-size:22px}
+  .pulse-counts .sep{color:var(--ink-faint);font-size:13px}
+
+  .sum-groups{display:flex;flex-direction:column;gap:6px}
+  .sg-row{display:flex;align-items:center;gap:10px}
+  .sg-name{font-size:9px;letter-spacing:1.5px;color:var(--ink-dim);width:130px;flex-shrink:0;text-align:right}
+  .sg-track{flex:1;height:7px;background:var(--bar-track);border-radius:2px;overflow:hidden}
+  .sg-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,#7a1a1a,#ff4d4d)}
+  .sg-val{font-size:10px;font-weight:700;color:var(--red);min-width:48px}
+  .sg-val.shallow{color:#ff9a5c}
+
+  /* group sections */
   main{padding:0 clamp(12px,2.4vw,40px)}
-  .group{margin-top:30px}
-  .group-head{
-    display:flex;align-items:center;gap:14px;margin:0 2px 14px;
-  }
-  .group-head .tag{
-    background:#11161d;border:1px solid var(--panel-edge);
-    border-left:3px solid var(--orange);
-    font-family:'Archivo',sans-serif;font-weight:800;
-    font-size:14px;letter-spacing:1px;color:var(--ink);
-    padding:7px 14px;border-radius:0 3px 3px 0;white-space:nowrap;
-  }
-  .group-head .en{color:var(--ink-faint);font-size:10px;letter-spacing:3px}
+  .group{margin-top:28px}
+  .group-head{display:flex;align-items:center;gap:14px;margin:0 2px 12px}
+  .group-head .tag{background:#11161d;border:1px solid var(--panel-edge);border-left:3px solid var(--orange);font-family:'Archivo',sans-serif;font-weight:800;font-size:13px;letter-spacing:1px;padding:6px 13px;border-radius:0 3px 3px 0;white-space:nowrap}
+  .group-head .en{color:var(--ink-faint);font-size:9px;letter-spacing:3px}
   .group-head .rule{flex:1;height:1px;background:var(--panel-edge)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(285px,1fr));gap:11px}
 
-  .grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(290px,1fr));
-    gap:12px;
-  }
-
-  /* ---- tile ---- */
-  .tile{
-    background:var(--panel);
-    border:1px solid var(--panel-edge);
-    border-radius:5px;padding:11px;
-    display:flex;flex-direction:column;gap:9px;
-    transition:border-color .15s ease, transform .15s ease;
-  }
+  /* tile */
+  .tile{background:var(--panel);border:1px solid var(--panel-edge);border-radius:5px;padding:11px;display:flex;flex-direction:column;gap:8px;transition:border-color .15s,transform .15s}
   .tile:hover{border-color:#2c3a4f;transform:translateY(-2px)}
   .tile-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
-  .label-box{
-    background:var(--orange);color:var(--orange-ink);
-    font-weight:700;font-size:14px;letter-spacing:.3px;
-    padding:5px 9px;border-radius:3px;line-height:1.05;
-  }
-  .label-box .tk{display:block;font-size:10px;font-weight:600;opacity:.78;letter-spacing:1px;margin-top:1px}
-  .tile-sub{text-align:right;color:var(--ink-faint);font-size:8.5px;letter-spacing:1.2px;line-height:1.5;padding-top:2px}
+  .label-box{background:var(--orange);color:var(--orange-ink);font-weight:700;font-size:13px;letter-spacing:.3px;padding:5px 9px;border-radius:3px;line-height:1.05}
+  .label-box .tk{display:block;font-size:9.5px;font-weight:600;opacity:.75;letter-spacing:1px;margin-top:1px}
+  .tile-sub{text-align:right;color:var(--ink-faint);font-size:8px;letter-spacing:1px;line-height:1.6;padding-top:2px}
 
-  /* sparkline panel */
-  .chart{
-    background:linear-gradient(180deg,var(--navy-top),var(--navy-bot));
-    border:1px solid #11305a;border-radius:3px;height:96px;position:relative;overflow:hidden;
-  }
-  .chart svg{display:block;width:100%;height:100%}
+  /* chart + xaxis */
+  .chart-wrap{position:relative;border-radius:3px;overflow:hidden;border:1px solid #11305a;background:linear-gradient(180deg,var(--navy-top),var(--navy-bot));user-select:none}
+  .chart-wrap svg{display:block;width:100%;height:90px}
+  .xaxis{display:flex;position:relative;height:15px;padding:0 6px}
+  .xaxis-tick{position:absolute;font-size:7.5px;color:var(--ink-faint);letter-spacing:.3px;transform:translateX(-50%);white-space:nowrap;line-height:15px}
 
-  /* price row */
+  /* price / dd rows */
   .price-row{display:flex;align-items:flex-end;justify-content:space-between;gap:8px}
-  .close{
-    background:#f4f7fb;color:#0a0a0a;font-weight:700;font-size:11px;
-    padding:3px 7px;border-radius:2px;letter-spacing:.2px;
-  }
-  .close span{color:#5a6472;font-weight:600;margin-right:3px}
-  .chg{font-family:'Archivo',sans-serif;font-weight:800;font-size:21px;letter-spacing:.5px;line-height:1}
+  .close-box{background:#f4f7fb;color:#0a0a0a;font-weight:700;font-size:11px;padding:3px 7px;border-radius:2px;letter-spacing:.2px}
+  .close-box span{color:#5a6472;font-weight:600;margin-right:3px}
+  .chg{font-family:'Archivo',sans-serif;font-weight:800;font-size:20px;letter-spacing:.5px;line-height:1}
   .up{color:var(--green)}.down{color:var(--red)}
-
-  /* drawdown row */
   .dd{display:flex;align-items:center;gap:9px;padding-top:1px}
-  .dd-label{color:var(--ink-faint);font-size:9px;letter-spacing:1px;white-space:nowrap}
-  .dd-track{flex:1;height:8px;background:var(--bar-track);border-radius:2px;overflow:hidden;position:relative}
+  .dd-label{color:var(--ink-faint);font-size:8.5px;letter-spacing:1px;white-space:nowrap}
+  .dd-track{flex:1;height:7px;background:var(--bar-track);border-radius:2px;overflow:hidden}
   .dd-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,#7a1a1a,#ff4d4d)}
-  .dd-val{font-weight:700;font-size:12px;color:var(--red);white-space:nowrap;min-width:54px;text-align:right}
+  .dd-val{font-weight:700;font-size:11.5px;color:var(--red);white-space:nowrap;min-width:52px;text-align:right}
   .dd-val.shallow{color:#ff9a5c}
 
-  /* ---- ticker bar ---- */
-  .tickerbar{
-    position:fixed;left:0;right:0;bottom:0;
-    display:flex;align-items:stretch;height:34px;
-    background:var(--bg);border-top:1px solid var(--panel-edge);z-index:20;
-  }
-  .tickerbar .stamp{
-    background:#f4f7fb;color:#0a0a0a;font-weight:700;font-size:11px;
-    display:flex;align-items:center;padding:0 14px;letter-spacing:1px;
-  }
+  /* tooltip */
+  #tooltip{position:fixed;pointer-events:none;z-index:200;display:none;
+    background:#111d2d;border:1px solid #2c3d55;border-radius:4px;
+    padding:8px 11px;font-size:10.5px;line-height:1.7;white-space:nowrap;
+    box-shadow:0 4px 20px rgba(0,0,0,.6)}
+  #tooltip .tt-date{color:var(--ink-faint);font-size:9.5px;letter-spacing:.5px}
+  #tooltip .tt-price{color:var(--ink);font-weight:700}
+  #tooltip .tt-chg{font-weight:700}
+  #tooltip .tt-chg.up{color:var(--green)}
+  #tooltip .tt-chg.down{color:var(--red)}
+
+  /* ticker bar */
+  .tickerbar{position:fixed;left:0;right:0;bottom:0;display:flex;align-items:stretch;height:32px;background:var(--bg);border-top:1px solid var(--panel-edge);z-index:20}
+  .tickerbar .stamp{background:#f4f7fb;color:#0a0a0a;font-weight:700;font-size:10px;display:flex;align-items:center;padding:0 13px;letter-spacing:1px;white-space:nowrap}
   .tickerbar .feed{flex:1;background:#06281a;overflow:hidden;position:relative}
-  .tickerbar .feed-inner{
-    position:absolute;white-space:nowrap;height:100%;display:flex;align-items:center;
-    color:var(--green);font-size:11px;letter-spacing:.6px;
-    animation:scroll 60s linear infinite;will-change:transform;
-  }
-  .tickerbar .feed-inner span{padding:0 22px}
-  .tickerbar .feed-inner .u{color:var(--green)}
-  .tickerbar .feed-inner .d{color:var(--red)}
-  .tickerbar .feed-inner .sep{color:#0d8a52}
+  .feed-inner{position:absolute;white-space:nowrap;height:100%;display:flex;align-items:center;color:var(--green);font-size:10.5px;letter-spacing:.5px;animation:scroll 65s linear infinite;will-change:transform}
+  .feed-inner span{padding:0 20px}
+  .feed-inner .u{color:var(--green)}.feed-inner .d{color:var(--red)}.feed-inner .sep{color:#0d8a52}
   @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
   .empty{padding:60px 20px;text-align:center;color:var(--ink-dim);font-size:13px}
-  @media(max-width:560px){
-    .grid{grid-template-columns:1fr}
-    .chg{font-size:19px}
-  }
+  @media(max-width:560px){.grid{grid-template-columns:1fr}.sg-name{width:90px}.sum-card{min-width:100px}}
 </style>
 </head>
 <body>
@@ -180,94 +130,226 @@
   </div>
 </header>
 
-<main id="board">
-  <div class="empty">LOADING FEED…</div>
-</main>
+<section id="summary" style="display:none">
+  <div class="sum-label">TODAY'S PULSE</div>
+  <div class="sum-cards" id="sumCards"></div>
+  <div class="sum-label">AVG DRAWDOWN FROM PEAK · BY GROUP</div>
+  <div class="sum-groups" id="sumGroups"></div>
+</section>
+
+<main id="board"><div class="empty">LOADING FEED…</div></main>
+
+<div id="tooltip">
+  <div class="tt-date" id="ttDate"></div>
+  <div class="tt-price" id="ttPrice"></div>
+  <div class="tt-chg" id="ttChg"></div>
+</div>
 
 <div class="tickerbar">
-  <div class="stamp" id="stamp">OVRNGHT</div>
+  <div class="stamp" id="stamp">ETF</div>
   <div class="feed"><div class="feed-inner" id="feed"></div></div>
 </div>
 
 <script>
-const NUM = (n,d=2)=> (n==null||isNaN(n)) ? '—' : Number(n).toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});
-const SIGN = n => (n>=0?'+':'') + NUM(n,2) + '%';
+const NUM=(n,d=2)=>(n==null||isNaN(n))?'—':Number(n).toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});
+const SIGN=n=>(n>=0?'+':'')+NUM(n,2)+'%';
+const MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
-// build an svg sparkline from an array; synthesize a plausible one if missing
-function sparkSVG(points, isUp){
-  const W=300,H=96,pad=6;
-  let pts = points;
-  if(!pts || pts.length<3){
-    // synthesize from trend so the board never renders blank
-    pts=[]; let v=100;
-    for(let i=0;i<40;i++){ v += (Math.sin(i/3)+ (Math.random()-0.5))*2 + (isUp?0.25:-0.25); pts.push(v); }
+// derive approximate trading dates backwards from a reference date
+function deriveDates(asOfStr, n) {
+  let ref = new Date((asOfStr||'').replace(/ \(SAMPLE\)/,''));
+  if (isNaN(ref)) ref = new Date();
+  const dates=[], cur=new Date(ref);
+  while(dates.length<n){
+    if(cur.getDay()!==0&&cur.getDay()!==6) dates.unshift(cur.toISOString().slice(0,10));
+    cur.setDate(cur.getDate()-1);
   }
-  const min=Math.min(...pts), max=Math.max(...pts), rng=(max-min)||1;
+  return dates;
+}
+
+function buildXAxis(dates) {
+  const n=dates.length;
+  const ticks=[];
+  let lastMon=-1;
+  for(let i=0;i<n;i++){
+    const mon=new Date(dates[i]).getMonth();
+    if(mon!==lastMon){ticks.push({i,label:MONTHS[mon]});lastMon=mon;}
+  }
+  const W=100; // percentage
+  return ticks.map(t=>{
+    const pct=(t.i/(n-1))*W;
+    return `<span class="xaxis-tick" style="left:${pct.toFixed(1)}%">${t.label}</span>`;
+  }).join('');
+}
+
+function sparkSVG(pts) {
+  const W=300,H=90,pad=5;
+  if(!pts||pts.length<2) return `<svg viewBox="0 0 ${W} ${H}"></svg>`;
+  const min=Math.min(...pts),max=Math.max(...pts),rng=(max-min)||1;
   const dx=(W-pad*2)/(pts.length-1);
   const xy=pts.map((p,i)=>[pad+i*dx, pad+(H-pad*2)*(1-(p-min)/rng)]);
   const path=xy.map((c,i)=>(i?'L':'M')+c[0].toFixed(1)+' '+c[1].toFixed(1)).join(' ');
   const last=xy[xy.length-1];
-  // grid lines
   let grid='';
-  for(let i=1;i<4;i++){const y=(H/4)*i; grid+=`<line x1="0" y1="${y}" x2="${W}" y2="${y}" stroke="var(--grid)" stroke-width="1"/>`;}
-  for(let i=1;i<6;i++){const x=(W/6)*i; grid+=`<line x1="${x}" y1="0" x2="${x}" y2="${H}" stroke="var(--grid)" stroke-width="1"/>`;}
+  for(let i=1;i<4;i++){const y=(H/4)*i;grid+=`<line x1="0" y1="${y.toFixed(0)}" x2="${W}" y2="${y.toFixed(0)}" stroke="var(--grid)" stroke-width="1"/>`;}
+  for(let i=1;i<6;i++){const x=(W/6)*i;grid+=`<line x1="${x.toFixed(0)}" y1="0" x2="${x.toFixed(0)}" y2="${H}" stroke="var(--grid)" stroke-width="1"/>`;}
   return `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">
     ${grid}
     <path d="${path}" fill="none" stroke="var(--spark)" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
-    <circle cx="${last[0].toFixed(1)}" cy="${last[1].toFixed(1)}" r="2.6" fill="var(--spark)"/>
+    <circle cx="${last[0].toFixed(1)}" cy="${last[1].toFixed(1)}" r="2.5" fill="var(--spark)"/>
   </svg>`;
 }
 
-function tile(e){
-  const up = (e.change_pct||0) >= 0;
-  const dd = e.drawdown_pct==null ? null : Math.abs(e.drawdown_pct);
-  const ddWidth = dd==null ? 0 : Math.min(100, dd); // % magnitude maps to bar width, capped 100
-  const shallow = dd!=null && dd < 8;
+function tile(e, asOf) {
+  const up=(e.change_pct||0)>=0;
+  const dd=e.drawdown_pct==null?null:Math.abs(e.drawdown_pct);
+  const ddW=dd==null?0:Math.min(100,dd);
+  const shallow=dd!=null&&dd<8;
+  const dates=e.spark_dates||deriveDates(asOf,e.spark?e.spark.length:40);
+  const sparksJson=JSON.stringify(e.spark||[]);
+  const datesJson=JSON.stringify(dates);
+  const closeVal=e.close||0;
   return `<div class="tile">
     <div class="tile-top">
       <div class="label-box">${e.label||e.ticker}<span class="tk">${e.ticker}</span></div>
       <div class="tile-sub">THEME ETF MONITOR<br>PER. DAILY · CLOSE</div>
     </div>
-    <div class="chart">${sparkSVG(e.spark, up)}</div>
+    <div class="chart-wrap"
+         data-spark='${sparksJson}'
+         data-dates='${datesJson}'
+         data-close="${closeVal}"
+         onmouseenter="ttShow(event,this)"
+         onmousemove="ttMove(event,this)"
+         onmouseleave="ttHide()">
+      ${sparkSVG(e.spark)}
+      <div class="xaxis">${buildXAxis(dates)}</div>
+    </div>
     <div class="price-row">
-      <div class="close"><span>CLOSE</span>$${NUM(e.close,2)}</div>
+      <div class="close-box"><span>CLOSE</span>$${NUM(e.close,2)}</div>
       <div class="chg ${up?'up':'down'}">${SIGN(e.change_pct)}</div>
     </div>
     <div class="dd">
-      <div class="dd-label">52W PEAK</div>
-      <div class="dd-track"><div class="dd-fill" style="width:${ddWidth}%"></div></div>
+      <div class="dd-label">FROM PEAK</div>
+      <div class="dd-track"><div class="dd-fill" style="width:${ddW}%"></div></div>
       <div class="dd-val ${shallow?'shallow':''}">${dd==null?'—':'-'+NUM(dd,1)+'%'}</div>
     </div>
   </div>`;
 }
 
-function render(data){
-  document.getElementById('asof').textContent = data.as_of || '—';
-  const badge = document.getElementById('statusBadge');
-  if(data.sample){ badge.innerHTML='<span class="badge-sample">SAMPLE DATA</span>'; }
-  else { badge.innerHTML='<span class="badge-live">LIVE</span>'; }
+// tooltip logic
+const ttEl=document.getElementById('tooltip');
+const ttDate=document.getElementById('ttDate');
+const ttPrice=document.getElementById('ttPrice');
+const ttChg=document.getElementById('ttChg');
 
-  const board=document.getElementById('board');
-  board.innerHTML = (data.groups||[]).map(g=>`
+function ttShow(e,el){ttEl.style.display='block';ttMove(e,el);}
+function ttHide(){ttEl.style.display='none';}
+function ttMove(e,el){
+  const rect=el.getBoundingClientRect();
+  const pct=Math.max(0,Math.min(1,(e.clientX-rect.left)/rect.width));
+  const spark=JSON.parse(el.dataset.spark||'[]');
+  const dates=JSON.parse(el.dataset.dates||'[]');
+  const close=parseFloat(el.dataset.close)||0;
+  if(!spark.length) return;
+  const idx=Math.round(pct*(spark.length-1));
+  const price=spark[idx];
+  const date=dates[idx]||'';
+  const pctVsCurrent=close>0?((price/close-1)*100):0;
+  const up=price>=close;
+  const d=new Date(date);
+  const dateStr=isNaN(d)?date:[MONTHS[d.getMonth()],d.getDate()+',',d.getFullYear()].join(' ');
+  ttDate.textContent=dateStr;
+  ttPrice.textContent='$'+NUM(price,2);
+  ttChg.textContent=(pctVsCurrent>=0?'+':'')+NUM(pctVsCurrent,1)+'% vs today';
+  ttChg.className='tt-chg '+(up?'up':'down');
+  // position
+  let x=e.clientX+14, y=e.clientY-54;
+  if(x+160>window.innerWidth) x=e.clientX-160;
+  if(y<4) y=4;
+  ttEl.style.left=x+'px';ttEl.style.top=y+'px';
+}
+
+function buildSummary(data){
+  const all=data.groups.flatMap(g=>g.etfs.map(e=>({...e,gname:g.name_en})));
+  const valid=all.filter(e=>e.change_pct!=null);
+  const upCount=valid.filter(e=>e.change_pct>=0).length;
+  const dnCount=valid.filter(e=>e.change_pct<0).length;
+  const best=valid.reduce((a,b)=>a.change_pct>b.change_pct?a:b,valid[0]);
+  const worst=valid.reduce((a,b)=>a.change_pct<b.change_pct?a:b,valid[0]);
+  const ddV=all.filter(e=>e.drawdown_pct!=null);
+  const shallowest=ddV.reduce((a,b)=>a.drawdown_pct>b.drawdown_pct?a:b,ddV[0]);
+  const deepest=ddV.reduce((a,b)=>a.drawdown_pct<b.drawdown_pct?a:b,ddV[0]);
+
+  document.getElementById('sumCards').innerHTML=`
+    <div class="sum-card">
+      <div class="sc-lbl">UP / DOWN TODAY</div>
+      <div class="pulse-counts">
+        <span class="u">▲${upCount}</span><span class="sep">/</span><span class="d">▼${dnCount}</span>
+      </div>
+      <div class="sc-sub">${valid.length} ETFs tracked</div>
+    </div>
+    <div class="sum-card">
+      <div class="sc-lbl">BEST DAILY</div>
+      <div class="sc-val up">${SIGN(best?.change_pct)}</div>
+      <div class="sc-sub">${best?.ticker} · ${best?.label}</div>
+    </div>
+    <div class="sum-card">
+      <div class="sc-lbl">WORST DAILY</div>
+      <div class="sc-val down">${SIGN(worst?.change_pct)}</div>
+      <div class="sc-sub">${worst?.ticker} · ${worst?.label}</div>
+    </div>
+    <div class="sum-card">
+      <div class="sc-lbl">MOST RESILIENT</div>
+      <div class="sc-val" style="color:#ff9a5c;font-family:'Archivo',sans-serif;font-weight:800;font-size:18px">-${NUM(Math.abs(shallowest?.drawdown_pct),1)}%</div>
+      <div class="sc-sub">${shallowest?.ticker} · ${shallowest?.label}</div>
+    </div>
+    <div class="sum-card">
+      <div class="sc-lbl">DEEPEST DRAWDOWN</div>
+      <div class="sc-val down">-${NUM(Math.abs(deepest?.drawdown_pct),1)}%</div>
+      <div class="sc-sub">${deepest?.ticker} · ${deepest?.label}</div>
+    </div>`;
+
+  const maxAbs=Math.max(...data.groups.map(g=>{
+    const dds=g.etfs.filter(e=>e.drawdown_pct!=null).map(e=>Math.abs(e.drawdown_pct));
+    return dds.length?dds.reduce((a,b)=>a+b,0)/dds.length:0;
+  }));
+  document.getElementById('sumGroups').innerHTML=data.groups.map(g=>{
+    const dds=g.etfs.filter(e=>e.drawdown_pct!=null).map(e=>Math.abs(e.drawdown_pct));
+    const avg=dds.length?dds.reduce((a,b)=>a+b,0)/dds.length:0;
+    const w=(avg/Math.max(maxAbs,1)*100).toFixed(1);
+    const shallow=avg<8;
+    return `<div class="sg-row">
+      <div class="sg-name">${g.name_en}</div>
+      <div class="sg-track"><div class="sg-fill" style="width:${w}%"></div></div>
+      <div class="sg-val ${shallow?'shallow':''}">-${NUM(avg,1)}%</div>
+    </div>`;
+  }).join('');
+
+  document.getElementById('summary').style.display='block';
+}
+
+function render(data){
+  document.getElementById('asof').textContent=data.as_of||'—';
+  const badge=document.getElementById('statusBadge');
+  badge.innerHTML=data.sample?'<span class="badge-sample">SAMPLE DATA</span>':'<span class="badge-live">LIVE</span>';
+
+  buildSummary(data);
+
+  document.getElementById('board').innerHTML=(data.groups||[]).map(g=>`
     <section class="group">
       <div class="group-head">
-        <div class="tag">${g.name}</div>
-        <div class="en">${g.name_en||''}</div>
+        <div class="tag">${g.name_en||g.name}</div>
+        <div class="en">${g.name||''}</div>
         <div class="rule"></div>
       </div>
-      <div class="grid">${g.etfs.map(tile).join('')}</div>
+      <div class="grid">${g.etfs.map(e=>tile(e,data.as_of)).join('')}</div>
     </section>`).join('');
 
-  // ticker feed = every etf, doubled for seamless scroll
   const all=(data.groups||[]).flatMap(g=>g.etfs);
-  const seg = all.map(e=>{
-    const up=(e.change_pct||0)>=0;
-    return `<span><b>${e.ticker}</b> $${NUM(e.close,2)} <span class="${up?'u':'d'}">${SIGN(e.change_pct)}</span></span><span class="sep">|</span>`;
-  }).join('');
-  document.getElementById('feed').innerHTML = seg+seg;
-
-  const ny = new Date().toLocaleTimeString('en-US',{timeZone:'America/New_York',hour12:false});
-  document.getElementById('stamp').textContent = (data.sample?'SAMPLE':'NY '+ny);
+  const seg=all.map(e=>{const up=(e.change_pct||0)>=0;return `<span><b>${e.ticker}</b> $${NUM(e.close,2)} <span class="${up?'u':'d'}">${SIGN(e.change_pct)}</span></span><span class="sep">|</span>`;}).join('');
+  document.getElementById('feed').innerHTML=seg+seg;
+  const ny=new Date().toLocaleTimeString('en-US',{timeZone:'America/New_York',hour12:false});
+  document.getElementById('stamp').textContent=data.sample?'SAMPLE':'NY '+ny;
 }
 
 async function boot(){
@@ -275,20 +357,13 @@ async function boot(){
     const r=await fetch('./data/etf_data.json',{cache:'no-store'});
     if(!r.ok) throw new Error('no json');
     render(await r.json());
-  }catch(err){
-    // fallback so the page works on file:// or before first Action run
-    render(window.__SAMPLE__);
-  }
+  }catch(e){render(window.__FALLBACK__);}
 }
 
-// minimal embedded fallback (real data comes from data/etf_data.json)
-window.__SAMPLE__={
-  as_of:'DEMO', sample:true,
-  groups:[{name:'섹터', name_en:'SECTOR', etfs:[
-    {ticker:'XLK',label:'정보기술',close:0,change_pct:0,drawdown_pct:-0.7},
-    {ticker:'XLF',label:'금융',close:0,change_pct:0,drawdown_pct:-8.1}
-  ]}]
-};
+window.__FALLBACK__={as_of:'DEMO',sample:true,groups:[{name:'SECTOR',name_en:'SECTOR',etfs:[
+  {ticker:'XLK',label:'Info Tech',close:0,change_pct:0,drawdown_pct:-0.7},
+  {ticker:'XLF',label:'Financials',close:0,change_pct:0,drawdown_pct:-8.1}
+]}]};
 boot();
 </script>
 </body>
