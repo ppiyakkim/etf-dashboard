@@ -27,9 +27,13 @@ GROUPS = [
         ("ARKK","Innovation"),("BOTZ","Robotics"),("URA","Nuclear/Uranium"),
         ("LIT","Battery/Lithium"),("ICLN","Clean Energy"),("IBIT","Bitcoin"),
     ]),
+    ("TRUMP THEME", "TRUMP THEME", [
+        ("TSSD","Security & Defense"),("TSNF","Next Frontiers"),("TSIC","American Icons"),
+        ("TSES","Energy Security"),("TSRS","Red State REITs"),
+    ]),
 ]
 
-SPARK_LEN = 40
+SPARK_LEN = 365
 HOLDINGS_N = 10
 
 def fetch_holdings(ticker):
