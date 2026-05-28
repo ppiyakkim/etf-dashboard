@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THEME ETF MONITOR</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Archivo:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#070a0f;
+    --panel:#0c1117;
+    --panel-edge:#1a2330;
+    --navy-top:#0f2342;
+    --navy-bot:#0a1525;
+    --grid:rgba(120,160,220,.10);
+    --ink:#eef2f7;
+    --ink-dim:#7c8aa0;
+    --ink-faint:#4a586b;
+    --orange:#f5a200;
+    --orange-ink:#0a0a0a;
+    --green:#22d36a;
+    --red:#ff4d4d;
+    --spark:#f4f7fb;
+    --bar-track:rgba(255,255,255,.06);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--bg);color:var(--ink);font-family:'IBM Plex Mono',monospace;-webkit-font-smoothing:antialiased}
+  body{
+    background-image:
+      radial-gradient(circle at 18% -10%, rgba(245,162,0,.05), transparent 40%),
+      radial-gradient(circle at 90% 110%, rgba(34,90,180,.07), transparent 45%);
+    min-height:100vh;
+    padding:0 0 64px;
+  }
+
+  /* ---- masthead ---- */
+  .masthead{
+    border-bottom:1px solid var(--panel-edge);
+    padding:22px clamp(16px,3vw,44px) 18px;
+    display:flex;align-items:flex-end;justify-content:space-between;
+    flex-wrap:wrap;gap:14px;
+  }
+  .brand{display:flex;align-items:center;gap:14px}
+  .brand .mark{
+    background:var(--orange);color:var(--orange-ink);
+    font-family:'Archivo',sans-serif;font-weight:900;
+    font-size:13px;letter-spacing:.5px;
+    padding:7px 11px;border-radius:3px;line-height:1;
+  }
+  .brand h1{
+    font-family:'Archivo',sans-serif;font-weight:800;
+    font-size:clamp(20px,3.4vw,30px);letter-spacing:1px;
+    color:var(--ink);line-height:.95;
+  }
+  .brand h1 span{color:var(--orange)}
+  .brand p{color:var(--ink-faint);font-size:11px;letter-spacing:2px;margin-top:4px}
+  .meta{text-align:right;font-size:11px;color:var(--ink-dim);letter-spacing:.5px;line-height:1.7}
+  .meta b{color:var(--ink)}
+  .badge-sample{
+    display:inline-block;background:#3a2a00;color:var(--orange);
+    border:1px solid var(--orange);border-radius:3px;
+    padding:2px 7px;font-size:10px;letter-spacing:1.5px;margin-top:6px;
+  }
+  .badge-live{
+    display:inline-block;background:#06281a;color:var(--green);
+    border:1px solid var(--green);border-radius:3px;
+    padding:2px 7px;font-size:10px;letter-spacing:1.5px;margin-top:6px;
+  }
+
+  /* ---- group sections ---- */
+  main{padding:0 clamp(12px,2.4vw,40px)}
+  .group{margin-top:30px}
+  .group-head{
+    display:flex;align-items:center;gap:14px;margin:0 2px 14px;
+  }
+  .group-head .tag{
+    background:#11161d;border:1px solid var(--panel-edge);
+    border-left:3px solid var(--orange);
+    font-family:'Archivo',sans-serif;font-weight:800;
+    font-size:14px;letter-spacing:1px;color:var(--ink);
+    padding:7px 14px;border-radius:0 3px 3px 0;white-space:nowrap;
+  }
+  .group-head .en{color:var(--ink-faint);font-size:10px;letter-spacing:3px}
+  .group-head .rule{flex:1;height:1px;background:var(--panel-edge)}
+
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(290px,1fr));
+    gap:12px;
+  }
+
+  /* ---- tile ---- */
+  .tile{
+    background:var(--panel);
+    border:1px solid var(--panel-edge);
+    border-radius:5px;padding:11px;
+    display:flex;flex-direction:column;gap:9px;
+    transition:border-color .15s ease, transform .15s ease;
+  }
+  .tile:hover{border-color:#2c3a4f;transform:translateY(-2px)}
+  .tile-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+  .label-box{
+    background:var(--orange);color:var(--orange-ink);
+    font-weight:700;font-size:14px;letter-spacing:.3px;
+    padding:5px 9px;border-radius:3px;line-height:1.05;
+  }
+  .label-box .tk{display:block;font-size:10px;font-weight:600;opacity:.78;letter-spacing:1px;margin-top:1px}
+  .tile-sub{text-align:right;color:var(--ink-faint);font-size:8.5px;letter-spacing:1.2px;line-height:1.5;padding-top:2px}
+
+  /* sparkline panel */
+  .chart{
+    background:linear-gradient(180deg,var(--navy-top),var(--navy-bot));
+    border:1px solid #11305a;border-radius:3px;height:96px;position:relative;overflow:hidden;
+  }
+  .chart svg{display:block;width:100%;height:100%}
+
+  /* price row */
+  .price-row{display:flex;align-items:flex-end;justify-content:space-between;gap:8px}
+  .close{
+    background:#f4f7fb;color:#0a0a0a;font-weight:700;font-size:11px;
+    padding:3px 7px;border-radius:2px;letter-spacing:.2px;
+  }
+  .close span{color:#5a6472;font-weight:600;margin-right:3px}
+  .chg{font-family:'Archivo',sans-serif;font-weight:800;font-size:21px;letter-spacing:.5px;line-height:1}
+  .up{color:var(--green)}.down{color:var(--red)}
+
+  /* drawdown row */
+  .dd{display:flex;align-items:center;gap:9px;padding-top:1px}
+  .dd-label{color:var(--ink-faint);font-size:9px;letter-spacing:1px;white-space:nowrap}
+  .dd-track{flex:1;height:8px;background:var(--bar-track);border-radius:2px;overflow:hidden;position:relative}
+  .dd-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,#7a1a1a,#ff4d4d)}
+  .dd-val{font-weight:700;font-size:12px;color:var(--red);white-space:nowrap;min-width:54px;text-align:right}
+  .dd-val.shallow{color:#ff9a5c}
+
+  /* ---- ticker bar ---- */
+  .tickerbar{
+    position:fixed;left:0;right:0;bottom:0;
+    display:flex;align-items:stretch;height:34px;
+    background:var(--bg);border-top:1px solid var(--panel-edge);z-index:20;
+  }
+  .tickerbar .stamp{
+    background:#f4f7fb;color:#0a0a0a;font-weight:700;font-size:11px;
+    display:flex;align-items:center;padding:0 14px;letter-spacing:1px;
+  }
+  .tickerbar .feed{flex:1;background:#06281a;overflow:hidden;position:relative}
+  .tickerbar .feed-inner{
+    position:absolute;white-space:nowrap;height:100%;display:flex;align-items:center;
+    color:var(--green);font-size:11px;letter-spacing:.6px;
+    animation:scroll 60s linear infinite;will-change:transform;
+  }
+  .tickerbar .feed-inner span{padding:0 22px}
+  .tickerbar .feed-inner .u{color:var(--green)}
+  .tickerbar .feed-inner .d{color:var(--red)}
+  .tickerbar .feed-inner .sep{color:#0d8a52}
+  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  .empty{padding:60px 20px;text-align:center;color:var(--ink-dim);font-size:13px}
+  @media(max-width:560px){
+    .grid{grid-template-columns:1fr}
+    .chg{font-size:19px}
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="brand">
+    <div class="mark">SC</div>
+    <div>
+      <h1>THEME ETF <span>MONITOR</span></h1>
+      <p>STUDIOCHICK · MACRO DESK · DAILY DRAWDOWN BOARD</p>
+    </div>
+  </div>
+  <div class="meta" id="meta">
+    <div>SOURCE&nbsp;&nbsp;<b>YAHOO FINANCE</b></div>
+    <div>AS OF&nbsp;&nbsp;<b id="asof">—</b></div>
+    <div id="statusBadge"></div>
+  </div>
+</header>
+
+<main id="board">
+  <div class="empty">LOADING FEED…</div>
+</main>
+
+<div class="tickerbar">
+  <div class="stamp" id="stamp">OVRNGHT</div>
+  <div class="feed"><div class="feed-inner" id="feed"></div></div>
+</div>
+
+<script>
+const NUM = (n,d=2)=> (n==null||isNaN(n)) ? '—' : Number(n).toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});
+const SIGN = n => (n>=0?'+':'') + NUM(n,2) + '%';
+
+// build an svg sparkline from an array; synthesize a plausible one if missing
+function sparkSVG(points, isUp){
+  const W=300,H=96,pad=6;
+  let pts = points;
+  if(!pts || pts.length<3){
+    // synthesize from trend so the board never renders blank
+    pts=[]; let v=100;
+    for(let i=0;i<40;i++){ v += (Math.sin(i/3)+ (Math.random()-0.5))*2 + (isUp?0.25:-0.25); pts.push(v); }
+  }
+  const min=Math.min(...pts), max=Math.max(...pts), rng=(max-min)||1;
+  const dx=(W-pad*2)/(pts.length-1);
+  const xy=pts.map((p,i)=>[pad+i*dx, pad+(H-pad*2)*(1-(p-min)/rng)]);
+  const path=xy.map((c,i)=>(i?'L':'M')+c[0].toFixed(1)+' '+c[1].toFixed(1)).join(' ');
+  const last=xy[xy.length-1];
+  // grid lines
+  let grid='';
+  for(let i=1;i<4;i++){const y=(H/4)*i; grid+=`<line x1="0" y1="${y}" x2="${W}" y2="${y}" stroke="var(--grid)" stroke-width="1"/>`;}
+  for(let i=1;i<6;i++){const x=(W/6)*i; grid+=`<line x1="${x}" y1="0" x2="${x}" y2="${H}" stroke="var(--grid)" stroke-width="1"/>`;}
+  return `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">
+    ${grid}
+    <path d="${path}" fill="none" stroke="var(--spark)" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
+    <circle cx="${last[0].toFixed(1)}" cy="${last[1].toFixed(1)}" r="2.6" fill="var(--spark)"/>
+  </svg>`;
+}
+
+function tile(e){
+  const up = (e.change_pct||0) >= 0;
+  const dd = e.drawdown_pct==null ? null : Math.abs(e.drawdown_pct);
+  const ddWidth = dd==null ? 0 : Math.min(100, dd); // % magnitude maps to bar width, capped 100
+  const shallow = dd!=null && dd < 8;
+  return `<div class="tile">
+    <div class="tile-top">
+      <div class="label-box">${e.label||e.ticker}<span class="tk">${e.ticker}</span></div>
+      <div class="tile-sub">THEME ETF MONITOR<br>PER. DAILY · CLOSE</div>
+    </div>
+    <div class="chart">${sparkSVG(e.spark, up)}</div>
+    <div class="price-row">
+      <div class="close"><span>CLOSE</span>$${NUM(e.close,2)}</div>
+      <div class="chg ${up?'up':'down'}">${SIGN(e.change_pct)}</div>
+    </div>
+    <div class="dd">
+      <div class="dd-label">52W PEAK</div>
+      <div class="dd-track"><div class="dd-fill" style="width:${ddWidth}%"></div></div>
+      <div class="dd-val ${shallow?'shallow':''}">${dd==null?'—':'-'+NUM(dd,1)+'%'}</div>
+    </div>
+  </div>`;
+}
+
+function render(data){
+  document.getElementById('asof').textContent = data.as_of || '—';
+  const badge = document.getElementById('statusBadge');
+  if(data.sample){ badge.innerHTML='<span class="badge-sample">SAMPLE DATA</span>'; }
+  else { badge.innerHTML='<span class="badge-live">LIVE</span>'; }
+
+  const board=document.getElementById('board');
+  board.innerHTML = (data.groups||[]).map(g=>`
+    <section class="group">
+      <div class="group-head">
+        <div class="tag">${g.name}</div>
+        <div class="en">${g.name_en||''}</div>
+        <div class="rule"></div>
+      </div>
+      <div class="grid">${g.etfs.map(tile).join('')}</div>
+    </section>`).join('');
+
+  // ticker feed = every etf, doubled for seamless scroll
+  const all=(data.groups||[]).flatMap(g=>g.etfs);
+  const seg = all.map(e=>{
+    const up=(e.change_pct||0)>=0;
+    return `<span><b>${e.ticker}</b> $${NUM(e.close,2)} <span class="${up?'u':'d'}">${SIGN(e.change_pct)}</span></span><span class="sep">|</span>`;
+  }).join('');
+  document.getElementById('feed').innerHTML = seg+seg;
+
+  const ny = new Date().toLocaleTimeString('en-US',{timeZone:'America/New_York',hour12:false});
+  document.getElementById('stamp').textContent = (data.sample?'SAMPLE':'NY '+ny);
+}
+
+async function boot(){
+  try{
+    const r=await fetch('./data/etf_data.json',{cache:'no-store'});
+    if(!r.ok) throw new Error('no json');
+    render(await r.json());
+  }catch(err){
+    // fallback so the page works on file:// or before first Action run
+    render(window.__SAMPLE__);
+  }
+}
+
+// minimal embedded fallback (real data comes from data/etf_data.json)
+window.__SAMPLE__={
+  as_of:'DEMO', sample:true,
+  groups:[{name:'섹터', name_en:'SECTOR', etfs:[
+    {ticker:'XLK',label:'정보기술',close:0,change_pct:0,drawdown_pct:-0.7},
+    {ticker:'XLF',label:'금융',close:0,change_pct:0,drawdown_pct:-8.1}
+  ]}]
+};
+boot();
+</script>
+</body>
+</html>
