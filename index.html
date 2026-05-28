@@ -89,13 +89,20 @@
   .dd-val{font-weight:700;font-size:11.5px;color:var(--red);white-space:nowrap;min-width:52px;text-align:right}
   .dd-val.shallow{color:#ff9a5c}
 
+  /* price change with date ref */
+  .chg-wrap{display:flex;flex-direction:column;align-items:flex-end;gap:1px}
+  .chg-vs{font-size:8px;color:var(--ink-faint);letter-spacing:.3px;white-space:nowrap}
+
   /* tooltip */
   #tooltip{position:fixed;pointer-events:none;z-index:200;display:none;
     background:#111d2d;border:1px solid #2c3d55;border-radius:4px;
     padding:8px 11px;font-size:10.5px;line-height:1.7;white-space:nowrap;
     box-shadow:0 4px 20px rgba(0,0,0,.6)}
+  #tooltip[data-mode="label"]{white-space:normal;max-width:230px;min-width:160px}
   #tooltip .tt-date{color:var(--ink-faint);font-size:9.5px;letter-spacing:.5px}
+  #tooltip .tt-ticker{color:var(--orange);font-weight:700;font-size:10px;letter-spacing:1px}
   #tooltip .tt-price{color:var(--ink);font-weight:700}
+  #tooltip .tt-desc{color:var(--ink-dim);font-size:10px;line-height:1.5;margin-top:2px}
   #tooltip .tt-chg{font-weight:700}
   #tooltip .tt-chg.up{color:var(--green)}
   #tooltip .tt-chg.down{color:var(--red)}
@@ -140,8 +147,10 @@
 <main id="board"><div class="empty">LOADING FEED…</div></main>
 
 <div id="tooltip">
+  <div class="tt-ticker" id="ttTicker" style="display:none"></div>
   <div class="tt-date" id="ttDate"></div>
   <div class="tt-price" id="ttPrice"></div>
+  <div class="tt-desc" id="ttDesc" style="display:none"></div>
   <div class="tt-chg" id="ttChg"></div>
 </div>
 
@@ -154,6 +163,50 @@
 const NUM=(n,d=2)=>(n==null||isNaN(n))?'—':Number(n).toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});
 const SIGN=n=>(n>=0?'+':'')+NUM(n,2)+'%';
 const MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+const ETF_DESC = {
+  // SECTOR
+  'XLK':'Technology Select Sector — Apple, MSFT, NVIDIA 등 대형 기술주',
+  'XLV':'Health Care Select Sector — 제약, 바이오, 의료기기 기업',
+  'XLF':'Financial Select Sector — 은행, 보험, 금융 서비스',
+  'XLC':'Comm Services Select Sector — Meta, Alphabet 등 통신·미디어',
+  'XLY':'Consumer Discretionary — 아마존, 테슬라 등 소비재',
+  'XLP':'Consumer Staples — 음식, 음료, 생활용품 필수소비재',
+  'XLI':'Industrials Select Sector — 항공우주, 방위, 운송',
+  'XLU':'Utilities Select Sector — 전력, 가스, 수도 공기업',
+  'XLE':'Energy Select Sector — 석유·가스 탐사 및 생산',
+  'XLRE':'Real Estate Select Sector — 부동산 투자신탁 (REIT)',
+  'XLB':'Materials Select Sector — 화학, 광업, 제지',
+  // STYLE
+  'VUG':'Vanguard Large-Cap Growth — Russell 1000 성장주',
+  'MGK':'Vanguard Mega-Cap Growth — 초대형 성장주, M7 비중 높음',
+  'IWP':'iShares Mid-Cap Growth — 중형 성장주 (Russell Mid Growth)',
+  'VBK':'Vanguard Small-Cap Growth — 소형 성장주',
+  'VTV':'Vanguard Large-Cap Value — 대형 가치주',
+  'VOE':'Vanguard Mid-Cap Value — 중형 가치주',
+  'VBR':'Vanguard Small-Cap Value — 소형 가치주',
+  // GROWTH THEMES
+  'SOXX':'iShares Semiconductor — 인텔, TSMC, NVIDIA 등 반도체 기업',
+  'IGV':'iShares Expanded Tech-Software — 대형 소프트웨어 기업',
+  'SKYY':'First Trust Cloud Computing — 클라우드 인프라 및 SaaS 기업',
+  'AIQ':'Global X AI & Technology — AI 솔루션 및 빅데이터 기업',
+  'CIBR':'First Trust Cybersecurity — 정보 보안 및 사이버 방어 기업',
+  'FINX':'Global X Fintech — 금융 기술 및 디지털 결제 기업',
+  // DIVIDEND
+  'VIG':'Vanguard Dividend Appreciation — 10년 이상 배당 성장 기업',
+  'SCHD':'Schwab US Dividend Equity — 고배당 퀄리티 (Dow Jones)',
+  'NOBL':'ProShares Dividend Aristocrats — 25년 이상 연속 배당 증가 기업',
+  'DVY':'iShares Select Dividend — 고수익률 배당 ETF',
+  'VNQ':'Vanguard Real Estate — 부동산 투자신탁 (REIT) 모음',
+  'JEPQ':'JPMorgan NASDAQ Equity Premium — 커버드콜, 월배당',
+  // INNOVATION
+  'ARKK':'ARK Innovation — 파괴적 혁신 기업 (ARK Invest 액티브)',
+  'BOTZ':'Global X Robotics & AI — 로봇공학 및 자동화 기업',
+  'URA':'Global X Uranium — 원자력·우라늄 에너지 기업',
+  'LIT':'Global X Lithium & Battery Tech — 배터리, 리튬 채굴·정제 기업',
+  'ICLN':'iShares Global Clean Energy — 풍력, 태양광 등 청정에너지',
+  'IBIT':'iShares Bitcoin Trust — 비트코인 현물 ETF (BlackRock)',
+};
 
 // derive approximate trading dates backwards from a reference date
 function deriveDates(asOfStr, n) {
@@ -209,9 +262,15 @@ function tile(e, asOf) {
   const sparksJson=JSON.stringify(e.spark||[]);
   const datesJson=JSON.stringify(dates);
   const closeVal=e.close||0;
+  const pd=e.prev_date||'';
+  const pdObj=pd?new Date(pd+'T00:00:00'):null;
+  const prevDateShort=pdObj&&!isNaN(pdObj)?MONTHS[pdObj.getMonth()]+' '+pdObj.getDate():'';
   return `<div class="tile">
     <div class="tile-top">
-      <div class="label-box">${e.label||e.ticker}<span class="tk">${e.ticker}</span></div>
+      <div class="label-box" data-ticker="${e.ticker}"
+           onmouseenter="lbShow(event,this)"
+           onmousemove="lbMove(event)"
+           onmouseleave="ttHide()">${e.label||e.ticker}<span class="tk">${e.ticker}</span></div>
       <div class="tile-sub">THEME ETF MONITOR<br>PER. DAILY · CLOSE</div>
     </div>
     <div class="chart-wrap"
@@ -226,7 +285,10 @@ function tile(e, asOf) {
     </div>
     <div class="price-row">
       <div class="close-box"><span>CLOSE</span>$${NUM(e.close,2)}</div>
-      <div class="chg ${up?'up':'down'}">${SIGN(e.change_pct)}</div>
+      <div class="chg-wrap">
+        <div class="chg ${up?'up':'down'}">${SIGN(e.change_pct)}</div>
+        ${prevDateShort?`<div class="chg-vs">vs ${prevDateShort}</div>`:''}
+      </div>
     </div>
     <div class="dd">
       <div class="dd-label">FROM PEAK</div>
@@ -238,11 +300,19 @@ function tile(e, asOf) {
 
 // tooltip logic
 const ttEl=document.getElementById('tooltip');
+const ttTicker=document.getElementById('ttTicker');
 const ttDate=document.getElementById('ttDate');
 const ttPrice=document.getElementById('ttPrice');
+const ttDesc=document.getElementById('ttDesc');
 const ttChg=document.getElementById('ttChg');
 
-function ttShow(e,el){ttEl.style.display='block';ttMove(e,el);}
+function ttShow(e,el){
+  ttEl.dataset.mode='chart';
+  ttTicker.style.display='none';
+  ttDesc.style.display='none';
+  ttEl.style.display='block';
+  ttMove(e,el);
+}
 function ttHide(){ttEl.style.display='none';}
 function ttMove(e,el){
   const rect=el.getBoundingClientRect();
@@ -254,17 +324,42 @@ function ttMove(e,el){
   const idx=Math.round(pct*(spark.length-1));
   const price=spark[idx];
   const date=dates[idx]||'';
-  const pctVsCurrent=close>0?((price/close-1)*100):0;
-  const up=price>=close;
-  const d=new Date(date);
+  // today vs that date: positive means today is higher than that date
+  const pctVsDate=close>0&&price>0?((close/price-1)*100):0;
+  const up=close>=price;
+  const d=new Date(date+'T00:00:00');
   const dateStr=isNaN(d)?date:[MONTHS[d.getMonth()],d.getDate()+',',d.getFullYear()].join(' ');
   ttDate.textContent=dateStr;
   ttPrice.textContent='$'+NUM(price,2);
-  ttChg.textContent=(pctVsCurrent>=0?'+':'')+NUM(pctVsCurrent,1)+'% vs today';
+  ttChg.textContent='TODAY '+(pctVsDate>=0?'+':'')+NUM(pctVsDate,1)+'% vs '+dateStr;
   ttChg.className='tt-chg '+(up?'up':'down');
-  // position
+  ttEl.style.removeProperty('max-width');
+  const tipW=Math.max(180, ttEl.offsetWidth);
   let x=e.clientX+14, y=e.clientY-54;
-  if(x+160>window.innerWidth) x=e.clientX-160;
+  if(x+tipW>window.innerWidth) x=e.clientX-tipW-4;
+  if(y<4) y=4;
+  ttEl.style.left=x+'px';ttEl.style.top=y+'px';
+}
+
+function lbShow(e,el){
+  const ticker=el.dataset.ticker||'';
+  const desc=ETF_DESC[ticker]||'';
+  ttEl.dataset.mode='label';
+  ttTicker.textContent=ticker;
+  ttTicker.style.display='block';
+  ttDate.textContent='';
+  ttPrice.textContent='';
+  ttDesc.textContent=desc;
+  ttDesc.style.display=desc?'block':'none';
+  ttChg.textContent='';
+  ttChg.className='tt-chg';
+  ttEl.style.display='block';
+  lbMove(e);
+}
+function lbMove(e){
+  const tipW=230;
+  let x=e.clientX+14, y=e.clientY-20;
+  if(x+tipW>window.innerWidth) x=e.clientX-tipW-4;
   if(y<4) y=4;
   ttEl.style.left=x+'px';ttEl.style.top=y+'px';
 }

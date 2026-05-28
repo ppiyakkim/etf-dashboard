@@ -42,9 +42,11 @@ def build_one(ticker):
         prev  = float(closes.iloc[-2])
         peak  = float(closes.max())
         sl = closes.iloc[-SPARK_LEN:]
+        prev_date = closes.index[-2].strftime("%Y-%m-%d")
         return {
             "close":        round(close, 2),
             "change_pct":   round((close/prev - 1)*100, 2),
+            "prev_date":    prev_date,
             "drawdown_pct": round((close/peak - 1)*100, 1),
             "spark":        [round(float(x),4) for x in sl.tolist()],
             "spark_dates":  [d.strftime("%Y-%m-%d") for d in sl.index],
