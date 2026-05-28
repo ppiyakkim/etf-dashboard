@@ -89,6 +89,22 @@
   .dd-val{font-weight:700;font-size:11.5px;color:var(--red);white-space:nowrap;min-width:52px;text-align:right}
   .dd-val.shallow{color:#ff9a5c}
 
+  /* tile click + holdings panel */
+  .tile{cursor:pointer}
+  .tile.selected{border-color:var(--orange)!important;box-shadow:0 0 0 1px var(--orange)}
+  .tile-hint{font-size:7.5px;letter-spacing:1.5px;color:var(--ink-faint);text-align:center;padding:2px 0 0;opacity:0;transition:opacity .2s}
+  .tile:hover .tile-hint{opacity:.7}
+  .tile.selected .tile-hint{color:var(--orange);opacity:.9}
+
+  .holdings-panel{margin-top:12px;background:var(--panel);border:1px solid var(--panel-edge);border-radius:5px;overflow:hidden}
+  .hp-header{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:rgba(0,0,0,.3);border-bottom:1px solid var(--panel-edge)}
+  .hp-title{font-family:'Archivo',sans-serif;font-weight:800;font-size:12px;letter-spacing:1px;color:var(--orange)}
+  .hp-sub{font-size:9px;color:var(--ink-faint);letter-spacing:1px;margin-left:10px}
+  .hp-close{background:none;border:1px solid var(--panel-edge);color:var(--ink-dim);cursor:pointer;font-size:9px;padding:3px 9px;border-radius:3px;font-family:inherit;letter-spacing:.5px}
+  .hp-close:hover{border-color:var(--orange);color:var(--orange)}
+  .hp-treemap{padding:12px}
+  .hp-note{font-size:8px;color:var(--ink-faint);padding:0 14px 10px;letter-spacing:.5px}
+
   /* price change with date ref */
   .chg-wrap{display:flex;flex-direction:column;align-items:flex-end;gap:1px}
   .chg-vs{font-size:8px;color:var(--ink-faint);letter-spacing:.3px;white-space:nowrap}
@@ -166,46 +182,46 @@ const MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov',
 
 const ETF_DESC = {
   // SECTOR
-  'XLK':'Technology Select Sector — Apple, MSFT, NVIDIA 등 대형 기술주',
-  'XLV':'Health Care Select Sector — 제약, 바이오, 의료기기 기업',
-  'XLF':'Financial Select Sector — 은행, 보험, 금융 서비스',
-  'XLC':'Comm Services Select Sector — Meta, Alphabet 등 통신·미디어',
-  'XLY':'Consumer Discretionary — 아마존, 테슬라 등 소비재',
-  'XLP':'Consumer Staples — 음식, 음료, 생활용품 필수소비재',
-  'XLI':'Industrials Select Sector — 항공우주, 방위, 운송',
-  'XLU':'Utilities Select Sector — 전력, 가스, 수도 공기업',
-  'XLE':'Energy Select Sector — 석유·가스 탐사 및 생산',
-  'XLRE':'Real Estate Select Sector — 부동산 투자신탁 (REIT)',
-  'XLB':'Materials Select Sector — 화학, 광업, 제지',
+  'XLK':'Technology Select Sector SPDR — US large-cap tech (Apple, MSFT, NVIDIA)',
+  'XLV':'Health Care Select Sector SPDR — pharma, biotech & medical devices',
+  'XLF':'Financial Select Sector SPDR — banks, insurance & financial services',
+  'XLC':'Comm Services Select Sector — Meta, Alphabet, Netflix & telecom/media',
+  'XLY':'Consumer Discretionary SPDR — Amazon, Tesla, retail & leisure',
+  'XLP':'Consumer Staples SPDR — food, beverage & household essentials',
+  'XLI':'Industrials Select Sector SPDR — aerospace, defense & transport',
+  'XLU':'Utilities Select Sector SPDR — electric, gas & water utilities',
+  'XLE':'Energy Select Sector SPDR — oil & gas exploration & production',
+  'XLRE':'Real Estate Select Sector SPDR — US equity REITs',
+  'XLB':'Materials Select Sector SPDR — chemicals, mining & paper',
   // STYLE
-  'VUG':'Vanguard Large-Cap Growth — Russell 1000 성장주',
-  'MGK':'Vanguard Mega-Cap Growth — 초대형 성장주, M7 비중 높음',
-  'IWP':'iShares Mid-Cap Growth — 중형 성장주 (Russell Mid Growth)',
-  'VBK':'Vanguard Small-Cap Growth — 소형 성장주',
-  'VTV':'Vanguard Large-Cap Value — 대형 가치주',
-  'VOE':'Vanguard Mid-Cap Value — 중형 가치주',
-  'VBR':'Vanguard Small-Cap Value — 소형 가치주',
+  'VUG':'Vanguard Large-Cap Growth ETF — Russell 1000 growth stocks',
+  'MGK':'Vanguard Mega-Cap Growth ETF — top growth mega-caps incl. Magnificent 7',
+  'IWP':'iShares Russell Mid-Cap Growth ETF — mid-size growth companies',
+  'VBK':'Vanguard Small-Cap Growth ETF — small company growth stocks',
+  'VTV':'Vanguard Large-Cap Value ETF — large-cap value stocks',
+  'VOE':'Vanguard Mid-Cap Value ETF — mid-size value companies',
+  'VBR':'Vanguard Small-Cap Value ETF — small company value stocks',
   // GROWTH THEMES
-  'SOXX':'iShares Semiconductor — 인텔, TSMC, NVIDIA 등 반도체 기업',
-  'IGV':'iShares Expanded Tech-Software — 대형 소프트웨어 기업',
-  'SKYY':'First Trust Cloud Computing — 클라우드 인프라 및 SaaS 기업',
-  'AIQ':'Global X AI & Technology — AI 솔루션 및 빅데이터 기업',
-  'CIBR':'First Trust Cybersecurity — 정보 보안 및 사이버 방어 기업',
-  'FINX':'Global X Fintech — 금융 기술 및 디지털 결제 기업',
+  'SOXX':'iShares Semiconductor ETF — Intel, TSMC, NVIDIA & chip makers',
+  'IGV':'iShares Expanded Tech-Software ETF — large software companies',
+  'SKYY':'First Trust Cloud Computing ETF — cloud infrastructure & SaaS',
+  'AIQ':'Global X AI & Technology ETF — AI solutions & big data companies',
+  'CIBR':'First Trust Cybersecurity ETF — information security & cyber defense',
+  'FINX':'Global X Fintech ETF — digital payments & financial technology',
   // DIVIDEND
-  'VIG':'Vanguard Dividend Appreciation — 10년 이상 배당 성장 기업',
-  'SCHD':'Schwab US Dividend Equity — 고배당 퀄리티 (Dow Jones)',
-  'NOBL':'ProShares Dividend Aristocrats — 25년 이상 연속 배당 증가 기업',
-  'DVY':'iShares Select Dividend — 고수익률 배당 ETF',
-  'VNQ':'Vanguard Real Estate — 부동산 투자신탁 (REIT) 모음',
-  'JEPQ':'JPMorgan NASDAQ Equity Premium — 커버드콜, 월배당',
+  'VIG':'Vanguard Dividend Appreciation ETF — 10+ yrs of consecutive dividend growth',
+  'SCHD':'Schwab US Dividend Equity ETF — quality high-dividend stocks (Dow Jones)',
+  'NOBL':'ProShares S&P 500 Dividend Aristocrats — 25+ yrs consecutive dividend growth',
+  'DVY':'iShares Select Dividend ETF — high-yield dividend stocks',
+  'VNQ':'Vanguard Real Estate ETF — broad US REIT exposure',
+  'JEPQ':'JPMorgan NASDAQ Equity Premium Income ETF — covered calls, monthly dividend',
   // INNOVATION
-  'ARKK':'ARK Innovation — 파괴적 혁신 기업 (ARK Invest 액티브)',
-  'BOTZ':'Global X Robotics & AI — 로봇공학 및 자동화 기업',
-  'URA':'Global X Uranium — 원자력·우라늄 에너지 기업',
-  'LIT':'Global X Lithium & Battery Tech — 배터리, 리튬 채굴·정제 기업',
-  'ICLN':'iShares Global Clean Energy — 풍력, 태양광 등 청정에너지',
-  'IBIT':'iShares Bitcoin Trust — 비트코인 현물 ETF (BlackRock)',
+  'ARKK':'ARK Innovation ETF — disruptive innovation companies (ARK Invest active)',
+  'BOTZ':'Global X Robotics & AI ETF — robotics & automation companies',
+  'URA':'Global X Uranium ETF — uranium mining & nuclear energy',
+  'LIT':'Global X Lithium & Battery Tech ETF — battery makers & lithium miners',
+  'ICLN':'iShares Global Clean Energy ETF — wind, solar & clean energy',
+  'IBIT':'iShares Bitcoin Trust ETF — spot Bitcoin ETF by BlackRock',
 };
 
 // derive approximate trading dates backwards from a reference date
@@ -253,7 +269,7 @@ function sparkSVG(pts) {
   </svg>`;
 }
 
-function tile(e, asOf) {
+function tile(e, asOf, gIdx) {
   const up=(e.change_pct||0)>=0;
   const dd=e.drawdown_pct==null?null:Math.abs(e.drawdown_pct);
   const ddW=dd==null?0:Math.min(100,dd);
@@ -265,7 +281,7 @@ function tile(e, asOf) {
   const pd=e.prev_date||'';
   const pdObj=pd?new Date(pd+'T00:00:00'):null;
   const prevDateShort=pdObj&&!isNaN(pdObj)?MONTHS[pdObj.getMonth()]+' '+pdObj.getDate():'';
-  return `<div class="tile">
+  return `<div class="tile" data-ticker="${e.ticker}" data-group="${gIdx}" onclick="openHoldings(${gIdx},'${e.ticker}')">
     <div class="tile-top">
       <div class="label-box" data-ticker="${e.ticker}"
            onmouseenter="lbShow(event,this)"
@@ -295,6 +311,7 @@ function tile(e, asOf) {
       <div class="dd-track"><div class="dd-fill" style="width:${ddW}%"></div></div>
       <div class="dd-val ${shallow?'shallow':''}">${dd==null?'—':'-'+NUM(dd,1)+'%'}</div>
     </div>
+    <div class="tile-hint">▼ TOP HOLDINGS</div>
   </div>`;
 }
 
@@ -364,6 +381,107 @@ function lbMove(e){
   ttEl.style.left=x+'px';ttEl.style.top=y+'px';
 }
 
+// ── Holdings treemap ──────────────────────────────────────
+const ETF_STORE = {};
+
+function tmLayout(nodes, x, y, w, h) {
+  if (!nodes.length) return [];
+  if (nodes.length === 1) return [{...nodes[0], x, y, w, h}];
+  const total = nodes.reduce((s,n)=>s+n.v,0);
+  let sum=0, split=1;
+  for(let i=0;i<nodes.length-1;i++){sum+=nodes[i].v;split=i+1;if(sum>=total/2)break;}
+  const frac = nodes.slice(0,split).reduce((s,n)=>s+n.v,0)/total;
+  if(w>=h){
+    const mx=x+w*frac;
+    return [...tmLayout(nodes.slice(0,split),x,y,mx-x,h),...tmLayout(nodes.slice(split),mx,y,x+w-mx,h)];
+  }else{
+    const my=y+h*frac;
+    return [...tmLayout(nodes.slice(0,split),x,y,w,my-y),...tmLayout(nodes.slice(split),x,my,w,y+h-my)];
+  }
+}
+
+function tmColor(i, total) {
+  const t=1-i/Math.max(total-1,1);
+  return `rgb(${Math.round(12+t*28)},${Math.round(45+t*75)},${Math.round(95+t*95)})`;
+}
+
+function renderTreemap(holdings, container) {
+  if(!holdings||!holdings.length){
+    container.innerHTML='<div style="padding:40px 20px;text-align:center;color:var(--ink-faint);font-size:11px;letter-spacing:1px">NO HOLDINGS DATA · RE-RUN DATA FETCH</div>';
+    return;
+  }
+  const W=container.clientWidth||600, H=260, G=2;
+  const nodes=[...holdings].filter(h=>h.weight>0).sort((a,b)=>b.weight-a.weight).map(h=>({ticker:h.ticker,name:h.name,v:h.weight}));
+  const layout=tmLayout(nodes,0,0,W,H);
+  const cells=layout.map((cell,i)=>{
+    const {x,y,w,h,ticker,name,v}=cell;
+    const bg=tmColor(i,nodes.length);
+    const showTk=w>44&&h>26, showPct=w>44&&h>46;
+    const fs=Math.min(14,Math.max(9,w/Math.max((ticker||'').length,1)*1.5));
+    const safeT=(ticker||'').replace(/&/g,'&amp;').replace(/'/g,'&#39;');
+    const safeN=(name||ticker||'').replace(/&/g,'&amp;').replace(/'/g,'&#39;').replace(/"/g,'&quot;');
+    return `<g onmouseenter="tmTip(event,'${safeT}','${safeN}',${v})" onmouseleave="ttHide()">
+      <rect x="${(x+G).toFixed(1)}" y="${(y+G).toFixed(1)}" width="${Math.max(0,w-G*2).toFixed(1)}" height="${Math.max(0,h-G*2).toFixed(1)}" rx="3" fill="${bg}"/>
+      ${showTk?`<text x="${(x+w/2).toFixed(1)}" y="${(y+h/2+(showPct?-7:4)).toFixed(1)}" text-anchor="middle" dominant-baseline="middle" fill="white" font-size="${fs.toFixed(0)}" font-weight="700" font-family="Archivo,sans-serif" pointer-events="none">${safeT}</text>`:''}
+      ${showPct?`<text x="${(x+w/2).toFixed(1)}" y="${(y+h/2+9).toFixed(1)}" text-anchor="middle" dominant-baseline="middle" fill="rgba(255,255,255,0.7)" font-size="9.5" font-family="IBM Plex Mono,monospace" pointer-events="none">${v.toFixed(1)}%</text>`:''}
+    </g>`;
+  }).join('');
+  container.innerHTML=`<svg width="${W}" height="${H}" style="display:block">${cells}</svg>`;
+}
+
+function tmTip(e, ticker, name, weight) {
+  ttEl.dataset.mode='label';
+  ttTicker.textContent=ticker;
+  ttTicker.style.display='block';
+  ttDate.textContent='';
+  ttPrice.textContent=name;
+  ttDesc.textContent=NUM(weight,2)+'% of portfolio';
+  ttDesc.style.display='block';
+  ttChg.textContent='';ttChg.className='tt-chg';
+  ttEl.style.display='block';
+  let x=e.clientX+14,y=e.clientY-20;
+  if(x+240>window.innerWidth)x=e.clientX-240-4;
+  if(y<4)y=4;
+  ttEl.style.left=x+'px';ttEl.style.top=y+'px';
+}
+
+let _activeHP=null;
+
+function openHoldings(gIdx, ticker) {
+  ttHide();
+  const etf=ETF_STORE[ticker];
+  const panel=document.getElementById('hp-'+gIdx);
+  if(!panel||!etf) return;
+  if(_activeHP&&_activeHP.gIdx===gIdx&&_activeHP.ticker===ticker){
+    panel.style.display='none';
+    document.querySelectorAll('.tile.selected').forEach(t=>t.classList.remove('selected'));
+    _activeHP=null;return;
+  }
+  if(_activeHP){
+    const prev=document.getElementById('hp-'+_activeHP.gIdx);
+    if(prev)prev.style.display='none';
+    document.querySelectorAll('.tile.selected').forEach(t=>t.classList.remove('selected'));
+  }
+  _activeHP={gIdx,ticker};
+  document.querySelectorAll(`.tile[data-ticker="${ticker}"]`).forEach(t=>t.classList.add('selected'));
+  const hdr=document.getElementById('hpt-'+gIdx);
+  if(hdr)hdr.textContent=`${ticker} · ${etf.label||ticker}`;
+  panel.style.display='block';
+  const mapEl=document.getElementById('hpmap-'+gIdx);
+  if(mapEl)requestAnimationFrame(()=>{
+    renderTreemap(etf.holdings||[],mapEl);
+    panel.scrollIntoView({behavior:'smooth',block:'nearest'});
+  });
+}
+
+function closeHoldings(gIdx) {
+  const panel=document.getElementById('hp-'+gIdx);
+  if(panel)panel.style.display='none';
+  document.querySelectorAll('.tile.selected').forEach(t=>t.classList.remove('selected'));
+  _activeHP=null;
+}
+// ──────────────────────────────────────────────────────────
+
 function buildSummary(data){
   const all=data.groups.flatMap(g=>g.etfs.map(e=>({...e,gname:g.name_en})));
   const valid=all.filter(e=>e.change_pct!=null);
@@ -430,14 +548,28 @@ function render(data){
 
   buildSummary(data);
 
-  document.getElementById('board').innerHTML=(data.groups||[]).map(g=>`
+  // populate ETF store for holdings lookup
+  (data.groups||[]).forEach(g=>g.etfs.forEach(e=>{ETF_STORE[e.ticker]=e;}));
+
+  document.getElementById('board').innerHTML=(data.groups||[]).map((g,gIdx)=>`
     <section class="group">
       <div class="group-head">
         <div class="tag">${g.name_en||g.name}</div>
         <div class="en">${g.name||''}</div>
         <div class="rule"></div>
       </div>
-      <div class="grid">${g.etfs.map(e=>tile(e,data.as_of)).join('')}</div>
+      <div class="grid">${g.etfs.map(e=>tile(e,data.as_of,gIdx)).join('')}</div>
+      <div class="holdings-panel" id="hp-${gIdx}" style="display:none">
+        <div class="hp-header">
+          <div>
+            <span class="hp-title" id="hpt-${gIdx}">—</span>
+            <span class="hp-sub">TOP HOLDINGS · YAHOO FINANCE</span>
+          </div>
+          <button class="hp-close" onclick="closeHoldings(${gIdx})">✕ CLOSE</button>
+        </div>
+        <div class="hp-treemap" id="hpmap-${gIdx}"></div>
+        <div class="hp-note">Source: Yahoo Finance funds data. Weights reflect latest available filing.</div>
+      </div>
     </section>`).join('');
 
   const all=(data.groups||[]).flatMap(g=>g.etfs);
