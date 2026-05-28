@@ -74,6 +74,12 @@ def build_one(ticker):
         prev  = float(closes.iloc[-2])
         peak  = float(closes.max())
         sl = closes.iloc[-SPARK_LEN:]
+        sl_df = hist.loc[sl.index]
+        ohlc = [{"o": round(float(r.get("Open",  r["Close"])), 4),
+                  "h": round(float(r.get("High",  r["Close"])), 4),
+                  "l": round(float(r.get("Low",   r["Close"])), 4),
+                  "c": round(float(r["Close"]), 4)}
+                 for _, r in sl_df.iterrows()]
         prev_date = closes.index[-2].strftime("%Y-%m-%d")
         return {
             "close":        round(close, 2),
@@ -82,6 +88,7 @@ def build_one(ticker):
             "drawdown_pct": round((close/peak - 1)*100, 1),
             "spark":        [round(float(x),4) for x in sl.tolist()],
             "spark_dates":  [d.strftime("%Y-%m-%d") for d in sl.index],
+            "ohlc":         ohlc,
             "holdings":     fetch_holdings(ticker),
         }
     except Exception as e:
@@ -96,7 +103,7 @@ def main():
             print(f"fetching {ticker} ({label}) …")
             m = build_one(ticker)
             if m is None:
-                etfs.append({"ticker":ticker,"label":label,"close":None,"change_pct":None,"drawdown_pct":None,"holdings":[]})
+                etfs.append({"ticker":ticker,"label":label,"close":None,"change_pct":None,"drawdown_pct":None,"ohlc":[],"holdings":[]})
             else:
                 etfs.append({"ticker":ticker,"label":label,**m})
         out_groups.append({"name":name,"name_en":name_en,"etfs":etfs})

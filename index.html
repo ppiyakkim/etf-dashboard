@@ -7,32 +7,57 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Archivo:wght@600;700;800;900&display=swap" rel="stylesheet">
+<script>/* apply saved theme before first paint */(()=>{if(localStorage.getItem('theme')==='light')document.documentElement.classList.add('light');})()</script>
 <style>
+  /* ── color tokens ─────────────────────────────────────── */
   :root{
     --bg:#070a0f;--panel:#0c1117;--panel-edge:#1a2330;
-    --navy-top:#0f2342;--navy-bot:#0a1525;--grid:rgba(120,160,220,.10);
+    --navy-top:#0f2342;--navy-bot:#0a1525;
+    --chart-border:#11305a;--chart-line:var(--grid);
+    --close-bg:#f4f7fb;--close-ink:#0a0a0a;--close-sub:#5a6472;
+    --tile-hover:#2c3a4f;--tt-bg:#111d2d;--tt-border:#2c3d55;
+    --grid:rgba(120,160,220,.10);
     --ink:#eef2f7;--ink-dim:#7c8aa0;--ink-faint:#4a586b;
     --orange:#f5a200;--orange-ink:#0a0a0a;--green:#22d36a;--red:#ff4d4d;
     --spark:#f4f7fb;--bar-track:rgba(255,255,255,.06);
   }
+  html.light{
+    --bg:#f0f4f9;--panel:#ffffff;--panel-edge:#cfd9e6;
+    --navy-top:#dde9f5;--navy-bot:#cfdff0;
+    --chart-border:#9db8d4;--chart-line:rgba(0,0,0,.07);
+    --close-bg:#0a2244;--close-ink:#f0f4f9;--close-sub:#6a8aaa;
+    --tile-hover:#a8c0d6;--tt-bg:#ffffff;--tt-border:#cfd9e6;
+    --grid:rgba(0,0,0,.07);
+    --ink:#0a1628;--ink-dim:#3d5270;--ink-faint:#7a90a8;
+    --spark:#0a2244;--bar-track:rgba(10,34,68,.10);
+  }
+
   *{box-sizing:border-box;margin:0;padding:0}
-  html,body{background:var(--bg);color:var(--ink);font-family:'IBM Plex Mono',monospace;-webkit-font-smoothing:antialiased}
+  html,body{background:var(--bg);color:var(--ink);font-family:'IBM Plex Mono',monospace;-webkit-font-smoothing:antialiased;transition:background .2s,color .2s}
   body{background-image:radial-gradient(circle at 18% -10%,rgba(245,162,0,.05),transparent 40%),radial-gradient(circle at 90% 110%,rgba(34,90,180,.07),transparent 45%);min-height:100vh;padding:0 0 64px}
+  html.light body{background-image:radial-gradient(circle at 18% -10%,rgba(245,162,0,.04),transparent 40%),radial-gradient(circle at 90% 110%,rgba(34,90,180,.05),transparent 45%)}
 
   /* masthead */
   .masthead{border-bottom:1px solid var(--panel-edge);padding:20px clamp(16px,3vw,44px) 16px;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:14px}
   .brand{display:flex;align-items:center;gap:14px}
   .brand .mark{background:var(--orange);color:var(--orange-ink);font-family:'Archivo',sans-serif;font-weight:900;font-size:13px;letter-spacing:.5px;padding:7px 11px;border-radius:3px;line-height:1}
-  .brand h1{font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(18px,3.2vw,28px);letter-spacing:1px;line-height:.95}
+  .brand h1{font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(18px,3.2vw,28px);letter-spacing:1px;line-height:.95;color:var(--ink)}
   .brand h1 span{color:var(--orange)}
   .brand p{color:var(--ink-faint);font-size:10px;letter-spacing:2px;margin-top:4px}
+  .meta-wrap{display:flex;align-items:flex-end;gap:12px}
   .meta{text-align:right;font-size:11px;color:var(--ink-dim);letter-spacing:.5px;line-height:1.8}
   .meta b{color:var(--ink)}
   .badge-sample{display:inline-block;background:#3a2a00;color:var(--orange);border:1px solid var(--orange);border-radius:3px;padding:2px 7px;font-size:10px;letter-spacing:1.5px}
-  .badge-live{display:inline-block;background:#06281a;color:var(--green);border:1px solid var(--green);border-radius:3px;padding:2px 7px;font-size:10px;letter-spacing:1.5px}
+  .badge-daily{display:inline-block;background:#06281a;color:var(--green);border:1px solid var(--green);border-radius:3px;padding:2px 7px;font-size:10px;letter-spacing:1.5px}
+  html.light .badge-daily{background:#e6f7ef}
+
+  /* mode toggle */
+  .mode-btn{background:none;border:1px solid var(--panel-edge);color:var(--ink-dim);cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:1px;padding:5px 10px;border-radius:3px;white-space:nowrap;transition:border-color .15s,color .15s;align-self:center}
+  .mode-btn:hover{border-color:var(--orange);color:var(--orange)}
 
   /* summary */
-  #summary{padding:16px clamp(12px,2.4vw,40px);border-bottom:1px solid var(--panel-edge);background:rgba(0,0,0,.25)}
+  #summary{padding:16px clamp(12px,2.4vw,40px);border-bottom:1px solid var(--panel-edge);background:rgba(0,0,0,.1)}
+  html.light #summary{background:rgba(0,0,0,.03)}
   .sum-label{font-size:9px;letter-spacing:2.5px;color:var(--ink-faint);margin-bottom:10px}
   .sum-cards{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
   .sum-card{background:var(--panel);border:1px solid var(--panel-edge);border-radius:4px;padding:9px 13px;min-width:130px;flex:1}
@@ -44,7 +69,6 @@
   .pulse-counts .u{color:var(--green);font-family:'Archivo',sans-serif;font-weight:800;font-size:22px}
   .pulse-counts .d{color:var(--red);font-family:'Archivo',sans-serif;font-weight:800;font-size:22px}
   .pulse-counts .sep{color:var(--ink-faint);font-size:13px}
-
   .sum-groups{display:flex;flex-direction:column;gap:6px}
   .sg-row{display:flex;align-items:center;gap:10px}
   .sg-name{font-size:9px;letter-spacing:1.5px;color:var(--ink-dim);width:130px;flex-shrink:0;text-align:right}
@@ -53,26 +77,31 @@
   .sg-val{font-size:10px;font-weight:700;color:var(--red);min-width:48px}
   .sg-val.shallow{color:#ff9a5c}
 
-  /* chart range slider */
-  .range-bar{display:flex;align-items:center;gap:16px;padding:10px clamp(12px,2.4vw,40px);border-bottom:1px solid var(--panel-edge);background:rgba(0,0,0,.2);flex-wrap:wrap}
+  /* chart range + type bar */
+  .range-bar{display:flex;align-items:center;gap:14px;padding:10px clamp(12px,2.4vw,40px);border-bottom:1px solid var(--panel-edge);background:rgba(0,0,0,.1);flex-wrap:wrap}
+  html.light .range-bar{background:rgba(0,0,0,.03)}
   .range-label{font-size:9px;letter-spacing:2px;color:var(--ink-faint);white-space:nowrap}
   .range-slider-wrap{flex:1;min-width:140px;max-width:380px}
   .range-slider-wrap input[type=range]{width:100%;accent-color:var(--orange);cursor:pointer;height:3px;display:block}
   .range-marks{display:flex;justify-content:space-between;font-size:7.5px;color:var(--ink-faint);letter-spacing:.3px;margin-top:3px}
   .range-val{font-family:'Archivo',sans-serif;font-weight:800;font-size:16px;color:var(--orange);min-width:40px;text-align:right;letter-spacing:.5px}
+  .chart-type-btns{display:flex;gap:4px;margin-left:auto}
+  .ctb{background:none;border:1px solid var(--panel-edge);color:var(--ink-dim);cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1px;padding:4px 9px;border-radius:3px;transition:all .15s}
+  .ctb:hover{border-color:var(--orange);color:var(--orange)}
+  .ctb.active{background:var(--orange);border-color:var(--orange);color:var(--orange-ink);font-weight:700}
 
   /* group sections */
   main{padding:0 clamp(12px,2.4vw,40px)}
   .group{margin-top:28px}
   .group-head{display:flex;align-items:center;gap:14px;margin:0 2px 12px}
-  .group-head .tag{background:#11161d;border:1px solid var(--panel-edge);border-left:3px solid var(--orange);font-family:'Archivo',sans-serif;font-weight:800;font-size:13px;letter-spacing:1px;padding:6px 13px;border-radius:0 3px 3px 0;white-space:nowrap}
+  .group-head .tag{background:var(--panel);border:1px solid var(--panel-edge);border-left:3px solid var(--orange);font-family:'Archivo',sans-serif;font-weight:800;font-size:13px;letter-spacing:1px;padding:6px 13px;border-radius:0 3px 3px 0;white-space:nowrap;color:var(--ink)}
   .group-head .en{color:var(--ink-faint);font-size:9px;letter-spacing:.5px}
   .group-head .rule{flex:1;height:1px;background:var(--panel-edge)}
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(285px,1fr));gap:11px;align-items:start}
 
   /* tile */
   .tile{background:var(--panel);border:1px solid var(--panel-edge);border-radius:5px;padding:11px;display:flex;flex-direction:column;gap:8px;transition:border-color .15s,transform .15s;cursor:pointer}
-  .tile:hover{border-color:#2c3a4f;transform:translateY(-2px)}
+  .tile:hover{border-color:var(--tile-hover);transform:translateY(-2px)}
   .tile.selected{border-color:var(--orange)!important;box-shadow:0 0 0 1px var(--orange);transform:none}
   .tile-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
   .label-box{background:var(--orange);color:var(--orange-ink);font-weight:700;font-size:13px;letter-spacing:.3px;padding:5px 9px;border-radius:3px;line-height:1.05}
@@ -82,16 +111,16 @@
   .tile:hover .tile-hint{opacity:.7}
   .tile.selected .tile-hint{color:var(--orange);opacity:.9}
 
-  /* chart + xaxis */
-  .chart-wrap{position:relative;border-radius:3px;overflow:hidden;border:1px solid #11305a;background:linear-gradient(180deg,var(--navy-top),var(--navy-bot));user-select:none}
+  /* chart */
+  .chart-wrap{position:relative;border-radius:3px;overflow:hidden;border:1px solid var(--chart-border);background:linear-gradient(180deg,var(--navy-top),var(--navy-bot));user-select:none}
   .chart-wrap svg{display:block;width:100%;height:90px}
   .xaxis{display:flex;position:relative;height:15px;padding:0 6px}
   .xaxis-tick{position:absolute;font-size:7.5px;color:var(--ink-faint);letter-spacing:.3px;transform:translateX(-50%);white-space:nowrap;line-height:15px}
 
   /* price / dd rows */
   .price-row{display:flex;align-items:flex-end;justify-content:space-between;gap:8px}
-  .close-box{background:#f4f7fb;color:#0a0a0a;font-weight:700;font-size:11px;padding:3px 7px;border-radius:2px;letter-spacing:.2px}
-  .close-box span{color:#5a6472;font-weight:600;margin-right:3px}
+  .close-box{background:var(--close-bg);color:var(--close-ink);font-weight:700;font-size:11px;padding:3px 7px;border-radius:2px;letter-spacing:.2px}
+  .close-box span{color:var(--close-sub);font-weight:600;margin-right:3px}
   .chg{font-family:'Archivo',sans-serif;font-weight:800;font-size:20px;letter-spacing:.5px;line-height:1}
   .chg-wrap{display:flex;flex-direction:column;align-items:flex-end;gap:1px}
   .chg-vs{font-size:8px;color:var(--ink-faint);letter-spacing:.3px;white-space:nowrap}
@@ -103,9 +132,9 @@
   .dd-val{font-weight:700;font-size:11.5px;color:var(--red);white-space:nowrap;min-width:52px;text-align:right}
   .dd-val.shallow{color:#ff9a5c}
 
-  /* holdings panel — lives inside the grid, spans all columns */
+  /* holdings panel inside grid */
   .holdings-panel{grid-column:1/-1;background:var(--panel);border:1px solid var(--panel-edge);border-radius:5px;overflow:hidden}
-  .hp-header{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:rgba(0,0,0,.3);border-bottom:1px solid var(--panel-edge)}
+  .hp-header{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:rgba(0,0,0,.06);border-bottom:1px solid var(--panel-edge)}
   .hp-title{font-family:'Archivo',sans-serif;font-weight:800;font-size:12px;letter-spacing:1px;color:var(--orange)}
   .hp-sub{font-size:9px;color:var(--ink-faint);letter-spacing:1px;margin-left:10px}
   .hp-close{background:none;border:1px solid var(--panel-edge);color:var(--ink-dim);cursor:pointer;font-size:9px;padding:3px 9px;border-radius:3px;font-family:inherit;letter-spacing:.5px}
@@ -115,13 +144,13 @@
 
   /* tooltip */
   #tooltip{position:fixed;pointer-events:none;z-index:200;display:none;
-    background:#111d2d;border:1px solid #2c3d55;border-radius:4px;
+    background:var(--tt-bg);border:1px solid var(--tt-border);border-radius:4px;
     padding:8px 11px;font-size:10.5px;line-height:1.7;white-space:nowrap;
-    box-shadow:0 4px 20px rgba(0,0,0,.6)}
+    box-shadow:0 4px 20px rgba(0,0,0,.25);color:var(--ink)}
   #tooltip[data-mode="label"]{white-space:normal;max-width:240px;min-width:160px}
   #tooltip .tt-date{color:var(--ink-faint);font-size:9.5px;letter-spacing:.5px}
   #tooltip .tt-ticker{color:var(--orange);font-weight:700;font-size:10px;letter-spacing:1px}
-  #tooltip .tt-price{color:var(--ink);font-weight:700}
+  #tooltip .tt-price{color:var(--ink);font-weight:700;font-size:10px}
   #tooltip .tt-desc{color:var(--ink-dim);font-size:10px;line-height:1.5;margin-top:2px}
   #tooltip .tt-chg{font-weight:700}
   #tooltip .tt-chg.up{color:var(--green)}
@@ -129,15 +158,18 @@
 
   /* ticker bar */
   .tickerbar{position:fixed;left:0;right:0;bottom:0;display:flex;align-items:stretch;height:32px;background:var(--bg);border-top:1px solid var(--panel-edge);z-index:20}
-  .tickerbar .stamp{background:#f4f7fb;color:#0a0a0a;font-weight:700;font-size:10px;display:flex;align-items:center;padding:0 13px;letter-spacing:1px;white-space:nowrap}
+  .tickerbar .stamp{background:var(--close-bg);color:var(--close-ink);font-weight:700;font-size:10px;display:flex;align-items:center;padding:0 13px;letter-spacing:1px;white-space:nowrap}
   .tickerbar .feed{flex:1;background:#06281a;overflow:hidden;position:relative}
+  html.light .tickerbar .feed{background:#d4f0e2}
   .feed-inner{position:absolute;white-space:nowrap;height:100%;display:flex;align-items:center;color:var(--green);font-size:10.5px;letter-spacing:.5px;animation:scroll 65s linear infinite;will-change:transform}
+  html.light .feed-inner{color:#0d7a40}
   .feed-inner span{padding:0 20px}
   .feed-inner .u{color:var(--green)}.feed-inner .d{color:var(--red)}.feed-inner .sep{color:#0d8a52}
+  html.light .feed-inner .sep{color:#2aaa60}
   @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
   .empty{padding:60px 20px;text-align:center;color:var(--ink-dim);font-size:13px}
-  @media(max-width:560px){.grid{grid-template-columns:1fr}.sg-name{width:90px}.sum-card{min-width:100px}}
+  @media(max-width:560px){.grid{grid-template-columns:1fr}.sg-name{width:90px}.sum-card{min-width:100px}.chart-type-btns{margin-left:0}}
 </style>
 </head>
 <body>
@@ -147,13 +179,16 @@
     <div class="mark">SC</div>
     <div>
       <h1>THEME ETF <span>MONITOR</span></h1>
-      <p>STUDIOCHICK · MACRO DESK · DAILY DRAWDOWN BOARD</p>
+      <p>STUDIOCHICK · DAILY DRAWDOWN BOARD</p>
     </div>
   </div>
-  <div class="meta" id="meta">
-    <div>SOURCE&nbsp;&nbsp;<b>YAHOO FINANCE</b></div>
-    <div>AS OF&nbsp;&nbsp;<b id="asof">—</b></div>
-    <div id="statusBadge"></div>
+  <div class="meta-wrap">
+    <div class="meta" id="meta">
+      <div>SOURCE&nbsp;&nbsp;<b>YAHOO FINANCE</b></div>
+      <div>AS OF&nbsp;&nbsp;<b id="asof">—</b></div>
+      <div id="statusBadge"></div>
+    </div>
+    <button class="mode-btn" id="modeBtn" onclick="toggleMode()">☀ LIGHT</button>
   </div>
 </header>
 
@@ -171,6 +206,10 @@
     <div class="range-marks"><span>7D</span><span>1M</span><span>3M</span><span>6M</span><span>1Y</span></div>
   </div>
   <span class="range-val" id="rangeVal">40D</span>
+  <div class="chart-type-btns">
+    <button class="ctb active" data-chart-btn="line" onclick="setChartType('line')">LINE</button>
+    <button class="ctb" data-chart-btn="candle" onclick="setChartType('candle')">CANDLE</button>
+  </div>
 </div>
 
 <main id="board"><div class="empty">LOADING FEED…</div></main>
@@ -194,7 +233,6 @@ const SIGN=n=>(n>=0?'+':'')+NUM(n,2)+'%';
 const MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
 const ETF_DESC = {
-  // SECTOR
   'XLK':'Technology Select Sector SPDR — US large-cap tech (Apple, MSFT, NVIDIA)',
   'XLV':'Health Care Select Sector SPDR — pharma, biotech & medical devices',
   'XLF':'Financial Select Sector SPDR — banks, insurance & financial services',
@@ -206,7 +244,6 @@ const ETF_DESC = {
   'XLE':'Energy Select Sector SPDR — oil & gas exploration & production',
   'XLRE':'Real Estate Select Sector SPDR — US equity REITs',
   'XLB':'Materials Select Sector SPDR — chemicals, mining & paper',
-  // STYLE
   'VUG':'Vanguard Large-Cap Growth ETF — Russell 1000 growth stocks',
   'MGK':'Vanguard Mega-Cap Growth ETF — top growth mega-caps incl. Magnificent 7',
   'IWP':'iShares Russell Mid-Cap Growth ETF — mid-size growth companies',
@@ -214,28 +251,24 @@ const ETF_DESC = {
   'VTV':'Vanguard Large-Cap Value ETF — large-cap value stocks',
   'VOE':'Vanguard Mid-Cap Value ETF — mid-size value companies',
   'VBR':'Vanguard Small-Cap Value ETF — small company value stocks',
-  // GROWTH THEMES
   'SOXX':'iShares Semiconductor ETF — Intel, TSMC, NVIDIA & chip makers',
   'IGV':'iShares Expanded Tech-Software ETF — large software companies',
   'SKYY':'First Trust Cloud Computing ETF — cloud infrastructure & SaaS',
   'AIQ':'Global X AI & Technology ETF — AI solutions & big data companies',
   'CIBR':'First Trust Cybersecurity ETF — information security & cyber defense',
   'FINX':'Global X Fintech ETF — digital payments & financial technology',
-  // DIVIDEND
   'VIG':'Vanguard Dividend Appreciation ETF — 10+ yrs of consecutive dividend growth',
   'SCHD':'Schwab US Dividend Equity ETF — quality high-dividend stocks (Dow Jones)',
   'NOBL':'ProShares S&P 500 Dividend Aristocrats — 25+ yrs consecutive dividend growth',
   'DVY':'iShares Select Dividend ETF — high-yield dividend stocks',
   'VNQ':'Vanguard Real Estate ETF — broad US REIT exposure',
   'JEPQ':'JPMorgan NASDAQ Equity Premium Income ETF — covered calls, monthly dividend',
-  // INNOVATION
   'ARKK':'ARK Innovation ETF — disruptive innovation companies (ARK Invest active)',
   'BOTZ':'Global X Robotics & AI ETF — robotics & automation companies',
   'URA':'Global X Uranium ETF — uranium mining & nuclear energy',
   'LIT':'Global X Lithium & Battery Tech ETF — battery makers & lithium miners',
   'ICLN':'iShares Global Clean Energy ETF — wind, solar & clean energy',
   'IBIT':'iShares Bitcoin Trust ETF — spot Bitcoin ETF by BlackRock',
-  // TRUMP THEME
   'TSSD':'Truth Social American Security & Defense ETF — domestic defense, security & law enforcement',
   'TSNF':'Truth Social American Next Frontiers ETF — emerging tech, space & frontier industries',
   'TSIC':'Truth Social American Icons ETF — iconic American brands & heritage companies',
@@ -252,7 +285,20 @@ const GROUP_DESC = {
   'TRUMP THEME':   'Trump-aligned ETFs — Truth Social America-first thematic ETFs',
 };
 
-// derive approximate trading dates backwards from a reference date
+// ── theme toggle ───────────────────────────────────────────
+function toggleMode() {
+  const isLight = document.documentElement.classList.toggle('light');
+  localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  document.getElementById('modeBtn').textContent = isLight ? '☾ DARK' : '☀ LIGHT';
+}
+// set correct button label on load
+(()=>{
+  const saved = localStorage.getItem('theme');
+  const btn = document.getElementById('modeBtn');
+  if (btn) btn.textContent = saved === 'light' ? '☾ DARK' : '☀ LIGHT';
+})();
+
+// ── date helpers ───────────────────────────────────────────
 function deriveDates(asOfStr, n) {
   let ref = new Date((asOfStr||'').replace(/ \(SAMPLE\)/,''));
   if (isNaN(ref)) ref = new Date();
@@ -267,8 +313,7 @@ function deriveDates(asOfStr, n) {
 function buildXAxis(dates) {
   const n=dates.length;
   if(!n) return '';
-  const ticks=[];
-  let lastMon=-1;
+  const ticks=[]; let lastMon=-1;
   for(let i=0;i<n;i++){
     const mon=new Date(dates[i]+'T00:00:00').getMonth();
     if(mon!==lastMon){ticks.push({i,label:MONTHS[mon]});lastMon=mon;}
@@ -279,6 +324,7 @@ function buildXAxis(dates) {
   }).join('');
 }
 
+// ── chart renderers ────────────────────────────────────────
 function sparkSVG(pts) {
   const W=300,H=90,pad=5;
   if(!pts||pts.length<2) return `<svg viewBox="0 0 ${W} ${H}"></svg>`;
@@ -288,8 +334,8 @@ function sparkSVG(pts) {
   const path=xy.map((c,i)=>(i?'L':'M')+c[0].toFixed(1)+' '+c[1].toFixed(1)).join(' ');
   const last=xy[xy.length-1];
   let grid='';
-  for(let i=1;i<4;i++){const y=(H/4)*i;grid+=`<line x1="0" y1="${y.toFixed(0)}" x2="${W}" y2="${y.toFixed(0)}" stroke="var(--grid)" stroke-width="1"/>`;}
-  for(let i=1;i<6;i++){const x=(W/6)*i;grid+=`<line x1="${x.toFixed(0)}" y1="0" x2="${x.toFixed(0)}" y2="${H}" stroke="var(--grid)" stroke-width="1"/>`;}
+  for(let i=1;i<4;i++){const y=(H/4)*i;grid+=`<line x1="0" y1="${y.toFixed(0)}" x2="${W}" y2="${y.toFixed(0)}" stroke="var(--chart-line)" stroke-width="1"/>`;}
+  for(let i=1;i<6;i++){const x=(W/6)*i;grid+=`<line x1="${x.toFixed(0)}" y1="0" x2="${x.toFixed(0)}" y2="${H}" stroke="var(--chart-line)" stroke-width="1"/>`;}
   return `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">
     ${grid}
     <path d="${path}" fill="none" stroke="var(--spark)" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
@@ -297,7 +343,33 @@ function sparkSVG(pts) {
   </svg>`;
 }
 
+function candleSVG(ohlc) {
+  const W=300,H=90,pad=5;
+  if(!ohlc||ohlc.length<2) return `<svg viewBox="0 0 ${W} ${H}"></svg>`;
+  const lows=ohlc.map(d=>d.l), highs=ohlc.map(d=>d.h);
+  const min=Math.min(...lows), max=Math.max(...highs), rng=(max-min)||1;
+  const toY=p=>(pad+(H-pad*2)*(1-(p-min)/rng));
+  const avail=W-pad*2;
+  const step=avail/(ohlc.length-1||1);
+  const cw=Math.max(0.8,Math.min(8,step*0.6));
+  let grid='';
+  for(let i=1;i<4;i++){const y=(H/4)*i;grid+=`<line x1="0" y1="${y.toFixed(1)}" x2="${W}" y2="${y.toFixed(1)}" stroke="var(--chart-line)" stroke-width="1"/>`;}
+  const candles=ohlc.map((d,i)=>{
+    const x=(ohlc.length===1?W/2:pad+i*step).toFixed(1);
+    const bull=d.c>=d.o;
+    const col=bull?'var(--green)':'var(--red)';
+    const bTop=toY(Math.max(d.o,d.c)), bBot=toY(Math.min(d.o,d.c));
+    const bH=Math.max(0.8,bBot-bTop);
+    return `<g>
+      <line x1="${x}" y1="${toY(d.h).toFixed(1)}" x2="${x}" y2="${toY(d.l).toFixed(1)}" stroke="${col}" stroke-width="1"/>
+      <rect x="${(+x-cw/2).toFixed(1)}" y="${bTop.toFixed(1)}" width="${cw.toFixed(1)}" height="${bH.toFixed(1)}" fill="${col}"/>
+    </g>`;
+  }).join('');
+  return `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">${grid}${candles}</svg>`;
+}
+
 let RANGE_DAYS = 40;
+let CHART_TYPE  = 'line';
 
 function tile(e, asOf, gIdx) {
   const up=(e.change_pct||0)>=0;
@@ -305,33 +377,35 @@ function tile(e, asOf, gIdx) {
   const ddW=dd==null?0:Math.min(100,dd);
   const shallow=dd!=null&&dd<8;
   const allSpark=e.spark||[];
+  const allOhlc=e.ohlc||[];
   const allDates=e.spark_dates||deriveDates(asOf,allSpark.length||40);
   const n=allSpark.length?Math.min(RANGE_DAYS,allSpark.length):0;
-  const displaySpark=n?allSpark.slice(-n):allSpark;
-  const displayDates=n?allDates.slice(-n):allDates;
+  const dSpark=n?allSpark.slice(-n):allSpark;
+  const dOhlc=n?allOhlc.slice(-n):allOhlc;
+  const dDates=n?allDates.slice(-n):allDates;
   const closeVal=e.close||0;
   const pd=e.prev_date||'';
   const pdObj=pd?new Date(pd+'T00:00:00'):null;
   const prevDateShort=pdObj&&!isNaN(pdObj)?MONTHS[pdObj.getMonth()]+' '+pdObj.getDate():'';
+  const chartHTML=(CHART_TYPE==='candle'&&dOhlc.length)?candleSVG(dOhlc):sparkSVG(dSpark);
   return `<div class="tile" data-ticker="${e.ticker}" data-group="${gIdx}" onclick="openHoldings(${gIdx},'${e.ticker}')">
     <div class="tile-top">
       <div class="label-box" data-ticker="${e.ticker}"
-           onmouseenter="lbShow(event,this)"
-           onmousemove="lbMove(event)"
-           onmouseleave="ttHide()">${e.label||e.ticker}<span class="tk">${e.ticker}</span></div>
+           onmouseenter="lbShow(event,this)" onmousemove="lbMove(event)" onmouseleave="ttHide()"
+           >${e.label||e.ticker}<span class="tk">${e.ticker}</span></div>
       <div class="tile-sub">THEME ETF MONITOR<br>PER. DAILY · CLOSE</div>
     </div>
     <div class="chart-wrap"
-         data-spark='${JSON.stringify(displaySpark)}'
-         data-dates='${JSON.stringify(displayDates)}'
+         data-spark='${JSON.stringify(dSpark)}'
+         data-ohlc='${JSON.stringify(dOhlc)}'
+         data-dates='${JSON.stringify(dDates)}'
          data-all-spark='${JSON.stringify(allSpark)}'
+         data-all-ohlc='${JSON.stringify(allOhlc)}'
          data-all-dates='${JSON.stringify(allDates)}'
          data-close="${closeVal}"
-         onmouseenter="ttShow(event,this)"
-         onmousemove="ttMove(event,this)"
-         onmouseleave="ttHide()">
-      ${sparkSVG(displaySpark)}
-      <div class="xaxis">${buildXAxis(displayDates)}</div>
+         onmouseenter="ttShow(event,this)" onmousemove="ttMove(event,this)" onmouseleave="ttHide()">
+      ${chartHTML}
+      <div class="xaxis">${buildXAxis(dDates)}</div>
     </div>
     <div class="price-row">
       <div class="close-box"><span>CLOSE</span>$${NUM(e.close,2)}</div>
@@ -355,21 +429,41 @@ function setRange(n) {
   document.getElementById('rangeVal').textContent=lbl;
   document.querySelectorAll('.chart-wrap').forEach(cw=>{
     const allSpark=JSON.parse(cw.dataset.allSpark||'[]');
+    const allOhlc=JSON.parse(cw.dataset.allOhlc||'[]');
     const allDates=JSON.parse(cw.dataset.allDates||'[]');
     if(!allSpark.length)return;
     const sl=Math.min(n,allSpark.length);
     const spark=allSpark.slice(-sl);
+    const ohlc=allOhlc.slice(-sl);
     const dates=allDates.slice(-sl);
     cw.dataset.spark=JSON.stringify(spark);
+    cw.dataset.ohlc=JSON.stringify(ohlc);
     cw.dataset.dates=JSON.stringify(dates);
-    const svgEl=cw.querySelector('svg');
-    if(svgEl){const tp=document.createElement('template');tp.innerHTML=sparkSVG(spark);svgEl.replaceWith(tp.content.firstChild);}
-    const xa=cw.querySelector('.xaxis');
-    if(xa)xa.innerHTML=buildXAxis(dates);
+    _replaceChart(cw, spark, ohlc, dates);
   });
 }
 
-// tooltip logic
+function setChartType(type) {
+  CHART_TYPE=type;
+  document.querySelectorAll('[data-chart-btn]').forEach(b=>b.classList.toggle('active',b.dataset.chartBtn===type));
+  document.querySelectorAll('.chart-wrap').forEach(cw=>{
+    const spark=JSON.parse(cw.dataset.spark||'[]');
+    const ohlc=JSON.parse(cw.dataset.ohlc||'[]');
+    const dates=JSON.parse(cw.dataset.dates||'[]');
+    _replaceChart(cw, spark, ohlc, dates);
+  });
+}
+
+function _replaceChart(cw, spark, ohlc, dates) {
+  const svgEl=cw.querySelector('svg');
+  const useCandle=(CHART_TYPE==='candle'&&ohlc&&ohlc.length>0);
+  const html=useCandle?candleSVG(ohlc):sparkSVG(spark);
+  if(svgEl){const tp=document.createElement('template');tp.innerHTML=html;svgEl.replaceWith(tp.content.firstChild);}
+  const xa=cw.querySelector('.xaxis');
+  if(xa)xa.innerHTML=buildXAxis(dates);
+}
+
+// ── tooltip ────────────────────────────────────────────────
 const ttEl=document.getElementById('tooltip');
 const ttTicker=document.getElementById('ttTicker');
 const ttDate=document.getElementById('ttDate');
@@ -379,8 +473,7 @@ const ttChg=document.getElementById('ttChg');
 
 function ttShow(e,el){
   ttEl.dataset.mode='chart';
-  ttTicker.style.display='none';
-  ttDesc.style.display='none';
+  ttTicker.style.display='none';ttDesc.style.display='none';
   ttEl.style.display='block';
   ttMove(e,el);
 }
@@ -389,25 +482,33 @@ function ttMove(e,el){
   const rect=el.getBoundingClientRect();
   const pct=Math.max(0,Math.min(1,(e.clientX-rect.left)/rect.width));
   const spark=JSON.parse(el.dataset.spark||'[]');
+  const ohlc=JSON.parse(el.dataset.ohlc||'[]');
   const dates=JSON.parse(el.dataset.dates||'[]');
   const close=parseFloat(el.dataset.close)||0;
-  if(!spark.length) return;
+  if(!spark.length)return;
   const idx=Math.round(pct*(spark.length-1));
-  const price=spark[idx];
   const date=dates[idx]||'';
-  const pctVsDate=close>0&&price>0?((close/price-1)*100):0;
-  const up=close>=price;
   const d=new Date(date+'T00:00:00');
   const dateStr=isNaN(d)?date:[MONTHS[d.getMonth()],d.getDate()+',',d.getFullYear()].join(' ');
   ttDate.textContent=dateStr;
-  ttPrice.textContent='$'+NUM(price,2);
-  ttChg.textContent='TODAY '+(pctVsDate>=0?'+':'')+NUM(pctVsDate,1)+'% vs '+dateStr;
-  ttChg.className='tt-chg '+(up?'up':'down');
+  if(CHART_TYPE==='candle'&&ohlc[idx]){
+    const bar=ohlc[idx];
+    ttPrice.textContent=`O $${NUM(bar.o,2)}  H $${NUM(bar.h,2)}  L $${NUM(bar.l,2)}  C $${NUM(bar.c,2)}`;
+    const pct2=close>0&&bar.c>0?((close/bar.c-1)*100):0;
+    ttChg.textContent='TODAY '+(pct2>=0?'+':'')+NUM(pct2,1)+'% vs '+dateStr;
+    ttChg.className='tt-chg '+(close>=bar.c?'up':'down');
+  }else{
+    const price=spark[idx];
+    const pct2=close>0&&price>0?((close/price-1)*100):0;
+    ttPrice.textContent='$'+NUM(price,2);
+    ttChg.textContent='TODAY '+(pct2>=0?'+':'')+NUM(pct2,1)+'% vs '+dateStr;
+    ttChg.className='tt-chg '+(close>=price?'up':'down');
+  }
   ttEl.style.removeProperty('max-width');
-  const tipW=Math.max(180,ttEl.offsetWidth);
-  let x=e.clientX+14, y=e.clientY-54;
-  if(x+tipW>window.innerWidth) x=e.clientX-tipW-4;
-  if(y<4) y=4;
+  const tipW=Math.max(200,ttEl.offsetWidth);
+  let x=e.clientX+14,y=e.clientY-54;
+  if(x+tipW>window.innerWidth)x=e.clientX-tipW-4;
+  if(y<4)y=4;
   ttEl.style.left=x+'px';ttEl.style.top=y+'px';
 }
 
@@ -415,26 +516,22 @@ function lbShow(e,el){
   const ticker=el.dataset.ticker||'';
   const desc=ETF_DESC[ticker]||'';
   ttEl.dataset.mode='label';
-  ttTicker.textContent=ticker;
-  ttTicker.style.display='block';
-  ttDate.textContent='';
-  ttPrice.textContent='';
-  ttDesc.textContent=desc;
-  ttDesc.style.display=desc?'block':'none';
-  ttChg.textContent='';
-  ttChg.className='tt-chg';
+  ttTicker.textContent=ticker;ttTicker.style.display='block';
+  ttDate.textContent='';ttPrice.textContent='';
+  ttDesc.textContent=desc;ttDesc.style.display=desc?'block':'none';
+  ttChg.textContent='';ttChg.className='tt-chg';
   ttEl.style.display='block';
   lbMove(e);
 }
 function lbMove(e){
   const tipW=240;
-  let x=e.clientX+14, y=e.clientY-20;
-  if(x+tipW>window.innerWidth) x=e.clientX-tipW-4;
-  if(y<4) y=4;
+  let x=e.clientX+14,y=e.clientY-20;
+  if(x+tipW>window.innerWidth)x=e.clientX-tipW-4;
+  if(y<4)y=4;
   ttEl.style.left=x+'px';ttEl.style.top=y+'px';
 }
 
-// ── Holdings treemap ───────────────────────────────────────
+// ── holdings treemap ───────────────────────────────────────
 const ETF_STORE={};
 
 function tmLayout(nodes,x,y,w,h){
@@ -447,12 +544,10 @@ function tmLayout(nodes,x,y,w,h){
   if(w>=h){const mx=x+w*frac;return[...tmLayout(nodes.slice(0,split),x,y,mx-x,h),...tmLayout(nodes.slice(split),mx,y,x+w-mx,h)];}
   else{const my=y+h*frac;return[...tmLayout(nodes.slice(0,split),x,y,w,my-y),...tmLayout(nodes.slice(split),x,my,w,y+h-my)];}
 }
-
 function tmColor(i,total){
   const t=1-i/Math.max(total-1,1);
   return `rgb(${Math.round(12+t*28)},${Math.round(45+t*75)},${Math.round(95+t*95)})`;
 }
-
 function renderTreemap(holdings,container){
   if(!holdings||!holdings.length){
     container.innerHTML='<div style="padding:40px 20px;text-align:center;color:var(--ink-faint);font-size:11px;letter-spacing:1px">NO HOLDINGS DATA · RE-RUN DATA FETCH</div>';
@@ -471,17 +566,15 @@ function renderTreemap(holdings,container){
     return `<g onmouseenter="tmTip(event,'${safeT}','${safeN}',${v})" onmouseleave="ttHide()">
       <rect x="${(x+G).toFixed(1)}" y="${(y+G).toFixed(1)}" width="${Math.max(0,w-G*2).toFixed(1)}" height="${Math.max(0,h-G*2).toFixed(1)}" rx="3" fill="${bg}"/>
       ${showTk?`<text x="${(x+w/2).toFixed(1)}" y="${(y+h/2+(showPct?-7:4)).toFixed(1)}" text-anchor="middle" dominant-baseline="middle" fill="white" font-size="${fs.toFixed(0)}" font-weight="700" font-family="Archivo,sans-serif" pointer-events="none">${safeT}</text>`:''}
-      ${showPct?`<text x="${(x+w/2).toFixed(1)}" y="${(y+h/2+9).toFixed(1)}" text-anchor="middle" dominant-baseline="middle" fill="rgba(255,255,255,0.7)" font-size="9.5" font-family="IBM Plex Mono,monospace" pointer-events="none">${v.toFixed(1)}%</text>`:''}
+      ${showPct?`<text x="${(x+w/2).toFixed(1)}" y="${(y+h/2+9).toFixed(1)}" text-anchor="middle" dominant-baseline="middle" fill="rgba(255,255,255,0.75)" font-size="9.5" font-family="IBM Plex Mono,monospace" pointer-events="none">${v.toFixed(1)}%</text>`:''}
     </g>`;
   }).join('');
   container.innerHTML=`<svg width="${W}" height="${H}" style="display:block">${cells}</svg>`;
 }
-
 function tmTip(e,ticker,name,weight){
   ttEl.dataset.mode='label';
   ttTicker.textContent=ticker;ttTicker.style.display='block';
-  ttDate.textContent='';
-  ttPrice.textContent=name;
+  ttDate.textContent='';ttPrice.textContent=name;
   ttDesc.textContent=NUM(weight,2)+'% of portfolio';ttDesc.style.display='block';
   ttChg.textContent='';ttChg.className='tt-chg';
   ttEl.style.display='block';
@@ -499,18 +592,13 @@ function openHoldings(gIdx,ticker){
   const panel=document.getElementById('hp-'+gIdx);
   const grid=document.getElementById('grid-'+gIdx);
   if(!etf||!panel||!grid)return;
-
   const clickedTile=grid.querySelector(`.tile[data-ticker="${ticker}"]`);
-
-  // toggle off same tile
   if(_activeHP&&_activeHP.gIdx===gIdx&&_activeHP.ticker===ticker){
     panel.style.display='none';
     [...grid.querySelectorAll('.tile')].forEach(t=>t.style.order='');
     if(clickedTile)clickedTile.classList.remove('selected');
     _activeHP=null;return;
   }
-
-  // close previous
   if(_activeHP){
     const pp=document.getElementById('hp-'+_activeHP.gIdx);
     const pg=document.getElementById('grid-'+_activeHP.gIdx);
@@ -518,26 +606,18 @@ function openHoldings(gIdx,ticker){
     if(pg)[...pg.querySelectorAll('.tile')].forEach(t=>t.style.order='');
     document.querySelectorAll('.tile.selected').forEach(t=>t.classList.remove('selected'));
   }
-
   _activeHP={gIdx,ticker};
   if(clickedTile)clickedTile.classList.add('selected');
-
-  // assign even order to tiles so panel can slot between rows
   const allTiles=[...grid.querySelectorAll('.tile')];
   allTiles.forEach((t,i)=>t.style.order=String(i*2));
-
-  // detect which row the clicked tile is in
   if(clickedTile){
-    const tileTop=clickedTile.getBoundingClientRect().top;
-    const tilesInRow=allTiles.filter(t=>Math.abs(t.getBoundingClientRect().top-tileTop)<10);
-    const lastInRow=tilesInRow[tilesInRow.length-1];
-    const lastIdx=allTiles.indexOf(lastInRow);
-    panel.style.order=String(lastIdx*2+1);
+    const top=clickedTile.getBoundingClientRect().top;
+    const row=allTiles.filter(t=>Math.abs(t.getBoundingClientRect().top-top)<10);
+    const last=row[row.length-1];
+    panel.style.order=String(allTiles.indexOf(last)*2+1);
   }
-
   const hdr=document.getElementById('hpt-'+gIdx);
   if(hdr)hdr.textContent=`${ticker} · ${etf.label||ticker}`;
-
   panel.style.display='block';
   const mapEl=document.getElementById('hpmap-'+gIdx);
   if(mapEl)requestAnimationFrame(()=>{
@@ -545,7 +625,6 @@ function openHoldings(gIdx,ticker){
     panel.scrollIntoView({behavior:'smooth',block:'nearest'});
   });
 }
-
 function closeHoldings(gIdx){
   const panel=document.getElementById('hp-'+gIdx);
   const grid=document.getElementById('grid-'+gIdx);
@@ -554,8 +633,8 @@ function closeHoldings(gIdx){
   document.querySelectorAll('.tile.selected').forEach(t=>t.classList.remove('selected'));
   _activeHP=null;
 }
-// ──────────────────────────────────────────────────────────
 
+// ── summary ────────────────────────────────────────────────
 function buildSummary(data){
   const all=data.groups.flatMap(g=>g.etfs.map(e=>({...e,gname:g.name_en})));
   const valid=all.filter(e=>e.change_pct!=null);
@@ -566,13 +645,10 @@ function buildSummary(data){
   const ddV=all.filter(e=>e.drawdown_pct!=null);
   const shallowest=ddV.reduce((a,b)=>a.drawdown_pct>b.drawdown_pct?a:b,ddV[0]);
   const deepest=ddV.reduce((a,b)=>a.drawdown_pct<b.drawdown_pct?a:b,ddV[0]);
-
   document.getElementById('sumCards').innerHTML=`
     <div class="sum-card">
       <div class="sc-lbl">UP / DOWN TODAY</div>
-      <div class="pulse-counts">
-        <span class="u">▲${upCount}</span><span class="sep">/</span><span class="d">▼${dnCount}</span>
-      </div>
+      <div class="pulse-counts"><span class="u">▲${upCount}</span><span class="sep">/</span><span class="d">▼${dnCount}</span></div>
       <div class="sc-sub">${valid.length} ETFs tracked</div>
     </div>
     <div class="sum-card">
@@ -595,7 +671,6 @@ function buildSummary(data){
       <div class="sc-val down">-${NUM(Math.abs(deepest?.drawdown_pct),1)}%</div>
       <div class="sc-sub">${deepest?.ticker} · ${deepest?.label}</div>
     </div>`;
-
   const maxAbs=Math.max(...data.groups.map(g=>{
     const dds=g.etfs.filter(e=>e.drawdown_pct!=null).map(e=>Math.abs(e.drawdown_pct));
     return dds.length?dds.reduce((a,b)=>a+b,0)/dds.length:0;
@@ -604,26 +679,25 @@ function buildSummary(data){
     const dds=g.etfs.filter(e=>e.drawdown_pct!=null).map(e=>Math.abs(e.drawdown_pct));
     const avg=dds.length?dds.reduce((a,b)=>a+b,0)/dds.length:0;
     const w=(avg/Math.max(maxAbs,1)*100).toFixed(1);
-    const shallow=avg<8;
     return `<div class="sg-row">
       <div class="sg-name">${g.name_en}</div>
       <div class="sg-track"><div class="sg-fill" style="width:${w}%"></div></div>
-      <div class="sg-val ${shallow?'shallow':''}">-${NUM(avg,1)}%</div>
+      <div class="sg-val ${avg<8?'shallow':''}">-${NUM(avg,1)}%</div>
     </div>`;
   }).join('');
-
   document.getElementById('summary').style.display='block';
 }
 
+// ── render ─────────────────────────────────────────────────
 function render(data){
   document.getElementById('asof').textContent=data.as_of||'—';
   const badge=document.getElementById('statusBadge');
-  badge.innerHTML=data.sample?'<span class="badge-sample">SAMPLE DATA</span>':'<span class="badge-live">LIVE</span>';
+  badge.innerHTML=data.sample
+    ?'<span class="badge-sample">SAMPLE DATA</span>'
+    :'<span class="badge-daily">DAILY · EOD</span>';
 
   buildSummary(data);
   document.getElementById('rangeBar').style.display='flex';
-
-  // populate ETF store for holdings lookup
   (data.groups||[]).forEach(g=>g.etfs.forEach(e=>{ETF_STORE[e.ticker]=e;}));
 
   document.getElementById('board').innerHTML=(data.groups||[]).map((g,gIdx)=>`
@@ -659,14 +733,14 @@ function render(data){
 async function boot(){
   try{
     const r=await fetch('./data/etf_data.json',{cache:'no-store'});
-    if(!r.ok) throw new Error('no json');
+    if(!r.ok)throw new Error('no json');
     render(await r.json());
   }catch(e){render(window.__FALLBACK__);}
 }
 
 window.__FALLBACK__={as_of:'DEMO',sample:true,groups:[{name:'SECTOR',name_en:'SECTOR',etfs:[
-  {ticker:'XLK',label:'Info Tech',close:0,change_pct:0,drawdown_pct:-0.7,holdings:[]},
-  {ticker:'XLF',label:'Financials',close:0,change_pct:0,drawdown_pct:-8.1,holdings:[]}
+  {ticker:'XLK',label:'Info Tech',close:0,change_pct:0,drawdown_pct:-0.7,spark:[],ohlc:[],holdings:[]},
+  {ticker:'XLF',label:'Financials',close:0,change_pct:0,drawdown_pct:-8.1,spark:[],ohlc:[],holdings:[]}
 ]}]};
 boot();
 </script>
