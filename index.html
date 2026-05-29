@@ -618,9 +618,11 @@ function tmLayout(nodes,x,y,w,h){
   if(w>=h){const mx=x+w*frac;return[...tmLayout(nodes.slice(0,split),x,y,mx-x,h),...tmLayout(nodes.slice(split),mx,y,x+w-mx,h)];}
   else{const my=y+h*frac;return[...tmLayout(nodes.slice(0,split),x,y,w,my-y),...tmLayout(nodes.slice(split),x,my,w,y+h-my)];}
 }
-function tmColor(i,total){
-  const t=1-i/Math.max(total-1,1);
-  return `rgb(${Math.round(12+t*28)},${Math.round(45+t*75)},${Math.round(95+t*95)})`;
+function tmColor(chg){
+  if(chg==null||isNaN(chg)) return 'rgb(20,52,105)';
+  const abs=Math.min(Math.abs(chg),3), t=abs/3;
+  if(chg>=0) return `rgb(${Math.round(12+t*8)},${Math.round(100+t*100)},${Math.round(55+t*45)})`;
+  return `rgb(${Math.round(140+t*80)},${Math.round(28+t*10)},${Math.round(28+t*10)})`;
 }
 function renderTreemap(holdings,container){
   if(!holdings||!holdings.length){
@@ -628,16 +630,17 @@ function renderTreemap(holdings,container){
     return;
   }
   const W=container.clientWidth||600,H=260,G=2;
-  const nodes=[...holdings].filter(h=>h.weight>0).sort((a,b)=>b.weight-a.weight).map(h=>({ticker:h.ticker,name:h.name,v:h.weight}));
+  const nodes=[...holdings].filter(h=>h.weight>0).sort((a,b)=>b.weight-a.weight).map(h=>({ticker:h.ticker,name:h.name,v:h.weight,chg:h.chg??null}));
   const layout=tmLayout(nodes,0,0,W,H);
-  const cells=layout.map((cell,i)=>{
-    const{x,y,w,h,ticker,name,v}=cell;
-    const bg=tmColor(i,nodes.length);
+  const cells=layout.map((cell)=>{
+    const{x,y,w,h,ticker,name,v,chg}=cell;
+    const bg=tmColor(chg);
     const showTk=w>44&&h>26,showPct=w>44&&h>46;
     const fs=Math.min(14,Math.max(9,w/Math.max((ticker||'').length,1)*1.5));
     const safeT=(ticker||'').replace(/&/g,'&amp;').replace(/'/g,'&#39;');
     const safeN=(name||ticker||'').replace(/&/g,'&amp;').replace(/'/g,'&#39;').replace(/"/g,'&quot;');
-    return `<g onmouseenter="tmTip(event,'${safeT}','${safeN}',${v})" onmouseleave="ttHide()">
+    const chgArg=chg!=null?chg:'null';
+    return `<g onmouseenter="tmTip(event,'${safeT}','${safeN}',${v},${chgArg})" onmouseleave="ttHide()">
       <rect x="${(x+G).toFixed(1)}" y="${(y+G).toFixed(1)}" width="${Math.max(0,w-G*2).toFixed(1)}" height="${Math.max(0,h-G*2).toFixed(1)}" rx="3" fill="${bg}"/>
       ${showTk?`<text x="${(x+w/2).toFixed(1)}" y="${(y+h/2+(showPct?-7:4)).toFixed(1)}" text-anchor="middle" dominant-baseline="middle" fill="white" font-size="${fs.toFixed(0)}" font-weight="700" font-family="Archivo,sans-serif" pointer-events="none">${safeT}</text>`:''}
       ${showPct?`<text x="${(x+w/2).toFixed(1)}" y="${(y+h/2+9).toFixed(1)}" text-anchor="middle" dominant-baseline="middle" fill="rgba(255,255,255,0.75)" font-size="9.5" font-family="IBM Plex Mono,monospace" pointer-events="none">${v.toFixed(1)}%</text>`:''}
@@ -645,11 +648,12 @@ function renderTreemap(holdings,container){
   }).join('');
   container.innerHTML=`<svg width="${W}" height="${H}" style="display:block">${cells}</svg>`;
 }
-function tmTip(e,ticker,name,weight){
+function tmTip(e,ticker,name,weight,chg){
   ttEl.dataset.mode='label';
   ttTicker.textContent=ticker;ttTicker.style.display='block';
   ttDate.textContent='';ttPrice.textContent=name;
-  ttDesc.textContent=NUM(weight,2)+'% of portfolio';ttDesc.style.display='block';
+  const chgStr=chg!=null&&!isNaN(chg)?' · '+(chg>=0?'+':'')+NUM(chg,2)+'% today':'';
+  ttDesc.textContent=NUM(weight,2)+'% of portfolio'+chgStr;ttDesc.style.display='block';
   ttChg.textContent='';ttChg.className='tt-chg';
   ttEl.style.display='block';
   let x=e.clientX+14,y=e.clientY-20;
@@ -721,7 +725,7 @@ function buildSummary(data){
   const deepest=ddV.reduce((a,b)=>a.drawdown_pct<b.drawdown_pct?a:b,ddV[0]);
   document.getElementById('sumCards').innerHTML=`
     <div class="sum-card">
-      <div class="sc-lbl">UP / DOWN TODAY</div>
+      <div class="sc-lbl">UP / DOWN</div>
       <div class="pulse-counts"><span class="u">▲${upCount}</span><span class="sep">/</span><span class="d">▼${dnCount}</span></div>
       <div class="sc-sub">${valid.length} ETFs tracked</div>
     </div>
