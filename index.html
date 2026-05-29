@@ -210,13 +210,13 @@
 <div class="range-bar" id="rangeBar" style="display:none">
   <span class="range-label">CHART RANGE</span>
   <div class="range-slider-wrap">
-    <input type="range" id="rangeSlider" min="7" max="365" value="40" step="1" oninput="setRange(+this.value)">
+    <input type="range" id="rangeSlider" min="7" max="365" value="46" step="1" oninput="setRange(+this.value)">
     <div class="range-marks"><span>7D</span><span>1M</span><span>3M</span><span>6M</span><span>1Y</span></div>
   </div>
-  <span class="range-val" id="rangeVal">40D</span>
+  <span class="range-val" id="rangeVal">46D</span>
   <div class="chart-type-btns">
-    <button class="ctb active" data-chart-btn="line" onclick="setChartType('line')">LINE</button>
-    <button class="ctb" data-chart-btn="candle" onclick="setChartType('candle')">CANDLE</button>
+    <button class="ctb" data-chart-btn="line" onclick="setChartType('line')">LINE</button>
+    <button class="ctb active" data-chart-btn="candle" onclick="setChartType('candle')">CANDLE</button>
   </div>
 </div>
 
@@ -370,6 +370,14 @@ function buildXAxis(dates) {
 }
 
 // ── chart renderers ────────────────────────────────────────
+function calcMA(vals, period) {
+  return vals.map((_,i)=>{
+    const s=Math.max(0,i-period+1);
+    const sl=vals.slice(s,i+1);
+    return sl.reduce((a,v)=>a+v,0)/sl.length;
+  });
+}
+
 function sparkSVG(pts) {
   const W=300,H=90,pad=5;
   if(!pts||pts.length<2) return `<svg viewBox="0 0 ${W} ${H}"></svg>`;
@@ -378,12 +386,15 @@ function sparkSVG(pts) {
   const xy=pts.map((p,i)=>[pad+i*dx, pad+(H-pad*2)*(1-(p-min)/rng)]);
   const path=xy.map((c,i)=>(i?'L':'M')+c[0].toFixed(1)+' '+c[1].toFixed(1)).join(' ');
   const last=xy[xy.length-1];
+  const ma=calcMA(pts,20);
+  const maPath=ma.map((v,i)=>{const y=(pad+(H-pad*2)*(1-(v-min)/rng)).toFixed(1);return(i?'L':'M')+xy[i][0].toFixed(1)+' '+y;}).join(' ');
   let grid='';
   for(let i=1;i<4;i++){const y=(H/4)*i;grid+=`<line x1="0" y1="${y.toFixed(0)}" x2="${W}" y2="${y.toFixed(0)}" stroke="var(--chart-line)" stroke-width="1"/>`;}
   for(let i=1;i<6;i++){const x=(W/6)*i;grid+=`<line x1="${x.toFixed(0)}" y1="0" x2="${x.toFixed(0)}" y2="${H}" stroke="var(--chart-line)" stroke-width="1"/>`;}
   return `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">
     ${grid}
     <path d="${path}" fill="none" stroke="var(--spark)" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="${maPath}" fill="none" stroke="var(--orange)" stroke-width="1" opacity="0.7" stroke-linejoin="round" stroke-linecap="round"/>
     <circle cx="${last[0].toFixed(1)}" cy="${last[1].toFixed(1)}" r="2.5" fill="var(--spark)"/>
   </svg>`;
 }
@@ -391,7 +402,7 @@ function sparkSVG(pts) {
 function candleSVG(ohlc) {
   const W=300,H=90,pad=5;
   if(!ohlc||ohlc.length<2) return `<svg viewBox="0 0 ${W} ${H}"></svg>`;
-  const lows=ohlc.map(d=>d.l), highs=ohlc.map(d=>d.h);
+  const lows=ohlc.map(d=>d.l), highs=ohlc.map(d=>d.h), closes=ohlc.map(d=>d.c);
   const min=Math.min(...lows), max=Math.max(...highs), rng=(max-min)||1;
   const toY=p=>(pad+(H-pad*2)*(1-(p-min)/rng));
   const avail=W-pad*2;
@@ -410,11 +421,13 @@ function candleSVG(ohlc) {
       <rect x="${(+x-cw/2).toFixed(1)}" y="${bTop.toFixed(1)}" width="${cw.toFixed(1)}" height="${bH.toFixed(1)}" fill="${col}"/>
     </g>`;
   }).join('');
-  return `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">${grid}${candles}</svg>`;
+  const ma=calcMA(closes,20);
+  const maPath=ma.map((v,i)=>{const x=(ohlc.length===1?W/2:pad+i*step);return(i?'L':'M')+x.toFixed(1)+' '+toY(v).toFixed(1);}).join(' ');
+  return `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">${grid}${candles}<path d="${maPath}" fill="none" stroke="var(--orange)" stroke-width="1" opacity="0.75" stroke-linejoin="round" stroke-linecap="round"/></svg>`;
 }
 
-let RANGE_DAYS = 40;
-let CHART_TYPE  = 'line';
+let RANGE_DAYS = 46;
+let CHART_TYPE  = 'candle';
 
 function tile(e, asOf, gIdx) {
   const up=(e.change_pct||0)>=0;
@@ -437,6 +450,7 @@ function tile(e, asOf, gIdx) {
     <div class="tile-top">
       <div class="label-box" data-ticker="${e.ticker}"
            onmouseenter="lbShow(event,this)" onmousemove="lbMove(event)" onmouseleave="ttHide()"
+           ontouchstart="lbTouch(event,this)" ontouchend="ttHide()"
            >${e.label||e.ticker}<span class="tk">${e.ticker}</span></div>
       <div class="tile-sub">THEME ETF MONITOR<br>PER. DAILY · CLOSE</div>
     </div>
@@ -448,7 +462,8 @@ function tile(e, asOf, gIdx) {
          data-all-ohlc='${JSON.stringify(allOhlc)}'
          data-all-dates='${JSON.stringify(allDates)}'
          data-close="${closeVal}"
-         onmouseenter="ttShow(event,this)" onmousemove="ttMove(event,this)" onmouseleave="ttHide()">
+         onmouseenter="ttShow(event,this)" onmousemove="ttMove(event,this)" onmouseleave="ttHide()"
+         ontouchstart="ttTouch(event,this)" ontouchmove="ttTouch(event,this)" ontouchend="ttHide()">
       ${chartHTML}
       <div class="xaxis">${buildXAxis(dDates)}</div>
     </div>
@@ -574,6 +589,20 @@ function lbMove(e){
   if(x+tipW>window.innerWidth)x=e.clientX-tipW-4;
   if(y<4)y=4;
   ttEl.style.left=x+'px';ttEl.style.top=y+'px';
+}
+
+function ttTouch(e,el){
+  const t=e.touches[0]||e.changedTouches[0];
+  if(!t)return;
+  e.stopPropagation();
+  if(e.cancelable)e.preventDefault();
+  ttShow({clientX:t.clientX,clientY:t.clientY},el);
+}
+function lbTouch(e,el){
+  const t=e.touches[0]||e.changedTouches[0];
+  if(!t)return;
+  e.stopPropagation();
+  lbShow({clientX:t.clientX,clientY:t.clientY},el);
 }
 
 // ── holdings treemap ───────────────────────────────────────
