@@ -60,8 +60,8 @@
   html.light #summary{background:rgba(0,0,0,.03)}
   .sum-label{font-size:9px;letter-spacing:2.5px;color:var(--ink-faint);margin-bottom:10px}
   .sum-cards{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
-  .sum-card{background:var(--panel);border:1px solid var(--panel-edge);border-radius:4px;padding:9px 13px;min-width:130px;flex:1}
-  .sum-card .sc-lbl{font-size:8.5px;letter-spacing:1.5px;color:var(--ink-faint);margin-bottom:4px}
+  .sum-card{background:var(--panel);border:1px solid var(--panel-edge);border-radius:4px;padding:9px 13px;min-width:150px;flex:1}
+  .sum-card .sc-lbl{font-size:8.5px;letter-spacing:1.5px;color:var(--ink-faint);margin-bottom:4px;white-space:nowrap}
   .sum-card .sc-val{font-family:'Archivo',sans-serif;font-weight:800;font-size:18px;line-height:1}
   .sum-card .sc-sub{font-size:9px;color:var(--ink-dim);margin-top:3px;letter-spacing:.5px}
   .sc-val.up{color:var(--green)}.sc-val.down{color:var(--red)}.sc-val.neutral{color:var(--ink)}
@@ -139,7 +139,7 @@
   .hp-sub{font-size:9px;color:var(--ink-faint);letter-spacing:1px;margin-left:10px}
   .hp-close{background:none;border:1px solid var(--panel-edge);color:var(--ink-dim);cursor:pointer;font-size:9px;padding:3px 9px;border-radius:3px;font-family:inherit;letter-spacing:.5px}
   .hp-close:hover{border-color:var(--orange);color:var(--orange)}
-  .hp-treemap{padding:12px}
+  .hp-treemap{padding:12px 0}
   .hp-note{font-size:8px;color:var(--ink-faint);padding:0 14px 10px;letter-spacing:.5px}
 
   /* tooltip */
@@ -590,7 +590,7 @@ function renderTreemap(holdings,container){
     container.innerHTML='<div style="padding:40px 20px;text-align:center;color:var(--ink-faint);font-size:11px;letter-spacing:1px">NO HOLDINGS DATA · RE-RUN DATA FETCH</div>';
     return;
   }
-  const W=600,H=260,G=2;
+  const W=container.clientWidth||600,H=260,G=2;
   const nodes=[...holdings].filter(h=>h.weight>0).sort((a,b)=>b.weight-a.weight).map(h=>({ticker:h.ticker,name:h.name,v:h.weight}));
   const layout=tmLayout(nodes,0,0,W,H);
   const cells=layout.map((cell,i)=>{
@@ -606,7 +606,7 @@ function renderTreemap(holdings,container){
       ${showPct?`<text x="${(x+w/2).toFixed(1)}" y="${(y+h/2+9).toFixed(1)}" text-anchor="middle" dominant-baseline="middle" fill="rgba(255,255,255,0.75)" font-size="9.5" font-family="IBM Plex Mono,monospace" pointer-events="none">${v.toFixed(1)}%</text>`:''}
     </g>`;
   }).join('');
-  container.innerHTML=`<svg viewBox="0 0 ${W} ${H}" width="100%" height="${H}" preserveAspectRatio="none" style="display:block">${cells}</svg>`;
+  container.innerHTML=`<svg width="${W}" height="${H}" style="display:block">${cells}</svg>`;
 }
 function tmTip(e,ticker,name,weight){
   ttEl.dataset.mode='label';
