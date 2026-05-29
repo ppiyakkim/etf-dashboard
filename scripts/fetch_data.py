@@ -31,6 +31,26 @@ GROUPS = [
         ("TSSD","Security & Defense"),("TSNF","Next Frontiers"),("TSIC","American Icons"),
         ("TSES","Energy Security"),("TSRS","Red State REITs"),
     ]),
+    ("US ETFs", "US ETFs", [
+        ("VOO","S&P 500"),("SPY","S&P 500 (SPDR)"),("QQQ","NASDAQ 100"),
+        ("GLD","Gold"),("SCHD","Div Quality"),("QQQM","NASDAQ 100 (Mini)"),
+        ("BIL","T-Bills 1-3M"),("JEPI","Covered Call"),("TQQQ","3x NASDAQ"),
+        ("SQQQ","3x Short NASDAQ"),("IVV","S&P 500 (iShares)"),
+    ]),
+    ("GLOBAL ETFs", "GLOBAL ETFs", [
+        ("VT","Total World"),("VXUS","Ex-US Total"),("VEU","Ex-US"),
+        ("VEA","Developed Ex-US"),("VWO","Emerging Mkts"),("VGK","Europe"),
+    ]),
+    ("EUROPE", "EUROPE", [
+        ("EZU","Eurozone"),("EWG","Germany"),("EWU","UK"),
+        ("EWP","Spain"),("EWL","Switzerland"),("EIS","Israel"),
+        ("EWI","Italy"),("EWQ","France"),("TUR","Turkey"),
+    ]),
+    ("APAC", "APAC", [
+        ("MCHI","China"),("EWJ","Japan"),("EWY","South Korea"),
+        ("INDA","India"),("EWT","Taiwan"),("EWA","Australia"),
+        ("EWS","Singapore"),("UAE","UAE"),
+    ]),
 ]
 
 SPARK_LEN = 365
