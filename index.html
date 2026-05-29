@@ -590,7 +590,8 @@ function renderTreemap(holdings,container){
     container.innerHTML='<div style="padding:40px 20px;text-align:center;color:var(--ink-faint);font-size:11px;letter-spacing:1px">NO HOLDINGS DATA · RE-RUN DATA FETCH</div>';
     return;
   }
-  const W=container.clientWidth||600,H=260,G=2;
+  const pad=parseFloat(getComputedStyle(container).paddingLeft||0)+parseFloat(getComputedStyle(container).paddingRight||0);
+  const W=(container.clientWidth||600)-pad,H=260,G=2;
   const nodes=[...holdings].filter(h=>h.weight>0).sort((a,b)=>b.weight-a.weight).map(h=>({ticker:h.ticker,name:h.name,v:h.weight}));
   const layout=tmLayout(nodes,0,0,W,H);
   const cells=layout.map((cell,i)=>{
