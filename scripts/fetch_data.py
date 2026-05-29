@@ -56,6 +56,20 @@ GROUPS = [
 SPARK_LEN = 365
 HOLDINGS_N = 10
 
+_chg_cache = {}
+
+def fetch_holding_change(sym):
+    if sym in _chg_cache:
+        return _chg_cache[sym]
+    try:
+        h = yf.Ticker(sym).history(period="5d", interval="1d", auto_adjust=False)
+        closes = h["Close"].dropna()
+        chg = round((float(closes.iloc[-1]) / float(closes.iloc[-2]) - 1) * 100, 2) if len(closes) >= 2 else None
+    except Exception:
+        chg = None
+    _chg_cache[sym] = chg
+    return chg
+
 def fetch_holdings(ticker):
     try:
         t = yf.Ticker(ticker)
@@ -77,7 +91,8 @@ def fetch_holdings(ticker):
                     pct *= 100
             except (ValueError, TypeError):
                 pct = 0.0
-            result.append({"ticker": sym, "name": name, "weight": round(pct, 2)})
+            chg = fetch_holding_change(sym) if sym else None
+            result.append({"ticker": sym, "name": name, "weight": round(pct, 2), "chg": chg})
         return result
     except Exception as e:
         print(f"  ! holdings {ticker}: {e}", file=sys.stderr)
