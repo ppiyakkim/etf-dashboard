@@ -1,6 +1,6 @@
 {
-  "as_of": "2026-10-12",
-  "generated_at": "2026-10-12T21:44:05.989799Z",
+  "as_of": "2026-10-13",
+  "generated_at": "2026-10-13T02:34:07.697747Z",
   "sample": false,
   "groups": [
     {
@@ -14920,7 +14920,7 @@
             {
               "o": 112.71,
               "h": 112.86,
-              "l": 112.095,
+              "l": 112.1,
               "c": 112.27
             }
           ],
@@ -14965,7 +14965,7 @@
               "ticker": "SBUX",
               "name": "Starbucks Corp",
               "weight": 2.98,
-              "chg": 1.69
+              "chg": 1.7
             },
             {
               "ticker": "LOW",
@@ -26904,7 +26904,7 @@
             {
               "o": 65.85,
               "h": 66.42,
-              "l": 65.665,
+              "l": 65.67,
               "c": 66.01
             }
           ],
@@ -32895,7 +32895,7 @@
             },
             {
               "o": 49.24,
-              "h": 49.7601,
+              "h": 49.76,
               "l": 49.16,
               "c": 49.44
             }
@@ -35897,7 +35897,7 @@
             },
             {
               "o": 92.01,
-              "h": 92.075,
+              "h": 92.08,
               "l": 91.5,
               "c": 91.64
             }
@@ -38893,7 +38893,7 @@
             },
             {
               "o": 94.44,
-              "h": 94.555,
+              "h": 94.56,
               "l": 93.93,
               "c": 94.08
             }
@@ -41890,7 +41890,7 @@
             {
               "o": 142.85,
               "h": 142.85,
-              "l": 140.613,
+              "l": 140.61,
               "c": 140.99
             }
           ],
@@ -44885,7 +44885,7 @@
             },
             {
               "o": 344.25,
-              "h": 344.4715,
+              "h": 344.47,
               "l": 340.41,
               "c": 340.88
             }
@@ -47881,7 +47881,7 @@
             },
             {
               "o": 220.83,
-              "h": 221.4699,
+              "h": 221.47,
               "l": 220.64,
               "c": 221.43
             }
@@ -50877,7 +50877,7 @@
             },
             {
               "o": 202.68,
-              "h": 203.515,
+              "h": 203.52,
               "l": 202.6,
               "c": 203.16
             }
@@ -53874,7 +53874,7 @@
             {
               "o": 234.51,
               "h": 235.44,
-              "l": 234.0903,
+              "l": 234.09,
               "c": 234.71
             }
           ],
@@ -56874,8 +56874,8 @@
               "c": 559.4
             },
             {
-              "o": 552.666,
-              "h": 552.75,
+              "o": 552.64,
+              "h": 552.87,
               "l": 543.34,
               "c": 544.85
             }
@@ -62868,7 +62868,7 @@
             {
               "o": 175.15,
               "h": 175.81,
-              "l": 171.779,
+              "l": 171.77,
               "c": 172.51
             }
           ],
@@ -65862,9 +65862,9 @@
               "c": 66.6
             },
             {
-              "o": 66.57,
+              "o": 66.5,
               "h": 66.58,
-              "l": 65.835,
+              "l": 65.83,
               "c": 65.92
             }
           ],
@@ -68858,8 +68858,8 @@
               "c": 110.0
             },
             {
-              "o": 110.53,
-              "h": 110.59,
+              "o": 110.51,
+              "h": 110.68,
               "l": 107.54,
               "c": 107.8
             }
@@ -71854,9 +71854,9 @@
               "c": 24.994
             },
             {
-              "o": 24.9375,
+              "o": 25.0,
               "h": 25.1,
-              "l": 24.8577,
+              "l": 24.858,
               "c": 24.885
             }
           ],
@@ -71901,7 +71901,7 @@
               "ticker": "ADYEN.AS",
               "name": "Adyen NV",
               "weight": 4.24,
-              "chg": 3.92
+              "chg": 2.84
             },
             {
               "ticker": "AFRM",
@@ -83846,7 +83846,7 @@
             {
               "o": 154.67,
               "h": 155.39,
-              "l": 154.48,
+              "l": 154.47,
               "c": 155.33
             }
           ],
@@ -86841,7 +86841,7 @@
             },
             {
               "o": 90.65,
-              "h": 91.365,
+              "h": 91.37,
               "l": 90.31,
               "c": 91.36
             }
@@ -86851,7 +86851,7 @@
               "ticker": "VRTPX",
               "name": "Vanguard Real Estate II Index",
               "weight": 14.53,
-              "chg": 1.49
+              "chg": 0.78
             },
             {
               "ticker": "WELL",
@@ -89836,8 +89836,8 @@
               "c": 61.09
             },
             {
-              "o": 61.065,
-              "h": 61.065,
+              "o": 61.07,
+              "h": 61.07,
               "l": 60.89,
               "c": 60.93
             }
@@ -92840,7 +92840,7 @@
             {
               "o": 89.385,
               "h": 89.488,
-              "l": 87.59,
+              "l": 87.585,
               "c": 88.02
             }
           ],
@@ -95851,13 +95851,13 @@
               "ticker": "6954.T",
               "name": "Fanuc Corp",
               "weight": 8.24,
-              "chg": 1.4
+              "chg": -0.08
             },
             {
               "ticker": "6861.T",
               "name": "Keyence Corp",
               "weight": 8.22,
-              "chg": 0.68
+              "chg": -1.56
             },
             {
               "ticker": "NVDA",
@@ -95869,19 +95869,19 @@
               "ticker": "ABBN.SW",
               "name": "ABB Ltd",
               "weight": 7.85,
-              "chg": 0.48
+              "chg": 1.07
             },
             {
               "ticker": "6273.T",
               "name": "SMC Corp",
               "weight": 4.86,
-              "chg": 1.87
+              "chg": -1.83
             },
             {
               "ticker": "6383.T",
               "name": "Daifuku Co Ltd",
               "weight": 3.49,
-              "chg": 1.0
+              "chg": -0.73
             },
             {
               "ticker": "CGNX",
@@ -95893,7 +95893,7 @@
               "ticker": "300124.SZ",
               "name": "Shenzhen Inovance Technology Co Ltd Class A",
               "weight": 2.5,
-              "chg": 1.48
+              "chg": -1.3
             },
             {
               "ticker": "AUR",
@@ -98831,7 +98831,7 @@
             },
             {
               "o": 38.44,
-              "h": 38.5628,
+              "h": 38.56,
               "l": 37.64,
               "c": 37.72
             }
@@ -98871,7 +98871,7 @@
               "ticker": "PDN.AX",
               "name": "Paladin Energy Ltd",
               "weight": 3.09,
-              "chg": 0.6
+              "chg": -3.34
             },
             {
               "ticker": "EFR.TO",
@@ -101821,8 +101821,8 @@
             },
             {
               "o": 68.73,
-              "h": 69.0614,
-              "l": 68.3329,
+              "h": 69.06,
+              "l": 68.33,
               "c": 68.37
             }
           ],
@@ -101837,19 +101837,19 @@
               "ticker": "6752.T",
               "name": "Panasonic Holdings Corp",
               "weight": 7.31,
-              "chg": -0.93
+              "chg": -2.38
             },
             {
               "ticker": "002371.SZ",
               "name": "NAURA Technology Group Co Ltd Class A",
               "weight": 6.37,
-              "chg": -1.05
+              "chg": -3.21
             },
             {
               "ticker": "6762.T",
               "name": "TDK Corp",
               "weight": 5.73,
-              "chg": -2.54
+              "chg": -6.15
             },
             {
               "ticker": "006400.KQ",
@@ -101879,7 +101879,7 @@
               "ticker": "300014.SZ",
               "name": "EVE Energy Co Ltd Class A",
               "weight": 3.33,
-              "chg": 1.66
+              "chg": -6.33
             },
             {
               "ticker": "01211",
@@ -104816,8 +104816,8 @@
               "c": 17.28
             },
             {
-              "o": 17.339,
-              "h": 17.339,
+              "o": 17.29,
+              "h": 17.34,
               "l": 17.1,
               "c": 17.12
             }
@@ -104833,7 +104833,7 @@
               "ticker": "600900.SS",
               "name": "China Yangtze Power Co Ltd Class A",
               "weight": 8.05,
-              "chg": 0.31
+              "chg": 0.83
             },
             {
               "ticker": "FSLR",
@@ -104857,7 +104857,7 @@
               "ticker": "VWS.CO",
               "name": "Vestas Wind Systems AS",
               "weight": 4.18,
-              "chg": 0.0
+              "chg": 1.5
             },
             {
               "ticker": "EQTL3.SA",
@@ -104869,7 +104869,7 @@
               "ticker": "EDP.LS",
               "name": "EDP-Energias De Portugal SA",
               "weight": 3.01,
-              "chg": 1.35
+              "chg": 0.4
             },
             {
               "ticker": "PLUG",
@@ -104881,7 +104881,7 @@
               "ticker": "9502.T",
               "name": "Chubu Electric Power Co Inc",
               "weight": 2.61,
-              "chg": 1.06
+              "chg": -0.81
             }
           ]
         },
@@ -108030,7 +108030,7 @@
             30.383,
             30.56,
             31.513,
-            31.0564
+            31.056
           ],
           "spark_dates": [
             "2025-12-30",
@@ -109410,9 +109410,9 @@
             },
             {
               "o": 31.65,
-              "h": 31.54,
+              "h": 31.65,
               "l": 30.985,
-              "c": 31.0564
+              "c": 31.056
             }
           ],
           "holdings": [
@@ -109481,10 +109481,10 @@
         {
           "ticker": "TSNF",
           "label": "Next Frontiers",
-          "close": 30.99,
-          "change_pct": 1.01,
-          "prev_date": "2026-10-08",
-          "drawdown_pct": -9.6,
+          "close": 30.44,
+          "change_pct": -1.77,
+          "prev_date": "2026-10-09",
+          "drawdown_pct": -11.2,
           "spark": [
             24.955,
             24.648,
@@ -109681,7 +109681,8 @@
             31.899,
             31.255,
             30.68,
-            30.99
+            30.99,
+            30.443
           ],
           "spark_dates": [
             "2025-12-30",
@@ -109879,7 +109880,8 @@
             "2026-10-06",
             "2026-10-07",
             "2026-10-08",
-            "2026-10-09"
+            "2026-10-09",
+            "2026-10-12"
           ],
           "ohlc": [
             {
@@ -111057,6 +111059,12 @@
               "h": 30.99,
               "l": 30.83,
               "c": 30.99
+            },
+            {
+              "o": 30.443,
+              "h": 30.443,
+              "l": 30.443,
+              "c": 30.443
             }
           ],
           "holdings": [
@@ -112707,7 +112715,7 @@
             {
               "o": 24.08,
               "h": 24.157,
-              "l": 24.1101,
+              "l": 24.08,
               "c": 24.157
             }
           ],
@@ -112777,10 +112785,10 @@
         {
           "ticker": "TSES",
           "label": "Energy Security",
-          "close": 31.98,
-          "change_pct": 0.28,
-          "prev_date": "2026-10-08",
-          "drawdown_pct": -0.5,
+          "close": 32.16,
+          "change_pct": 0.55,
+          "prev_date": "2026-10-09",
+          "drawdown_pct": 0.0,
           "spark": [
             25.08,
             24.941,
@@ -112977,7 +112985,8 @@
             31.855,
             31.621,
             31.89,
-            31.98
+            31.98,
+            32.156
           ],
           "spark_dates": [
             "2025-12-30",
@@ -113175,7 +113184,8 @@
             "2026-10-06",
             "2026-10-07",
             "2026-10-08",
-            "2026-10-09"
+            "2026-10-09",
+            "2026-10-12"
           ],
           "ohlc": [
             {
@@ -114353,6 +114363,12 @@
               "h": 31.98,
               "l": 31.86,
               "c": 31.98
+            },
+            {
+              "o": 32.156,
+              "h": 32.156,
+              "l": 32.156,
+              "c": 32.156
             }
           ],
           "holdings": [
@@ -114421,10 +114437,10 @@
         {
           "ticker": "TSRS",
           "label": "Red State REITs",
-          "close": 24.54,
-          "change_pct": 0.38,
-          "prev_date": "2026-10-08",
-          "drawdown_pct": -14.7,
+          "close": 24.7,
+          "change_pct": 0.68,
+          "prev_date": "2026-10-09",
+          "drawdown_pct": -14.1,
           "spark": [
             25.103,
             25.005,
@@ -114621,7 +114637,8 @@
             24.593,
             24.229,
             24.444,
-            24.537
+            24.537,
+            24.704
           ],
           "spark_dates": [
             "2025-12-30",
@@ -114819,7 +114836,8 @@
             "2026-10-06",
             "2026-10-07",
             "2026-10-08",
-            "2026-10-09"
+            "2026-10-09",
+            "2026-10-12"
           ],
           "ohlc": [
             {
@@ -115997,6 +116015,12 @@
               "h": 24.537,
               "l": 24.537,
               "c": 24.537
+            },
+            {
+              "o": 24.704,
+              "h": 24.704,
+              "l": 24.704,
+              "c": 24.704
             }
           ],
           "holdings": [
@@ -118996,7 +119020,7 @@
             },
             {
               "o": 715.81,
-              "h": 716.415,
+              "h": 716.42,
               "l": 714.26,
               "c": 715.13
             }
@@ -121992,7 +122016,7 @@
             },
             {
               "o": 778.78,
-              "h": 779.397,
+              "h": 779.4,
               "l": 777.05,
               "c": 778.1
             }
@@ -124987,9 +125011,9 @@
               "c": 751.27
             },
             {
-              "o": 749.64,
+              "o": 749.69,
               "h": 749.79,
-              "l": 744.845,
+              "l": 744.85,
               "c": 746.04
             }
           ],
@@ -127983,7 +128007,7 @@
               "c": 384.58
             },
             {
-              "o": 382.605,
+              "o": 382.61,
               "h": 382.74,
               "l": 381.16,
               "c": 382.15
@@ -139874,7 +139898,7 @@
               "ticker": "JIMXX",
               "name": "JPMorgan Prime Money Market IM",
               "weight": 1.92,
-              "chg": null
+              "chg": 0.0
             },
             {
               "ticker": "META",
@@ -142841,9 +142865,9 @@
               "c": 81.28
             },
             {
-              "o": 80.765,
-              "h": 80.775,
-              "l": 79.215,
+              "o": 80.78,
+              "h": 80.81,
+              "l": 79.22,
               "c": 79.61
             }
           ],
@@ -145789,8 +145813,8 @@
               "c": 32.95
             },
             {
-              "o": 33.179,
-              "h": 33.7963,
+              "o": 33.17,
+              "h": 33.8,
               "l": 33.17,
               "c": 33.63
             }
@@ -151728,7 +151752,7 @@
             {
               "o": 159.85,
               "h": 159.89,
-              "l": 159.3601,
+              "l": 159.36,
               "c": 159.5
             }
           ],
@@ -151767,7 +151791,7 @@
               "ticker": "2330.TW",
               "name": "Taiwan Semiconductor Manufacturing Co Ltd",
               "weight": 1.53,
-              "chg": -1.35
+              "chg": -1.96
             },
             {
               "ticker": "AVGO",
@@ -151798,7 +151822,7 @@
         {
           "ticker": "VXUS",
           "label": "Ex-US Total",
-          "close": 84.43,
+          "close": 84.44,
           "change_pct": -0.45,
           "prev_date": "2026-10-09",
           "drawdown_pct": -4.5,
@@ -152167,7 +152191,7 @@
             84.79,
             84.1,
             84.82,
-            84.435
+            84.44
           ],
           "spark_dates": [
             "2025-04-30",
@@ -154725,7 +154749,7 @@
               "o": 84.71,
               "h": 84.73,
               "l": 84.37,
-              "c": 84.435
+              "c": 84.44
             }
           ],
           "holdings": [
@@ -154733,7 +154757,7 @@
               "ticker": "2330.TW",
               "name": "Taiwan Semiconductor Manufacturing Co Ltd",
               "weight": 3.97,
-              "chg": -1.35
+              "chg": -1.96
             },
             {
               "ticker": "005930.KQ",
@@ -154751,25 +154775,25 @@
               "ticker": "ASML.AS",
               "name": "ASML Holding NV",
               "weight": 1.42,
-              "chg": -1.61
+              "chg": -1.78
             },
             {
               "ticker": "0700.HK",
               "name": "Tencent Holdings Ltd",
               "weight": 0.78,
-              "chg": 3.26
+              "chg": -0.8
             },
             {
               "ticker": "HSBA.L",
               "name": "HSBC Holdings PLC",
               "weight": 0.76,
-              "chg": 2.34
+              "chg": 1.1
             },
             {
               "ticker": "ROP.SW",
               "name": "Roche Holding AG Ordinary Shares new",
               "weight": 0.67,
-              "chg": 0.61
+              "chg": 1.45
             },
             {
               "ticker": "RY",
@@ -154781,13 +154805,13 @@
               "ticker": "NOVN.SW",
               "name": "Novartis AG Registered Shares",
               "weight": 0.62,
-              "chg": 0.72
+              "chg": 1.17
             },
             {
               "ticker": "9988.HK",
               "name": "Alibaba Group Holding Ltd Ordinary Shares",
               "weight": 0.59,
-              "chg": 2.59
+              "chg": -0.93
             }
           ]
         },
@@ -157729,7 +157753,7 @@
               "ticker": "2330.TW",
               "name": "Taiwan Semiconductor Manufacturing Co Ltd",
               "weight": 4.36,
-              "chg": -1.35
+              "chg": -1.96
             },
             {
               "ticker": "005930.KQ",
@@ -157747,25 +157771,25 @@
               "ticker": "ASML.AS",
               "name": "ASML Holding NV",
               "weight": 1.56,
-              "chg": -1.61
+              "chg": -1.78
             },
             {
               "ticker": "0700.HK",
               "name": "Tencent Holdings Ltd",
               "weight": 0.86,
-              "chg": 3.26
+              "chg": -0.8
             },
             {
               "ticker": "HSBA.L",
               "name": "HSBC Holdings PLC",
               "weight": 0.84,
-              "chg": 2.34
+              "chg": 1.1
             },
             {
               "ticker": "ROP.SW",
               "name": "Roche Holding AG Ordinary Shares new",
               "weight": 0.73,
-              "chg": 0.61
+              "chg": 1.45
             },
             {
               "ticker": "RY",
@@ -157777,13 +157801,13 @@
               "ticker": "NOVN.SW",
               "name": "Novartis AG Registered Shares",
               "weight": 0.68,
-              "chg": 0.72
+              "chg": 1.17
             },
             {
               "ticker": "9988.HK",
               "name": "Alibaba Group Holding Ltd Ordinary Shares",
               "weight": 0.65,
-              "chg": 2.59
+              "chg": -0.93
             }
           ]
         },
@@ -160716,7 +160740,7 @@
             {
               "o": 70.18,
               "h": 70.19,
-              "l": 69.895,
+              "l": 69.9,
               "c": 69.95
             }
           ],
@@ -160737,19 +160761,19 @@
               "ticker": "ASML.AS",
               "name": "ASML Holding NV",
               "weight": 1.96,
-              "chg": -1.61
+              "chg": -1.78
             },
             {
               "ticker": "HSBA.L",
               "name": "HSBC Holdings PLC",
               "weight": 1.05,
-              "chg": 2.34
+              "chg": 1.1
             },
             {
               "ticker": "ROP.SW",
               "name": "Roche Holding AG Ordinary Shares new",
               "weight": 0.92,
-              "chg": 0.61
+              "chg": 1.45
             },
             {
               "ticker": "RY",
@@ -160761,25 +160785,25 @@
               "ticker": "NOVN.SW",
               "name": "Novartis AG Registered Shares",
               "weight": 0.85,
-              "chg": 0.72
+              "chg": 1.17
             },
             {
               "ticker": "SHEL.L",
               "name": "Shell PLC",
               "weight": 0.77,
-              "chg": 1.12
+              "chg": 0.34
             },
             {
               "ticker": "NESN.SW",
               "name": "Nestle SA",
               "weight": 0.75,
-              "chg": 0.45
+              "chg": 0.05
             },
             {
               "ticker": "8306.T",
               "name": "Mitsubishi UFJ Financial Group Inc",
               "weight": 0.74,
-              "chg": -1.2
+              "chg": 2.17
             }
           ]
         },
@@ -163721,31 +163745,31 @@
               "ticker": "2330.TW",
               "name": "Taiwan Semiconductor Manufacturing Co Ltd",
               "weight": 14.72,
-              "chg": -1.35
+              "chg": -1.96
             },
             {
               "ticker": "0700.HK",
               "name": "Tencent Holdings Ltd",
               "weight": 2.9,
-              "chg": 3.26
+              "chg": -0.8
             },
             {
               "ticker": "9988.HK",
               "name": "Alibaba Group Holding Ltd Ordinary Shares",
               "weight": 2.19,
-              "chg": 2.59
+              "chg": -0.93
             },
             {
               "ticker": "2454.TW",
               "name": "MediaTek Inc",
               "weight": 1.47,
-              "chg": -3.0
+              "chg": -4.05
             },
             {
               "ticker": "2308.TW",
               "name": "Delta Electronics Inc",
               "weight": 0.9,
-              "chg": -1.26
+              "chg": -8.65
             },
             {
               "ticker": "00939",
@@ -163757,7 +163781,7 @@
               "ticker": "2317.TW",
               "name": "Hon Hai Precision Industry Co Ltd",
               "weight": 0.77,
-              "chg": -1.19
+              "chg": -3.41
             },
             {
               "ticker": "RELIANCE.NS",
@@ -166717,61 +166741,61 @@
               "ticker": "ASML.AS",
               "name": "ASML Holding NV",
               "weight": 4.02,
-              "chg": -1.61
+              "chg": -1.78
             },
             {
               "ticker": "HSBA.L",
               "name": "HSBC Holdings PLC",
               "weight": 2.16,
-              "chg": 2.34
+              "chg": 1.1
             },
             {
               "ticker": "ROP.SW",
               "name": "Roche Holding AG Ordinary Shares new",
               "weight": 1.88,
-              "chg": 0.61
+              "chg": 1.45
             },
             {
               "ticker": "NOVN.SW",
               "name": "Novartis AG Registered Shares",
               "weight": 1.74,
-              "chg": 0.72
+              "chg": 1.17
             },
             {
               "ticker": "SHEL.L",
               "name": "Shell PLC",
               "weight": 1.58,
-              "chg": 1.12
+              "chg": 0.34
             },
             {
               "ticker": "NESN.SW",
               "name": "Nestle SA",
               "weight": 1.54,
-              "chg": 0.45
+              "chg": 0.05
             },
             {
               "ticker": "SIE.DE",
               "name": "Siemens AG",
               "weight": 1.49,
-              "chg": 1.34
+              "chg": 2.97
             },
             {
               "ticker": "AZN.L",
               "name": "AstraZeneca PLC",
               "weight": 1.49,
-              "chg": 0.23
+              "chg": 0.89
             },
             {
               "ticker": "SAP.DE",
               "name": "SAP SE",
               "weight": 1.39,
-              "chg": 1.57
+              "chg": 3.7
             },
             {
               "ticker": "SAN.MC",
               "name": "Banco Santander SA",
               "weight": 1.33,
-              "chg": 2.03
+              "chg": 0.92
             }
           ]
         }
@@ -169719,61 +169743,61 @@
               "ticker": "ASML.AS",
               "name": "ASML Holding NV",
               "weight": 9.41,
-              "chg": -1.61
+              "chg": -1.78
             },
             {
               "ticker": "SIE.DE",
               "name": "Siemens AG",
               "weight": 3.02,
-              "chg": 1.34
+              "chg": 2.97
             },
             {
               "ticker": "SAP.DE",
               "name": "SAP SE",
               "weight": 2.86,
-              "chg": 1.57
+              "chg": 3.7
             },
             {
               "ticker": "SAN.MC",
               "name": "Banco Santander SA",
               "weight": 2.67,
-              "chg": 2.03
+              "chg": 0.92
             },
             {
               "ticker": "SU.PA",
               "name": "Schneider Electric SE",
               "weight": 2.44,
-              "chg": -0.39
+              "chg": 2.03
             },
             {
               "ticker": "ALV.DE",
               "name": "Allianz SE",
               "weight": 2.4,
-              "chg": 0.84
+              "chg": 0.87
             },
             {
               "ticker": "TTE.PA",
               "name": "TotalEnergies SE",
               "weight": 2.23,
-              "chg": 0.57
+              "chg": 1.22
             },
             {
               "ticker": "BBVA.MC",
               "name": "Banco Bilbao Vizcaya Argentaria SA",
               "weight": 2.11,
-              "chg": 1.86
+              "chg": 0.39
             },
             {
               "ticker": "IBE.MC",
               "name": "Iberdrola SA",
               "weight": 1.94,
-              "chg": 1.98
+              "chg": 0.71
             },
             {
               "ticker": "SAF.PA",
               "name": "Safran SA",
               "weight": 1.75,
-              "chg": 0.7
+              "chg": 1.74
             }
           ]
         },
@@ -172705,7 +172729,7 @@
             },
             {
               "o": 41.05,
-              "h": 41.135,
+              "h": 41.15,
               "l": 40.94,
               "c": 40.96
             }
@@ -172715,61 +172739,61 @@
               "ticker": "SIE.DE",
               "name": "Siemens AG",
               "weight": 12.14,
-              "chg": 1.34
+              "chg": 2.97
             },
             {
               "ticker": "SAP.DE",
               "name": "SAP SE",
               "weight": 11.46,
-              "chg": 1.57
+              "chg": 3.7
             },
             {
               "ticker": "ALV.DE",
               "name": "Allianz SE",
               "weight": 9.64,
-              "chg": 0.84
+              "chg": 0.87
             },
             {
               "ticker": "ENR.DE",
               "name": "Siemens Energy AG Ordinary Shares",
               "weight": 6.73,
-              "chg": 0.98
+              "chg": 2.01
             },
             {
               "ticker": "DTE.DE",
               "name": "Deutsche Telekom AG",
               "weight": 5.4,
-              "chg": 1.13
+              "chg": -7.94
             },
             {
               "ticker": "IFX.DE",
               "name": "Infineon Technologies AG",
               "weight": 4.73,
-              "chg": -2.79
+              "chg": -0.07
             },
             {
               "ticker": "MUV2.DE",
               "name": "Munchener Ruckversicherungs-Gesellschaft AG",
               "weight": 3.88,
-              "chg": 0.61
+              "chg": 0.92
             },
             {
               "ticker": "DBK.DE",
               "name": "Deutsche Bank AG",
               "weight": 3.34,
-              "chg": 1.24
+              "chg": 0.88
             },
             {
               "ticker": "DHL.DE",
               "name": "DHL AG",
               "weight": 3.19,
-              "chg": 1.32
+              "chg": 1.93
             },
             {
               "ticker": "DB1.DE",
               "name": "Deutsche Boerse AG",
               "weight": 3.16,
-              "chg": 0.78
+              "chg": 1.16
             }
           ]
         },
@@ -175701,8 +175725,8 @@
             },
             {
               "o": 46.68,
-              "h": 46.795,
-              "l": 46.605,
+              "h": 46.8,
+              "l": 46.6,
               "c": 46.7
             }
           ],
@@ -175711,61 +175735,61 @@
               "ticker": "HSBA.L",
               "name": "HSBC Holdings PLC",
               "weight": 11.05,
-              "chg": 2.34
+              "chg": 1.1
             },
             {
               "ticker": "SHEL.L",
               "name": "Shell PLC",
               "weight": 8.87,
-              "chg": 1.12
+              "chg": 0.34
             },
             {
               "ticker": "AZN.L",
               "name": "AstraZeneca PLC",
               "weight": 7.97,
-              "chg": 0.23
+              "chg": 0.89
             },
             {
               "ticker": "RR.L",
               "name": "Rolls-Royce Holdings PLC",
               "weight": 5.24,
-              "chg": 0.75
+              "chg": 1.33
             },
             {
               "ticker": "ULVR.L",
               "name": "Unilever PLC",
               "weight": 4.26,
-              "chg": 1.38
+              "chg": 1.03
             },
             {
               "ticker": "BP.L",
               "name": "BP PLC",
               "weight": 3.7,
-              "chg": 0.29
+              "chg": 0.26
             },
             {
               "ticker": "BATS.L",
               "name": "British American Tobacco PLC",
               "weight": 3.5,
-              "chg": 0.0
+              "chg": 0.79
             },
             {
               "ticker": "RIO.L",
               "name": "Rio Tinto PLC Ordinary Shares",
               "weight": 3.25,
-              "chg": 0.25
+              "chg": 1.48
             },
             {
               "ticker": "GSK.L",
               "name": "GSK PLC",
               "weight": 3.18,
-              "chg": 1.2
+              "chg": 0.84
             },
             {
               "ticker": "LLOY.L",
               "name": "Lloyds Banking Group PLC",
               "weight": 2.67,
-              "chg": 2.36
+              "chg": 0.99
             }
           ]
         },
@@ -178707,37 +178731,37 @@
               "ticker": "SAN.MC",
               "name": "Banco Santander SA",
               "weight": 19.22,
-              "chg": 2.03
+              "chg": 0.92
             },
             {
               "ticker": "BBVA.MC",
               "name": "Banco Bilbao Vizcaya Argentaria SA",
               "weight": 14.26,
-              "chg": 1.86
+              "chg": 0.39
             },
             {
               "ticker": "IBE.MC",
               "name": "Iberdrola SA",
               "weight": 12.77,
-              "chg": 1.98
+              "chg": 0.71
             },
             {
               "ticker": "REP.MC",
               "name": "Repsol SA",
               "weight": 4.99,
-              "chg": -1.05
+              "chg": -1.89
             },
             {
               "ticker": "CABK.MC",
               "name": "CaixaBank SA",
               "weight": 4.54,
-              "chg": 0.84
+              "chg": -0.29
             },
             {
               "ticker": "ITX.MC",
               "name": "Industria De Diseno Textil SA Share From Split",
               "weight": 4.23,
-              "chg": 0.11
+              "chg": 1.93
             },
             {
               "ticker": "FER",
@@ -178749,19 +178773,19 @@
               "ticker": "AMS.MC",
               "name": "Amadeus IT Group SA",
               "weight": 3.8,
-              "chg": 0.96
+              "chg": 1.99
             },
             {
               "ticker": "SAB.MC",
               "name": "Banco de Sabadell SA",
               "weight": 3.63,
-              "chg": 1.29
+              "chg": -0.63
             },
             {
               "ticker": "AENA.MC",
               "name": "Aena SME SA",
               "weight": 3.52,
-              "chg": 0.96
+              "chg": 1.14
             }
           ]
         },
@@ -181693,8 +181717,8 @@
             },
             {
               "o": 59.57,
-              "h": 59.665,
-              "l": 59.445,
+              "h": 59.67,
+              "l": 59.44,
               "c": 59.5
             }
           ],
@@ -181703,61 +181727,61 @@
               "ticker": "ROP.SW",
               "name": "Roche Holding AG Ordinary Shares new",
               "weight": 13.87,
-              "chg": 0.61
+              "chg": 1.45
             },
             {
               "ticker": "NOVN.SW",
               "name": "Novartis AG Registered Shares",
               "weight": 12.38,
-              "chg": 0.72
+              "chg": 1.17
             },
             {
               "ticker": "NESN.SW",
               "name": "Nestle SA",
               "weight": 10.97,
-              "chg": 0.45
+              "chg": 0.05
             },
             {
               "ticker": "UBSG.SW",
               "name": "UBS Group AG Registered Shares",
               "weight": 6.41,
-              "chg": 0.28
+              "chg": 2.76
             },
             {
               "ticker": "ABBN.SW",
               "name": "ABB Ltd",
               "weight": 4.56,
-              "chg": 0.48
+              "chg": 1.07
             },
             {
               "ticker": "CFR.SW",
               "name": "Compagnie Financiere Richemont SA Class A",
               "weight": 4.46,
-              "chg": 0.79
+              "chg": 1.13
             },
             {
               "ticker": "ZURN.SW",
               "name": "Zurich Insurance Group AG",
               "weight": 4.45,
-              "chg": 0.49
+              "chg": 0.56
             },
             {
               "ticker": "LONN.SW",
               "name": "Lonza Group Ltd",
               "weight": 2.84,
-              "chg": 0.31
+              "chg": 1.56
             },
             {
               "ticker": "SREN.SW",
               "name": "Swiss Re AG",
               "weight": 2.38,
-              "chg": 0.66
+              "chg": 1.19
             },
             {
               "ticker": "HOLN.SW",
               "name": "Holcim Ltd",
               "weight": 2.36,
-              "chg": 1.2
+              "chg": 1.05
             }
           ]
         },
@@ -184690,7 +184714,7 @@
             {
               "o": 118.2,
               "h": 118.2,
-              "l": 116.065,
+              "l": 116.07,
               "c": 116.94
             }
           ],
@@ -187686,7 +187710,7 @@
             {
               "o": 56.35,
               "h": 56.43,
-              "l": 56.165,
+              "l": 56.16,
               "c": 56.17
             }
           ],
@@ -187695,61 +187719,61 @@
               "ticker": "UCG.MI",
               "name": "UniCredit SpA",
               "weight": 18.01,
-              "chg": 0.16
+              "chg": 1.06
             },
             {
               "ticker": "ISP.MI",
               "name": "Intesa Sanpaolo",
               "weight": 15.01,
-              "chg": 1.11
+              "chg": 0.92
             },
             {
               "ticker": "ENEL.MI",
               "name": "Enel SpA",
               "weight": 10.59,
-              "chg": 0.58
+              "chg": 1.24
             },
             {
               "ticker": "ENI.MI",
               "name": "Eni SpA",
               "weight": 4.69,
-              "chg": 0.77
+              "chg": 1.33
             },
             {
               "ticker": "PRY.MI",
               "name": "Prysmian SpA",
               "weight": 4.69,
-              "chg": -0.61
+              "chg": 0.74
             },
             {
               "ticker": "G.MI",
               "name": "Generali",
               "weight": 4.66,
-              "chg": 1.11
+              "chg": 1.41
             },
             {
               "ticker": "RACE.MI",
               "name": "Ferrari NV",
               "weight": 4.47,
-              "chg": 0.91
+              "chg": 1.47
             },
             {
               "ticker": "BMPS.MI",
               "name": "Banca Monte dei Paschi di Siena",
               "weight": 4.04,
-              "chg": 1.36
+              "chg": 1.29
             },
             {
               "ticker": "PST.MI",
               "name": "Poste Italiane SpA",
               "weight": 3.77,
-              "chg": 1.0
+              "chg": 0.96
             },
             {
               "ticker": "BPE.MI",
               "name": "BPER Banca SpA",
               "weight": 3.65,
-              "chg": 2.18
+              "chg": 0.62
             }
           ]
         },
@@ -190681,7 +190705,7 @@
             },
             {
               "o": 41.43,
-              "h": 41.52,
+              "h": 41.53,
               "l": 41.22,
               "c": 41.24
             }
@@ -190691,61 +190715,61 @@
               "ticker": "SU.PA",
               "name": "Schneider Electric SE",
               "weight": 8.96,
-              "chg": -0.39
+              "chg": 2.03
             },
             {
               "ticker": "TTE.PA",
               "name": "TotalEnergies SE",
               "weight": 8.2,
-              "chg": 0.57
+              "chg": 1.22
             },
             {
               "ticker": "SAF.PA",
               "name": "Safran SA",
               "weight": 6.44,
-              "chg": 0.7
+              "chg": 1.74
             },
             {
               "ticker": "AIR.PA",
               "name": "Airbus SE",
               "weight": 6.32,
-              "chg": 0.18
+              "chg": 0.29
             },
             {
               "ticker": "AI.PA",
               "name": "Air Liquide SA",
               "weight": 5.94,
-              "chg": -0.58
+              "chg": 1.04
             },
             {
               "ticker": "MC.PA",
               "name": "Lvmh Moet Hennessy Louis Vuitton SE",
               "weight": 5.4,
-              "chg": 1.18
+              "chg": -0.24
             },
             {
               "ticker": "BNP.PA",
               "name": "BNP Paribas Act. Cat.A",
               "weight": 5.26,
-              "chg": 0.16
+              "chg": 0.84
             },
             {
               "ticker": "OR.PA",
               "name": "L'Oreal SA",
               "weight": 5.08,
-              "chg": 0.49
+              "chg": 1.91
             },
             {
               "ticker": "SAN.PA",
               "name": "Sanofi SA",
               "weight": 4.43,
-              "chg": 0.11
+              "chg": 0.83
             },
             {
               "ticker": "CS.PA",
               "name": "AXA SA",
               "weight": 3.72,
-              "chg": 0.7
+              "chg": 0.24
             }
           ]
         },
@@ -193676,9 +193700,9 @@
               "c": 34.13
             },
             {
-              "o": 33.7642,
+              "o": 33.81,
               "h": 33.86,
-              "l": 33.7642,
+              "l": 33.76,
               "c": 33.81
             }
           ],
@@ -196678,9 +196702,9 @@
               "c": 52.55
             },
             {
-              "o": 52.09,
+              "o": 52.06,
               "h": 52.17,
-              "l": 52.0021,
+              "l": 52.0,
               "c": 52.15
             }
           ],
@@ -196689,13 +196713,13 @@
               "ticker": "0700.HK",
               "name": "Tencent Holdings Ltd",
               "weight": 13.79,
-              "chg": 3.26
+              "chg": -0.8
             },
             {
               "ticker": "9988.HK",
               "name": "Alibaba Group Holding Ltd Ordinary Shares",
               "weight": 9.33,
-              "chg": 2.59
+              "chg": -0.93
             },
             {
               "ticker": "00939",
@@ -196713,7 +196737,7 @@
               "ticker": "1810.HK",
               "name": "Xiaomi Corp Class B",
               "weight": 2.25,
-              "chg": 9.72
+              "chg": -6.7
             },
             {
               "ticker": "03988",
@@ -196725,13 +196749,13 @@
               "ticker": "3690.HK",
               "name": "Meituan Class B",
               "weight": 1.88,
-              "chg": 3.03
+              "chg": -1.26
             },
             {
               "ticker": "9999.HK",
               "name": "NetEase Inc Ordinary Shares",
               "weight": 1.77,
-              "chg": 3.75
+              "chg": 0.21
             },
             {
               "ticker": "02318",
@@ -199676,7 +199700,7 @@
             {
               "o": 97.82,
               "h": 97.82,
-              "l": 97.2741,
+              "l": 97.27,
               "c": 97.32
             }
           ],
@@ -199685,61 +199709,61 @@
               "ticker": "8306.T",
               "name": "Mitsubishi UFJ Financial Group Inc",
               "weight": 4.66,
-              "chg": -1.2
+              "chg": 2.17
             },
             {
               "ticker": "7203.T",
               "name": "Toyota Motor Corp",
               "weight": 3.27,
-              "chg": 0.29
+              "chg": 1.89
             },
             {
               "ticker": "8035.T",
               "name": "Tokyo Electron Ltd",
               "weight": 3.1,
-              "chg": 2.09
+              "chg": -6.27
             },
             {
               "ticker": "8316.T",
               "name": "Sumitomo Mitsui Financial Group Inc",
               "weight": 2.98,
-              "chg": -1.24
+              "chg": 2.12
             },
             {
               "ticker": "6857.T",
               "name": "Advantest Corp",
               "weight": 2.96,
-              "chg": 1.66
+              "chg": -5.5
             },
             {
               "ticker": "6501.T",
               "name": "Hitachi Ltd",
               "weight": 2.86,
-              "chg": 1.29
+              "chg": 0.71
             },
             {
               "ticker": "9984.T",
               "name": "SoftBank Group Corp",
               "weight": 2.82,
-              "chg": -3.92
+              "chg": -8.12
             },
             {
               "ticker": "6098.T",
               "name": "Recruit Holdings Co Ltd",
               "weight": 2.63,
-              "chg": 3.23
+              "chg": 0.68
             },
             {
               "ticker": "6758.T",
               "name": "Sony Group Corp",
               "weight": 2.58,
-              "chg": 2.91
+              "chg": -0.18
             },
             {
               "ticker": "285A.T",
               "name": "Kioxia Holdings Corp Ordinary Shares",
               "weight": 2.46,
-              "chg": -2.21
+              "chg": -11.91
             }
           ]
         },
@@ -202672,7 +202696,7 @@
             {
               "o": 172.93,
               "h": 172.93,
-              "l": 169.84,
+              "l": 169.83,
               "c": 170.11
             }
           ],
@@ -208673,61 +208697,61 @@
               "ticker": "2330.TW",
               "name": "Taiwan Semiconductor Manufacturing Co Ltd",
               "weight": 21.89,
-              "chg": -1.35
+              "chg": -1.96
             },
             {
               "ticker": "2454.TW",
               "name": "MediaTek Inc",
               "weight": 7.18,
-              "chg": -3.0
+              "chg": -4.05
             },
             {
               "ticker": "2308.TW",
               "name": "Delta Electronics Inc",
               "weight": 3.9,
-              "chg": -1.26
+              "chg": -8.65
             },
             {
               "ticker": "2317.TW",
               "name": "Hon Hai Precision Industry Co Ltd",
               "weight": 3.22,
-              "chg": -1.19
+              "chg": -3.41
             },
             {
               "ticker": "3711.TW",
               "name": "ASE Technology Holding Co Ltd",
               "weight": 2.96,
-              "chg": 1.64
+              "chg": -0.81
             },
             {
               "ticker": "2303.TW",
               "name": "United Microelectronics Corp",
               "weight": 2.22,
-              "chg": -0.67
+              "chg": -5.42
             },
             {
               "ticker": "3037.TW",
               "name": "Unimicron Technology Corp",
               "weight": 2.17,
-              "chg": -2.68
+              "chg": -7.09
             },
             {
               "ticker": "1303.TW",
               "name": "Nan Ya Plastics Corp",
               "weight": 2.09,
-              "chg": -1.27
+              "chg": 1.13
             },
             {
               "ticker": "2383.TW",
               "name": "Elite Material Co Ltd",
               "weight": 1.87,
-              "chg": 0.84
+              "chg": -5.33
             },
             {
               "ticker": "3017.TW",
               "name": "Asia Vital Components Co Ltd",
               "weight": 1.81,
-              "chg": -2.96
+              "chg": -2.03
             }
           ]
         },
@@ -211659,7 +211683,7 @@
             },
             {
               "o": 28.7,
-              "h": 28.725,
+              "h": 28.73,
               "l": 28.64,
               "c": 28.67
             }
@@ -211669,61 +211693,61 @@
               "ticker": "BHP.AX",
               "name": "BHP Group Ltd",
               "weight": 15.42,
-              "chg": 2.45
+              "chg": 1.25
             },
             {
               "ticker": "CBA.AX",
               "name": "Commonwealth Bank of Australia",
               "weight": 12.61,
-              "chg": 1.15
+              "chg": 2.11
             },
             {
               "ticker": "NAB.AX",
               "name": "National Australia Bank Ltd",
               "weight": 6.09,
-              "chg": 2.26
+              "chg": 3.29
             },
             {
               "ticker": "WBC.AX",
               "name": "Westpac Banking Corp",
               "weight": 5.99,
-              "chg": 2.7
+              "chg": 3.71
             },
             {
               "ticker": "ANZ.AX",
               "name": "ANZ Group Holdings Ltd",
               "weight": 5.77,
-              "chg": 1.96
+              "chg": 2.64
             },
             {
               "ticker": "MQG.AX",
               "name": "Macquarie Group Ltd",
               "weight": 4.48,
-              "chg": 2.05
+              "chg": 1.59
             },
             {
               "ticker": "CSL.AX",
               "name": "CSL Ltd",
               "weight": 4.4,
-              "chg": 0.53
+              "chg": 0.35
             },
             {
               "ticker": "WES.AX",
               "name": "Wesfarmers Ltd",
               "weight": 4.34,
-              "chg": 0.04
+              "chg": 0.4
             },
             {
               "ticker": "RIO.AX",
               "name": "Rio Tinto Ltd",
               "weight": 3.1,
-              "chg": 1.6
+              "chg": -0.84
             },
             {
               "ticker": "WDS.AX",
               "name": "Woodside Energy Group Ltd",
               "weight": 3.02,
-              "chg": -0.43
+              "chg": 1.3
             }
           ]
         },
@@ -214655,8 +214679,8 @@
             },
             {
               "o": 31.61,
-              "h": 31.6431,
-              "l": 31.505,
+              "h": 31.64,
+              "l": 31.5,
               "c": 31.55
             }
           ],
@@ -214665,43 +214689,43 @@
               "ticker": "O39.SI",
               "name": "Oversea-Chinese Banking Corp Ltd",
               "weight": 23.66,
-              "chg": 0.0
+              "chg": -0.03
             },
             {
               "ticker": "D05.SI",
               "name": "DBS Group Holdings Ltd",
               "weight": 23.34,
-              "chg": -0.66
+              "chg": 1.43
             },
             {
               "ticker": "BS6.SI",
               "name": "Yangzijiang Shipbuilding (Holdings) Ltd",
               "weight": 4.93,
-              "chg": 3.24
+              "chg": -0.78
             },
             {
               "ticker": "U11.SI",
               "name": "United Overseas Bank Ltd",
               "weight": 4.83,
-              "chg": -0.72
+              "chg": 1.78
             },
             {
               "ticker": "BN4.SI",
               "name": "Keppel Ltd",
               "weight": 4.6,
-              "chg": 0.29
+              "chg": -1.05
             },
             {
               "ticker": "S63.SI",
               "name": "Singapore Technologies Engineering Ltd",
               "weight": 4.57,
-              "chg": -0.86
+              "chg": -0.38
             },
             {
               "ticker": "F34.SI",
               "name": "Wilmar International Ltd",
               "weight": 4.44,
-              "chg": 0.57
+              "chg": -1.97
             },
             {
               "ticker": "C6L.SI",
@@ -214713,13 +214737,13 @@
               "ticker": "Z74.SI",
               "name": "Singapore Telecommunications Ltd",
               "weight": 4.39,
-              "chg": 0.0
+              "chg": -1.65
             },
             {
               "ticker": "A17U.SI",
               "name": "CapitaLand Ascendas REIT Units",
               "weight": 4.28,
-              "chg": -0.45
+              "chg": -1.37
             }
           ]
         },
